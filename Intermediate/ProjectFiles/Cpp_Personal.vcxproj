@@ -252,7 +252,7 @@
     <None Include="..\..\Cpp_Personal.uproject"/>
     <None Include="..\..\Source\Cpp_Personal.Target.cs"/>
     <None Include="..\..\Source\Cpp_PersonalEditor.Target.cs"/>
-    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.gitignore"/>
     <None Include="..\..\.vsconfig"/>
     <None Include="..\..\카드 텍스쳐 넘버링규칙.txt"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
@@ -282,6 +282,12 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemGroup>

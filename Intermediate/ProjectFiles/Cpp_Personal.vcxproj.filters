@@ -11,7 +11,7 @@
     <None Include="..\..\Source\Cpp_PersonalEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
-    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <None Include="..\..\카드 텍스쳐 넘버링규칙.txt" />
     <Filter Include="Config">
@@ -57,6 +57,12 @@
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
   </ItemGroup>
