@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Cpp_Personal.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Cpp_Personal.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\Cpp_PersonalEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.vsconfig" />
+    <None Include="..\..\카드 텍스쳐 넘버링규칙.txt" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Cpp_Personal">
+      <UniqueIdentifier>{0FBA1D98-A4EA-33D3-A340-156142793CB6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Card.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Card.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <None Include="..\..\Source\Cpp_Personal\Cpp_Personal.Build.cs">
+      <Filter>Source\Cpp_Personal</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Cpp_Personal.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Cpp_Personal.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Deck.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

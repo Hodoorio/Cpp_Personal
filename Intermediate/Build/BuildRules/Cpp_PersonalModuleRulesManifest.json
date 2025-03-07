@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\gain\\Cpp_Personal\\Source\\Cpp_Personal\\Cpp_Personal.Build.cs",
+		"D:\\gain\\Cpp_Personal\\Source\\Cpp_Personal.Target.cs",
+		"D:\\gain\\Cpp_Personal\\Source\\Cpp_PersonalEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.3"
+}

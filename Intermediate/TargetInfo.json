@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Cpp_Personal",
+			"Path": "..\\Source\\Cpp_Personal.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Cpp_PersonalEditor",
+			"Path": "..\\Source\\Cpp_PersonalEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
