@@ -18,165 +18,6 @@ CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_ESuit();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
 
-// Begin Enum ESuit
-static FEnumRegistrationInfo Z_Registration_Info_UEnum_ESuit;
-static UEnum* ESuit_StaticEnum()
-{
-	if (!Z_Registration_Info_UEnum_ESuit.OuterSingleton)
-	{
-		Z_Registration_Info_UEnum_ESuit.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_Cpp_Personal_ESuit, (UObject*)Z_Construct_UPackage__Script_Cpp_Personal(), TEXT("ESuit"));
-	}
-	return Z_Registration_Info_UEnum_ESuit.OuterSingleton;
-}
-template<> CPP_PERSONAL_API UEnum* StaticEnum<ESuit>()
-{
-	return ESuit_StaticEnum();
-}
-struct Z_Construct_UEnum_Cpp_Personal_ESuit_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
-		{ "Clubs.DisplayName", "Clubs" },
-		{ "Clubs.Name", "ESuit::Clubs" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xec\xb9\xb4\xeb\x93\x9c \xeb\xac\xb8\xec\x96\x91\xec\x9d\x84 Enum\xec\x9c\xbc\xeb\xa1\x9c \xec\xa0\x95\xec\x9d\x98\n" },
-#endif
-		{ "Diamonds.DisplayName", "Diamonds" },
-		{ "Diamonds.Name", "ESuit::Diamonds" },
-		{ "Hearts.DisplayName", "Hearts" },
-		{ "Hearts.Name", "ESuit::Hearts" },
-		{ "ModuleRelativePath", "Card.h" },
-		{ "Spades.DisplayName", "Spades" },
-		{ "Spades.Name", "ESuit::Spades" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xec\xb9\xb4\xeb\x93\x9c \xeb\xac\xb8\xec\x96\x91\xec\x9d\x84 Enum\xec\x9c\xbc\xeb\xa1\x9c \xec\xa0\x95\xec\x9d\x98" },
-#endif
-	};
-#endif // WITH_METADATA
-	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
-		{ "ESuit::Hearts", (int64)ESuit::Hearts },
-		{ "ESuit::Diamonds", (int64)ESuit::Diamonds },
-		{ "ESuit::Clubs", (int64)ESuit::Clubs },
-		{ "ESuit::Spades", (int64)ESuit::Spades },
-	};
-	static const UECodeGen_Private::FEnumParams EnumParams;
-};
-const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::EnumParams = {
-	(UObject*(*)())Z_Construct_UPackage__Script_Cpp_Personal,
-	nullptr,
-	"ESuit",
-	"ESuit",
-	Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::Enumerators,
-	RF_Public|RF_Transient|RF_MarkAsNative,
-	UE_ARRAY_COUNT(Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::Enumerators),
-	EEnumFlags::None,
-	(uint8)UEnum::ECppForm::EnumClass,
-	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::Enum_MetaDataParams), Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::Enum_MetaDataParams)
-};
-UEnum* Z_Construct_UEnum_Cpp_Personal_ESuit()
-{
-	if (!Z_Registration_Info_UEnum_ESuit.InnerSingleton)
-	{
-		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ESuit.InnerSingleton, Z_Construct_UEnum_Cpp_Personal_ESuit_Statics::EnumParams);
-	}
-	return Z_Registration_Info_UEnum_ESuit.InnerSingleton;
-}
-// End Enum ESuit
-
-// Begin Enum ERank
-static FEnumRegistrationInfo Z_Registration_Info_UEnum_ERank;
-static UEnum* ERank_StaticEnum()
-{
-	if (!Z_Registration_Info_UEnum_ERank.OuterSingleton)
-	{
-		Z_Registration_Info_UEnum_ERank.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_Cpp_Personal_ERank, (UObject*)Z_Construct_UPackage__Script_Cpp_Personal(), TEXT("ERank"));
-	}
-	return Z_Registration_Info_UEnum_ERank.OuterSingleton;
-}
-template<> CPP_PERSONAL_API UEnum* StaticEnum<ERank>()
-{
-	return ERank_StaticEnum();
-}
-struct Z_Construct_UEnum_Cpp_Personal_ERank_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-		{ "Ace.DisplayName", "Ace" },
-		{ "Ace.Name", "ERank::Ace" },
-		{ "BlueprintType", "true" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xec\xb9\xb4\xeb\x93\x9c\xec\x9d\x98 \xeb\x9e\xad\xed\x81\xac \xec\xa0\x95\xec\x9d\x98 (1~13)\n" },
-#endif
-		{ "Eight.DisplayName", "8" },
-		{ "Eight.Name", "ERank::Eight" },
-		{ "Five.DisplayName", "5" },
-		{ "Five.Name", "ERank::Five" },
-		{ "Four.DisplayName", "4" },
-		{ "Four.Name", "ERank::Four" },
-		{ "Jack.DisplayName", "Jack" },
-		{ "Jack.Name", "ERank::Jack" },
-		{ "King.DisplayName", "King" },
-		{ "King.Name", "ERank::King" },
-		{ "ModuleRelativePath", "Card.h" },
-		{ "Nine.DisplayName", "9" },
-		{ "Nine.Name", "ERank::Nine" },
-		{ "Queen.DisplayName", "Queen" },
-		{ "Queen.Name", "ERank::Queen" },
-		{ "Seven.DisplayName", "7" },
-		{ "Seven.Name", "ERank::Seven" },
-		{ "Six.DisplayName", "6" },
-		{ "Six.Name", "ERank::Six" },
-		{ "Ten.DisplayName", "10" },
-		{ "Ten.Name", "ERank::Ten" },
-		{ "Three.DisplayName", "3" },
-		{ "Three.Name", "ERank::Three" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xec\xb9\xb4\xeb\x93\x9c\xec\x9d\x98 \xeb\x9e\xad\xed\x81\xac \xec\xa0\x95\xec\x9d\x98 (1~13)" },
-#endif
-		{ "Two.DisplayName", "2" },
-		{ "Two.Name", "ERank::Two" },
-	};
-#endif // WITH_METADATA
-	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
-		{ "ERank::Ace", (int64)ERank::Ace },
-		{ "ERank::Two", (int64)ERank::Two },
-		{ "ERank::Three", (int64)ERank::Three },
-		{ "ERank::Four", (int64)ERank::Four },
-		{ "ERank::Five", (int64)ERank::Five },
-		{ "ERank::Six", (int64)ERank::Six },
-		{ "ERank::Seven", (int64)ERank::Seven },
-		{ "ERank::Eight", (int64)ERank::Eight },
-		{ "ERank::Nine", (int64)ERank::Nine },
-		{ "ERank::Ten", (int64)ERank::Ten },
-		{ "ERank::Jack", (int64)ERank::Jack },
-		{ "ERank::Queen", (int64)ERank::Queen },
-		{ "ERank::King", (int64)ERank::King },
-	};
-	static const UECodeGen_Private::FEnumParams EnumParams;
-};
-const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Cpp_Personal_ERank_Statics::EnumParams = {
-	(UObject*(*)())Z_Construct_UPackage__Script_Cpp_Personal,
-	nullptr,
-	"ERank",
-	"ERank",
-	Z_Construct_UEnum_Cpp_Personal_ERank_Statics::Enumerators,
-	RF_Public|RF_Transient|RF_MarkAsNative,
-	UE_ARRAY_COUNT(Z_Construct_UEnum_Cpp_Personal_ERank_Statics::Enumerators),
-	EEnumFlags::None,
-	(uint8)UEnum::ECppForm::EnumClass,
-	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_Cpp_Personal_ERank_Statics::Enum_MetaDataParams), Z_Construct_UEnum_Cpp_Personal_ERank_Statics::Enum_MetaDataParams)
-};
-UEnum* Z_Construct_UEnum_Cpp_Personal_ERank()
-{
-	if (!Z_Registration_Info_UEnum_ERank.InnerSingleton)
-	{
-		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ERank.InnerSingleton, Z_Construct_UEnum_Cpp_Personal_ERank_Statics::EnumParams);
-	}
-	return Z_Registration_Info_UEnum_ERank.InnerSingleton;
-}
-// End Enum ERank
-
 // Begin Class UCard Function GetCardValue
 struct Z_Construct_UFunction_UCard_GetCardValue_Statics
 {
@@ -329,9 +170,9 @@ struct Z_Construct_UClass_UCard_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Suit_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Suit = { "Suit", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCard, Suit), Z_Construct_UEnum_Cpp_Personal_ESuit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Suit_MetaData), NewProp_Suit_MetaData) }; // 2717923480
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Suit = { "Suit", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCard, Suit), Z_Construct_UEnum_Cpp_Personal_ESuit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Suit_MetaData), NewProp_Suit_MetaData) }; // 3875573809
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Rank_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Rank = { "Rank", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCard, Rank), Z_Construct_UEnum_Cpp_Personal_ERank, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Rank_MetaData), NewProp_Rank_MetaData) }; // 3230524064
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCard_Statics::NewProp_Rank = { "Rank", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCard, Rank), Z_Construct_UEnum_Cpp_Personal_ERank, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Rank_MetaData), NewProp_Rank_MetaData) }; // 4190879128
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCard_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCard_Statics::NewProp_Suit_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCard_Statics::NewProp_Suit,
@@ -378,17 +219,13 @@ UCard::~UCard() {}
 // Begin Registration
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics
 {
-	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ ESuit_StaticEnum, TEXT("ESuit"), &Z_Registration_Info_UEnum_ESuit, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2717923480U) },
-		{ ERank_StaticEnum, TEXT("ERank"), &Z_Registration_Info_UEnum_ERank, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3230524064U) },
-	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCard, UCard::StaticClass, TEXT("UCard"), &Z_Registration_Info_UClass_UCard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCard), 3852131648U) },
+		{ Z_Construct_UClass_UCard, UCard::StaticClass, TEXT("UCard"), &Z_Registration_Info_UClass_UCard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCard), 1651072175U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_2410424420(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_3934829(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::EnumInfo));
+	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

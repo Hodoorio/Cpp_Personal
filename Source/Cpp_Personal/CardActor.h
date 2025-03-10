@@ -24,6 +24,9 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UStaticMeshComponent* CardMesh;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
+    UStaticMeshComponent* CardBack;
+
     // 블루프린트에서 설정 가능한 머티리얼 (동적 변경 가능)
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
     UMaterialInterface* BaseMaterial;

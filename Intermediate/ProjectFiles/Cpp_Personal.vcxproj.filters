@@ -32,6 +32,12 @@
     <Filter Include="Source\Cpp_Personal">
       <UniqueIdentifier>{0FBA1D98-A4EA-33D3-A340-156142793CB6}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackGameMode.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackGameMode.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Card.cpp">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
@@ -44,6 +50,9 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\CardEnums.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <None Include="..\..\Source\Cpp_Personal\Cpp_Personal.Build.cs">
       <Filter>Source\Cpp_Personal</Filter>
     </None>
@@ -53,10 +62,31 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\Cpp_Personal.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DealerActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DealerActor.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.cpp">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">

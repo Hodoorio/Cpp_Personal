@@ -9,7 +9,11 @@ ACardActor::ACardActor()
 
     // 메시 컴포넌트 생성 & 루트 설정
     CardMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CardMesh"));
-    RootComponent = CardMesh;
+    CardMesh->SetupAttachment(RootComponent);
+
+    CardBack = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CardBack"));
+    CardBack->SetupAttachment(CardMesh);
+	CardBack->SetRelativeLocation(FVector(0, 0, 2));  // 카드 뒷면은 앞면보다 약간 위에 배치
 
     // 기본 카드 설정 (Hearts, Ace)
     Suit = ESuit::Hearts;

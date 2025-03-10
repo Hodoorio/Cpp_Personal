@@ -1,0 +1,12 @@
+📌 블루프린트 이벤트 그래프에서 입력 설정
+BP_BlackjackGameMode 블루프린트 생성
+EventGraph에서 아래와 같이 키 입력을 설정
+scss
+복사
+편집
+[S 키] → "StartGame()" 실행  
+[H 키] → "PlayerHit()" 실행  
+[L 키] → "PlayerStand()" 실행  
+✔ 이제 S 키를 누르면 게임이 시작되고,
+✔ H 키를 누르면 플레이어가 카드를 받고,
+✔ L 키를 누르면 턴이 종료되어 딜러가 플레이하게 됨!
