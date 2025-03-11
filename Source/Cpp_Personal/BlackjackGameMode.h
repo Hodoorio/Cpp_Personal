@@ -4,7 +4,6 @@
 #include "GameFramework/GameModeBase.h"
 #include "PlayerActor.h"
 #include "DealerActor.h"
-#include "PlayerCameraActor.h"  // 카메라 액터 추가
 #include "GameStateEnum.h"
 #include "BlackjackGameMode.generated.h"
 
@@ -31,11 +30,18 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Game")
     ADealerActor* Dealer;
 
-    // 카메라 레퍼런스
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Game")
-    APlayerCameraActor* PlayerCamera;
-
-    // 게임 시작 함수 (카드 지급 & 카메라 변경)
+    // 게임 시작 함수
     UFUNCTION(BlueprintCallable, Category = "Game")
     void StartGame();
+
+    // 플레이어 행동 (Hit / Stand)
+    UFUNCTION(BlueprintCallable, Category = "Game")
+    void PlayerHit();
+
+    UFUNCTION(BlueprintCallable, Category = "Game")
+    void PlayerStand();
+
+    // 승패 판정
+    UFUNCTION(BlueprintCallable, Category = "Game")
+    void CheckWinner();
 };

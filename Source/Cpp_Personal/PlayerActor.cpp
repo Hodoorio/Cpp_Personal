@@ -107,5 +107,3 @@ bool APlayerActor::Split()
 
     return true;
 }
-
-

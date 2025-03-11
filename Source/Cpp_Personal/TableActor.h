@@ -2,7 +2,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/SceneComponent.h"
+#include "Card.h"
+#include "CardActor.h"
+#include "PlayerActor.h"
+#include "DealerActor.h"
+#include "DeckActor.h"
 #include "TableActor.generated.h"
 
 UCLASS()
@@ -17,15 +21,17 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 테이블 메시
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Table")
-    UStaticMeshComponent* TableMesh;
-
-    // 플레이어 카드가 놓일 영역
+    // 🎲 카드 배치 영역 (플레이어 & 딜러)
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Table")
     USceneComponent* PlayerCardArea;
 
-    // 딜러 카드가 놓일 영역
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Table")
     USceneComponent* DealerCardArea;
+
+    // 🔹 카드 배치 함수
+    UFUNCTION(BlueprintCallable, Category = "Table")
+    void SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex);
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
+    ACardActor* CardActor = nullptr;
 };

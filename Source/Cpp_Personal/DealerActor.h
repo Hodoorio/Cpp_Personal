@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h"
+#include "DeckActor.h"
 #include "DealerActor.generated.h"
 
 UCLASS()
@@ -32,4 +33,8 @@ public:
     // 딜러가 카드 한 장 뽑기 (더미 함수)
     UFUNCTION(BlueprintCallable, Category = "Dealer")
     UCard* DrawCard();
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer")
+    ADeckActor* DeckActor;
+
 };

@@ -1,4 +1,5 @@
 #include "DealerActor.h"
+#include "Kismet/GameplayStatics.h"
 
 ADealerActor::ADealerActor()
 {
@@ -8,6 +9,9 @@ ADealerActor::ADealerActor()
 void ADealerActor::BeginPlay()
 {
     Super::BeginPlay();
+
+    // 레벨에 있는 DeckActor 찾기
+    DeckActor = Cast<ADeckActor>(UGameplayStatics::GetActorOfClass(GetWorld(), ADeckActor::StaticClass()));
 }
 
 // 🃏 카드 받기
@@ -51,5 +55,9 @@ int32 ADealerActor::GetHandValue() const
 // 카드 한 장 뽑기 (더미 함수, 나중에 덱과 연결 필요)
 UCard* ADealerActor::DrawCard()
 {
+    if (DeckActor)
+    {
+        return DeckActor->DrawCard();
+    }
     return nullptr;  // 나중에 덱에서 카드 뽑는 기능 연결 예정
 }

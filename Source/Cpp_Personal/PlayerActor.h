@@ -3,7 +3,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h"
-#include "CardEnums.h"  // 카드 관련 Enum 추가
 #include "PlayerActor.generated.h"
 
 USTRUCT(BlueprintType)
@@ -69,5 +68,3 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Player")
     bool Split();
 };
-
-

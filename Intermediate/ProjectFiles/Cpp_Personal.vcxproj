@@ -254,6 +254,8 @@
     <None Include="..\..\Source\Cpp_PersonalEditor.Target.cs"/>
     <None Include="..\..\.gitignore"/>
     <None Include="..\..\.vsconfig"/>
+    <None Include="..\..\1222.txt"/>
+    <None Include="..\..\Temp.txt"/>
     <None Include="..\..\카드 텍스쳐 넘버링규칙.txt"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
@@ -299,6 +301,12 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -308,10 +316,13 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.cpp">
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">

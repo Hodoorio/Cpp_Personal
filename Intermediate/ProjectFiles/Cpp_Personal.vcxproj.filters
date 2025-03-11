@@ -13,6 +13,8 @@
     </None>
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\1222.txt" />
+    <None Include="..\..\Temp.txt" />
     <None Include="..\..\카드 텍스쳐 넘버링규칙.txt" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -74,6 +76,12 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
@@ -83,10 +91,13 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.cpp">
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">
