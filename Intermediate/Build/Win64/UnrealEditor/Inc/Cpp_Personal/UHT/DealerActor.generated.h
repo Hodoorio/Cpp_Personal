@@ -15,13 +15,13 @@ class UCard;
 #endif
 #define CPP_PERSONAL_DealerActor_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execDrawCard); \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGiveCardToHand); \
 	DECLARE_FUNCTION(execGetHandValue); \
-	DECLARE_FUNCTION(execGiveCardToHand);
+	DECLARE_FUNCTION(execDrawCard);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADealerActor(); \
 	friend struct Z_Construct_UClass_ADealerActor_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(ADealerActor)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ADealerActor(ADealerActor&&); \
@@ -42,13 +42,13 @@ public: \
 	NO_API virtual ~ADealerActor();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_9_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_8_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

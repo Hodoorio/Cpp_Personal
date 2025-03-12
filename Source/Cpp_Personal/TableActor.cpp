@@ -5,6 +5,10 @@ ATableActor::ATableActor()
 {
     PrimaryActorTick.bCanEverTick = false;
 
+
+    TableMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TableMesh"));
+    TableMesh->SetupAttachment(RootComponent);
+
     // 플레이어 카드 배치 영역
     PlayerCardArea = CreateDefaultSubobject<USceneComponent>(TEXT("PlayerCardArea"));
     PlayerCardArea->SetupAttachment(RootComponent);
@@ -12,6 +16,9 @@ ATableActor::ATableActor()
     // 딜러 카드 배치 영역
     DealerCardArea = CreateDefaultSubobject<USceneComponent>(TEXT("DealerCardArea"));
     DealerCardArea->SetupAttachment(RootComponent);
+
+    // 🎲 카드 컴포넌트 생성
+    CardComponent = CreateDefaultSubobject<UCardComponent>(TEXT("CardComponent"));
 }
 
 void ATableActor::BeginPlay()
@@ -20,46 +27,40 @@ void ATableActor::BeginPlay()
 }
 
 // 🎲 카드 생성 및 배치
-void ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex)
+ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex)
 {
     if (!NewCard)
     {
         UE_LOG(LogTemp, Error, TEXT("SpawnCard(): NewCard is NULL!"));
-        return;
+        return nullptr;
     }
 
     UWorld* World = GetWorld();
     if (!World)
     {
         UE_LOG(LogTemp, Error, TEXT("SpawnCard(): World is NULL!"));
-        return;
+        return nullptr;
     }
 
-    FVector SpawnLocation = FVector(0, 0, 310); // 기본 위치
+    if (!CardComponent || !CardComponent->CardActor)
+    {
+        UE_LOG(LogTemp, Error, TEXT("SpawnCard(): CardComponent or CardActor is NULL!"));
+        return nullptr;
+    }
+
+    FVector SpawnLocation = FVector(0, 0, 310);
     FRotator SpawnRotation = FRotator::ZeroRotator;
 
-    // 📌 카드 액터 스폰
-    //ACardActor* CardActor = World->SpawnActor<ACardActor>(ACardActor::StaticClass(), SpawnLocation, SpawnRotation);
-
+    ACardActor* CardActor = World->SpawnActor<ACardActor>(CardComponent->CardActor->GetClass(), SpawnLocation, SpawnRotation);
     if (!CardActor)
     {
         UE_LOG(LogTemp, Error, TEXT("SpawnCard(): Failed to spawn CardActor!"));
-        return;
+        return nullptr;
     }
 
-    // 카드 설정
     CardActor->SetCard(NewCard->Suit, NewCard->Rank);
     UE_LOG(LogTemp, Warning, TEXT("SpawnCard(): CardActor spawned successfully!"));
 
-    // RootComponent 설정
-    if (!CardActor->GetRootComponent())
-    {
-        USceneComponent* DefaultRootComponent = NewObject<USceneComponent>(CardActor, TEXT("RootComponent"));
-        CardActor->SetRootComponent(DefaultRootComponent);
-        DefaultRootComponent->RegisterComponent();
-    }
-
-    // 카드 배치
     if (bIsPlayer && PlayerCardArea)
     {
         CardActor->AttachToComponent(PlayerCardArea, FAttachmentTransformRules::KeepRelativeTransform);
@@ -74,5 +75,8 @@ void ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex)
     {
         UE_LOG(LogTemp, Error, TEXT("SpawnCard(): Invalid card area!"));
     }
+
+    return CardActor;
 }
+
 

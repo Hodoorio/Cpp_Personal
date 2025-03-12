@@ -52,6 +52,12 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\CardComponent.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\CardComponent.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\CardEnums.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
@@ -89,9 +95,6 @@
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.cpp">

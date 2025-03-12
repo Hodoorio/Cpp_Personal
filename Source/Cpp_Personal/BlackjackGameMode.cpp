@@ -1,134 +1,163 @@
 #include "BlackjackGameMode.h"
 #include "Kismet/GameplayStatics.h"
-#include "TableActor.h"
+#include "Engine.h"
 
 ABlackjackGameMode::ABlackjackGameMode()
 {
     PrimaryActorTick.bCanEverTick = false;
-    CurrentState = EGameState::WaitingForBet;
 }
 
 void ABlackjackGameMode::BeginPlay()
 {
     Super::BeginPlay();
 
-    // 플레이어 & 딜러 찾기
-    Player = Cast<APlayerActor>(UGameplayStatics::GetActorOfClass(GetWorld(), APlayerActor::StaticClass()));
-    Dealer = Cast<ADealerActor>(UGameplayStatics::GetActorOfClass(GetWorld(), ADealerActor::StaticClass()));
+    UWorld* World = GetWorld();
+    if (!World) return;
+
+    // 🎲 플레이어 스폰
+    if (!Player && PlayerClass)
+    {
+        Player = World->SpawnActor<APlayerActor>(PlayerClass, FVector(0, 400, 0), FRotator::ZeroRotator);
+    }
+
+    // 🎲 딜러 스폰
+    if (!Dealer && DealerClass)
+    {
+        Dealer = World->SpawnActor<ADealerActor>(DealerClass, FVector(0, -400, 0), FRotator::ZeroRotator);
+    }
+
+    // 🎲 테이블 스폰
+    if (!Table && TableClass)
+    {
+        Table = World->SpawnActor<ATableActor>(TableClass, FVector(0, 0, 0), FRotator::ZeroRotator);
+    }
+
+    // 🎲 정상적으로 생성되었는지 확인
+    if (!Player || !Dealer || !Table)
+    {
+        UE_LOG(LogTemp, Error, TEXT("BeginPlay(): Player, Dealer 또는 Table을 스폰할 수 없습니다!"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): Player, Dealer, Table 스폰 성공"));
+    }
+
+    UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%s, Dealer=%s, Table=%s"),
+        *GetNameSafe(Player), *GetNameSafe(Dealer), *GetNameSafe(Table));
 }
+
+
 
 void ABlackjackGameMode::StartGame()
 {
-    if (!Player || !Dealer)
+    if (!Player)
     {
-        UE_LOG(LogTemp, Error, TEXT("StartGame(): Player or Dealer is NULL!"));
-        return;
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Player을 찾을 수 없습니다!"));
+    }
+    else if (!Dealer)
+    {
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Dealer을 찾을 수 없습니다!"));
+    }
+    else if (!Table)
+    {
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Table을 찾을 수 없습니다!"));
+    }
+    else
+    {
+        //UE_LOG(LogTemp, Warning, );
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Player, Dealer, Table이 정상적으로 설정되었습니다."));
     }
 
-    // 🔹 TableActor 찾기 (널 체크 추가)
-    ATableActor* Table = Cast<ATableActor>(UGameplayStatics::GetActorOfClass(this, ATableActor::StaticClass()));
-    if (!Table)
-    {
-        UE_LOG(LogTemp, Error, TEXT("StartGame(): TableActor is NULL!"));
-        return;
-    }
-
-    // 🔹 게임 시작 → 카드 2장씩 지급
     for (int i = 0; i < 2; i++)
     {
+        // 🔹 플레이어 카드 지급
         UCard* PlayerCard = Dealer->DrawCard();
-        if (PlayerCard)
+        Player->GiveCardToHand(PlayerCard, 0);
+        ACardActor* PlayerCardActor = Table->SpawnCard(PlayerCard, true, i);
+        if (PlayerCardActor)
         {
-            Player->GiveCardToHand(PlayerCard, 0);
-            Table->SpawnCard(PlayerCard, true, i);
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("StartGame(): PlayerCard is NULL!"));
+            PlayerCardActor->SetFaceUp(true);
         }
 
+        // 🔹 딜러 카드 지급
         UCard* DealerCard = Dealer->DrawCard();
-        if (DealerCard)
+        Dealer->GiveCardToHand(DealerCard);  // ✅ 이제 정상 호출 가능
+        ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, i);
+        if (DealerCardActor)
         {
-            Dealer->GiveCardToHand(DealerCard);
-            Table->SpawnCard(DealerCard, false, i);
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("StartGame(): DealerCard is NULL!"));
+            if (i == 0)
+            {
+                DealerCardActor->SetFaceUp(false);  // 첫 번째 딜러 카드는 뒷면
+            }
+            else
+            {
+                DealerCardActor->SetFaceUp(true);  // 두 번째 딜러 카드는 앞면
+            }
         }
     }
 
-    // 🔹 플레이어 턴으로 변경
     CurrentState = EGameState::PlayerTurn;
 }
 
 
-
-
 void ABlackjackGameMode::PlayerHit()
 {
-    if (CurrentState != EGameState::PlayerTurn || !Player || !Dealer) return;
+    if (!Player || !Dealer || !Table) return;
 
-    Player->GiveCardToHand(Dealer->DrawCard(), 0);
-
-    // 21점 초과 시 자동으로 Stand 처리
-    if (Player->GetHandValue(0) > 21)
+    // 플레이어가 카드 한 장 받음
+    UCard* NewCard = Dealer->DrawCard();
+    if (NewCard)
     {
-        PlayerStand();
+        Player->GiveCardToHand(NewCard, 0);
+        ACardActor* NewCardActor = Table->SpawnCard(NewCard, true, Player->Hands[0].Cards.Num() - 1);
+        if (NewCardActor)
+        {
+            NewCardActor->SetFaceUp(true);
+        }
+
+        // 플레이어가 버스트(21 초과)인지 확인
+        if (Player->GetHandValue(0) > 21)
+        {
+            //UE_LOG(LogTemp, Warning, TEXT("Player Busts! Dealer Wins."));
+            GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Busts! Dealer Wins."));
+            PlayerStand();  // 자동으로 딜러 턴으로 넘어감
+        }
     }
 }
 
-// 🎯 플레이어 Stand
 void ABlackjackGameMode::PlayerStand()
 {
-    if (CurrentState != EGameState::PlayerTurn) return;
+    if (!Player || !Dealer || !Table) return;
+
+    //UE_LOG(LogTemp, Warning,
+    GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Stands. Dealer's Turn Begins."));
 
     // 🔹 딜러 턴 시작
-    CurrentState = EGameState::DealerTurn;
-
-    // 딜러는 16 이하일 경우 무조건 카드 받음
-    while (Dealer->GetHandValue() <= 16)
+    while (Dealer->GetHandValue() < 17)
     {
-        Dealer->GiveCardToHand(Dealer->DrawCard());
+        UCard* DealerCard = Dealer->DrawCard();
+        Dealer->GiveCardToHand(DealerCard); 
+        ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, Dealer->Hands.Num() - 1);      
+        if (DealerCardActor)
+        {
+            DealerCardActor->SetFaceUp(true);
+        }
     }
 
-    // 🔹 게임 종료 후 승패 판정
-    CurrentState = EGameState::GameOver;
-    CheckWinner();
-}
+    // 결과 판정
+    int32 PlayerValue = Player->GetHandValue(0);
+    int32 DealerValue = Dealer->GetHandValue();
 
-// 🏆 승패 판정
-void ABlackjackGameMode::CheckWinner()
-{
-    int32 PlayerScore = Player->GetHandValue(0);
-    int32 DealerScore = Dealer->GetHandValue();
-
-    FString ResultMessage;
-
-    if (PlayerScore > 21)
+    if (DealerValue > 21 || PlayerValue > DealerValue)
     {
-        ResultMessage = TEXT("Bust! 딜러 승리");
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Wins!"));
     }
-    else if (DealerScore > 21 || PlayerScore > DealerScore)
+    else if (PlayerValue == DealerValue)
     {
-        ResultMessage = TEXT("플레이어 승리!");
-        Player->WinBet();
-    }
-    else if (PlayerScore < DealerScore)
-    {
-        ResultMessage = TEXT("딜러 승리...");
-        Player->LoseBet();
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("It's a Tie!"));
     }
     else
     {
-        ResultMessage = TEXT("무승부!");
-        Player->Coins += Player->CurrentBet; // 배팅금 반환
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("Dealer Wins!"));
     }
-
-    // 콘솔에 결과 출력 (디버깅용)
-    UE_LOG(LogTemp, Warning, TEXT("%s"), *ResultMessage);
-
-    // 게임 다시 시작 가능하도록 상태 변경
-    CurrentState = EGameState::WaitingForBet;
 }

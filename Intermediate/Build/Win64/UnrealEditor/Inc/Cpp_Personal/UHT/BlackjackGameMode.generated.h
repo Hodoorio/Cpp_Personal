@@ -14,14 +14,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CPP_PERSONAL_BlackjackGameMode_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execCheckWinner); \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execPlayerStand); \
 	DECLARE_FUNCTION(execPlayerHit); \
 	DECLARE_FUNCTION(execStartGame);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABlackjackGameMode(); \
 	friend struct Z_Construct_UClass_ABlackjackGameMode_Statics; \
@@ -30,7 +29,7 @@ public: \
 	DECLARE_SERIALIZER(ABlackjackGameMode)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABlackjackGameMode(ABlackjackGameMode&&); \
@@ -42,13 +41,13 @@ public: \
 	NO_API virtual ~ABlackjackGameMode();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_10_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_11_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_13_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

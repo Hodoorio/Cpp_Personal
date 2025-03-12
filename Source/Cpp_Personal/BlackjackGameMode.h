@@ -4,6 +4,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "PlayerActor.h"
 #include "DealerActor.h"
+#include "TableActor.h"
 #include "GameStateEnum.h"
 #include "BlackjackGameMode.generated.h"
 
@@ -19,29 +20,37 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 현재 게임 상태
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Game")
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GameState")
     EGameState CurrentState;
 
-    // 플레이어 & 딜러 레퍼런스
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Game")
-    APlayerActor* Player;
+    // 🎲 블루프린트에서 직접 설정할 변수들
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<APlayerActor> PlayerClass = nullptr;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Game")
-    ADealerActor* Dealer;
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<ADealerActor> DealerClass = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<ATableActor> TableClass = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
+    APlayerActor* Player = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
+    ADealerActor* Dealer = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
+    ATableActor* Table = nullptr;
+
 
     // 게임 시작 함수
     UFUNCTION(BlueprintCallable, Category = "Game")
     void StartGame();
 
-    // 플레이어 행동 (Hit / Stand)
     UFUNCTION(BlueprintCallable, Category = "Game")
     void PlayerHit();
 
     UFUNCTION(BlueprintCallable, Category = "Game")
     void PlayerStand();
 
-    // 승패 판정
-    UFUNCTION(BlueprintCallable, Category = "Game")
-    void CheckWinner();
 };

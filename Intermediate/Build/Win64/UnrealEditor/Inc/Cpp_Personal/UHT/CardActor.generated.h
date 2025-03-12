@@ -17,6 +17,7 @@ enum class ESuit : uint8;
 #define CPP_PERSONAL_CardActor_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetFaceUp); \
 	DECLARE_FUNCTION(execSetCard);
 
 

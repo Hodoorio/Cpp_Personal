@@ -20,20 +20,16 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 카드의 메시 컴포넌트 (블루프린트에서 메시 설정 가능)
+    // 🎴 카드 메시
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UStaticMeshComponent* CardMesh;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
-    UStaticMeshComponent* CardBack;
+    // 📌 카드 머티리얼 (앞면, 뒷면)
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
+    UMaterialInterface* FaceMaterial;
 
-    // 블루프린트에서 설정 가능한 머티리얼 (동적 변경 가능)
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
-    UMaterialInterface* BaseMaterial;
-
-    // 동적 머티리얼 인스턴스 (텍스처 변경 가능)
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
-    UMaterialInstanceDynamic* CardMaterial;
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
+    UMaterialInterface* BackMaterial;
 
     // 카드 정보
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
@@ -45,6 +41,10 @@ public:
     // 카드 설정 함수 (문양 & 숫자 설정)
     UFUNCTION(BlueprintCallable, Category = "Card")
     void SetCard(ESuit NewSuit, ERank NewRank);
+
+    // 🔄 카드 앞/뒷면 설정 함수
+    UFUNCTION(BlueprintCallable, Category = "Card")
+    void SetFaceUp(bool bIsFaceUp);
 
 private:
     // 텍스처를 설정하는 함수
