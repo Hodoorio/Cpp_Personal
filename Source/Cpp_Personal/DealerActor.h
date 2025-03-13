@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h"
+#include "DeckActor.h"
 #include "DealerActor.generated.h"
 
 UCLASS()
@@ -20,6 +21,9 @@ public:
     // 🔹 딜러의 카드 핸드
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer")
     TArray<UCard*> Hands;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dealer")
+    ADeckActor* Deck;
 
     // 🔹 카드 드로우 함수
     UFUNCTION(BlueprintCallable, Category = "Dealer")

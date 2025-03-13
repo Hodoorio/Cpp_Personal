@@ -19,5 +19,6 @@ protected:
 public:
     // 🎲 블루프린트에서 설정할 카드 액터 (BP_CardActor)
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Card")
-    TSubclassOf<ACardActor> CardActor = nullptr;
+    TSubclassOf<ACardActor> CardActor;
+
 };

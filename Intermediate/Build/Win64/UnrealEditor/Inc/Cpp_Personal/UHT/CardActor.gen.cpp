@@ -15,6 +15,7 @@ CPP_PERSONAL_API UClass* Z_Construct_UClass_ACardActor_NoRegister();
 CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_ERank();
 CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_ESuit();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENGINE_API UClass* Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
@@ -181,6 +182,15 @@ struct Z_Construct_UClass_ACardActor_Statics
 		{ "Category", "Card" },
 		{ "ModuleRelativePath", "CardActor.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MID_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xe2\x9c\x85 \xea\xb0\x9c\xeb\xb3\x84\xec\xa0\x81\xec\x9d\xb8 \xeb\xa8\xb8\xed\x8b\xb0\xeb\xa6\xac\xec\x96\xbc \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4 (\xea\xb0\x81 \xec\xb9\xb4\xeb\x93\x9c\xeb\xa7\x88\xeb\x8b\xa4 \xeb\x94\xb0\xeb\xa1\x9c \xec\x83\x9d\xec\x84\xb1)\n" },
+#endif
+		{ "ModuleRelativePath", "CardActor.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xe2\x9c\x85 \xea\xb0\x9c\xeb\xb3\x84\xec\xa0\x81\xec\x9d\xb8 \xeb\xa8\xb8\xed\x8b\xb0\xeb\xa6\xac\xec\x96\xbc \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4 (\xea\xb0\x81 \xec\xb9\xb4\xeb\x93\x9c\xeb\xa7\x88\xeb\x8b\xa4 \xeb\x94\xb0\xeb\xa1\x9c \xec\x83\x9d\xec\x84\xb1)" },
+#endif
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Suit_MetaData[] = {
 		{ "Category", "Card" },
 #if !UE_BUILD_SHIPPING
@@ -199,6 +209,7 @@ struct Z_Construct_UClass_ACardActor_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CardMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FaceMaterial;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BackMaterial;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MID;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Suit_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_Suit;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Rank_Underlying;
@@ -218,6 +229,7 @@ struct Z_Construct_UClass_ACardActor_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_CardMesh = { "CardMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACardActor, CardMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CardMesh_MetaData), NewProp_CardMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_FaceMaterial = { "FaceMaterial", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACardActor, FaceMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FaceMaterial_MetaData), NewProp_FaceMaterial_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_BackMaterial = { "BackMaterial", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACardActor, BackMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BackMaterial_MetaData), NewProp_BackMaterial_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_MID = { "MID", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACardActor, MID), Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MID_MetaData), NewProp_MID_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_Suit_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_Suit = { "Suit", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACardActor, Suit), Z_Construct_UEnum_Cpp_Personal_ESuit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Suit_MetaData), NewProp_Suit_MetaData) }; // 3875573809
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ACardActor_Statics::NewProp_Rank_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
@@ -226,6 +238,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACardActo
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_CardMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_FaceMaterial,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_BackMaterial,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_MID,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_Suit_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_Suit,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACardActor_Statics::NewProp_Rank_Underlying,
@@ -272,10 +285,10 @@ ACardActor::~ACardActor() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACardActor, ACardActor::StaticClass, TEXT("ACardActor"), &Z_Registration_Info_UClass_ACardActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACardActor), 3217322000U) },
+		{ Z_Construct_UClass_ACardActor, ACardActor::StaticClass, TEXT("ACardActor"), &Z_Registration_Info_UClass_ACardActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACardActor), 2075862467U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_2608638599(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_3373170043(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeDealerActor() {}
 // Begin Cross Module References
 CPP_PERSONAL_API UClass* Z_Construct_UClass_ADealerActor();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_ADealerActor_NoRegister();
+CPP_PERSONAL_API UClass* Z_Construct_UClass_ADeckActor_NoRegister();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UCard_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
@@ -195,9 +196,14 @@ struct Z_Construct_UClass_ADealerActor_Statics
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xeb\x94\x9c\xeb\x9f\xac\xec\x9d\x98 \xec\xb9\xb4\xeb\x93\x9c \xed\x95\xb8\xeb\x93\x9c" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Deck_MetaData[] = {
+		{ "Category", "Dealer" },
+		{ "ModuleRelativePath", "DealerActor.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Hands_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Hands;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Deck;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -213,9 +219,11 @@ struct Z_Construct_UClass_ADealerActor_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADealerActor_Statics::NewProp_Hands_Inner = { "Hands", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UCard_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ADealerActor_Statics::NewProp_Hands = { "Hands", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADealerActor, Hands), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hands_MetaData), NewProp_Hands_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADealerActor_Statics::NewProp_Deck = { "Deck", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADealerActor, Deck), Z_Construct_UClass_ADeckActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Deck_MetaData), NewProp_Deck_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADealerActor_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADealerActor_Statics::NewProp_Hands_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADealerActor_Statics::NewProp_Hands,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADealerActor_Statics::NewProp_Deck,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADealerActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ADealerActor_Statics::DependentSingletons[])() = {
@@ -258,10 +266,10 @@ ADealerActor::~ADealerActor() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 944313104U) },
+		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 2315667260U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_611214645(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_1058297243(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

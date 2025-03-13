@@ -31,6 +31,10 @@ public:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
     UMaterialInterface* BackMaterial;
 
+    // ✅ 개별적인 머티리얼 인스턴스 (각 카드마다 따로 생성)
+    UPROPERTY()
+    UMaterialInstanceDynamic* MID;
+
     // 카드 정보
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     ESuit Suit;

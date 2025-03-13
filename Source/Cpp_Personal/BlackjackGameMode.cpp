@@ -44,34 +44,42 @@ void ABlackjackGameMode::BeginPlay()
 
     UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%s, Dealer=%s, Table=%s"),
         *GetNameSafe(Player), *GetNameSafe(Dealer), *GetNameSafe(Table));
+   
+
 }
 
 
 
 void ABlackjackGameMode::StartGame()
 {
-    if (!Player)
+    UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%s, Dealer=%s, Table=%s"),
+        *GetNameSafe(Player), *GetNameSafe(Dealer), *GetNameSafe(Table));
+
+    if (!Player || !Dealer || !Table)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Player을 찾을 수 없습니다!"));
+        UE_LOG(LogTemp, Error, TEXT("StartGame(): Player, Dealer 또는 Table이 설정되지 않았습니다!"));
+        return;
     }
-    else if (!Dealer)
+
+    if (!Dealer->Deck)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Dealer을 찾을 수 없습니다!"));
+        UE_LOG(LogTemp, Error, TEXT("StartGame(): Dealer->Deck is NULL! Cannot start the game."));
+        return;
     }
-    else if (!Table)
-    {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Table을 찾을 수 없습니다!"));
-    }
-    else
-    {
-        //UE_LOG(LogTemp, Warning, );
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("StartGame(): Player, Dealer, Table이 정상적으로 설정되었습니다."));
-    }
+
+
+
 
     for (int i = 0; i < 2; i++)
     {
-        // 🔹 플레이어 카드 지급
+        
+
         UCard* PlayerCard = Dealer->DrawCard();
+        if (!PlayerCard)
+        {
+            UE_LOG(LogTemp, Error, TEXT("StartGame(): PlayerCard is NULL! Dealer->DrawCard() failed!"));
+            continue;
+        }
         Player->GiveCardToHand(PlayerCard, 0);
         ACardActor* PlayerCardActor = Table->SpawnCard(PlayerCard, true, i);
         if (PlayerCardActor)
@@ -79,25 +87,36 @@ void ABlackjackGameMode::StartGame()
             PlayerCardActor->SetFaceUp(true);
         }
 
-        // 🔹 딜러 카드 지급
         UCard* DealerCard = Dealer->DrawCard();
-        Dealer->GiveCardToHand(DealerCard);  // ✅ 이제 정상 호출 가능
+        if (!DealerCard)
+        {
+            UE_LOG(LogTemp, Error, TEXT("StartGame(): DealerCard is NULL! Dealer->DrawCard() failed!"));
+            continue;
+        }
+        Dealer->GiveCardToHand(DealerCard);
         ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, i);
         if (DealerCardActor)
         {
             if (i == 0)
             {
-                DealerCardActor->SetFaceUp(false);  // 첫 번째 딜러 카드는 뒷면
+                DealerCardActor->SetFaceUp(false); // 첫 번째 딜러 카드는 뒷면
             }
             else
             {
-                DealerCardActor->SetFaceUp(true);  // 두 번째 딜러 카드는 앞면
+                DealerCardActor->SetFaceUp(true); // 두 번째 딜러 카드는 앞면
             }
         }
+
+
     }
+
+    /*UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%d"),
+        Player->GetHandValue());*/
 
     CurrentState = EGameState::PlayerTurn;
 }
+
+
 
 
 void ABlackjackGameMode::PlayerHit()
@@ -114,6 +133,9 @@ void ABlackjackGameMode::PlayerHit()
         {
             NewCardActor->SetFaceUp(true);
         }
+
+        /*UE_LOG(LogTemp, Warning, TEXT("PlayerHit(): Player=%d"),
+            Player->GetHandValue());*/
 
         // 플레이어가 버스트(21 초과)인지 확인
         if (Player->GetHandValue(0) > 21)

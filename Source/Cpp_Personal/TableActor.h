@@ -31,6 +31,8 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UCardComponent* CardComponent;
 
+    ACardActor* CardActor = nullptr;
+
     // 🔹 카드 배치 함수
     UFUNCTION(BlueprintCallable, Category = "Table")
     ACardActor* SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex);

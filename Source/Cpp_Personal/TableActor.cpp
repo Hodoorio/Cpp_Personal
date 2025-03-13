@@ -48,10 +48,22 @@ ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardInd
         return nullptr;
     }
 
-    FVector SpawnLocation = FVector(0, 0, 310);
-    FRotator SpawnRotation = FRotator::ZeroRotator;
+    FVector SpawnLocation;
+    float OffsetX = CardIndex * 50.0f; // 카드 간격 50 유지
+    float OffsetZ = 15 + CardIndex * 2;
 
-    ACardActor* CardActor = World->SpawnActor<ACardActor>(CardComponent->CardActor->GetClass(), SpawnLocation, SpawnRotation);
+    if (bIsPlayer)
+    {
+        SpawnLocation = FVector(-OffsetX, -50, OffsetZ);
+    }
+    else
+    {
+        SpawnLocation = FVector(OffsetX, 50, OffsetZ);
+    }
+
+    SpawnLocation.Z += 5.0f;
+
+    CardActor = World->SpawnActor<ACardActor>(CardComponent->CardActor, SpawnLocation, FRotator::ZeroRotator);
     if (!CardActor)
     {
         UE_LOG(LogTemp, Error, TEXT("SpawnCard(): Failed to spawn CardActor!"));
@@ -59,24 +71,20 @@ ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardInd
     }
 
     CardActor->SetCard(NewCard->Suit, NewCard->Rank);
-    UE_LOG(LogTemp, Warning, TEXT("SpawnCard(): CardActor spawned successfully!"));
+    UE_LOG(LogTemp, Warning, TEXT("SpawnCard(): CardActor spawned successfully at (%f, %f, %f)"),
+        SpawnLocation.X, SpawnLocation.Y, SpawnLocation.Z);
 
-    if (bIsPlayer && PlayerCardArea)
+    if (bIsPlayer)
     {
         CardActor->AttachToComponent(PlayerCardArea, FAttachmentTransformRules::KeepRelativeTransform);
-        CardActor->SetActorRelativeLocation(FVector(CardIndex * 50.0f, 0, 0));
-    }
-    else if (!bIsPlayer && DealerCardArea)
-    {
-        CardActor->AttachToComponent(DealerCardArea, FAttachmentTransformRules::KeepRelativeTransform);
-        CardActor->SetActorRelativeLocation(FVector(CardIndex * 50.0f, 0, 0));
     }
     else
     {
-        UE_LOG(LogTemp, Error, TEXT("SpawnCard(): Invalid card area!"));
+        CardActor->AttachToComponent(DealerCardArea, FAttachmentTransformRules::KeepRelativeTransform);
     }
 
     return CardActor;
 }
+
 
 
