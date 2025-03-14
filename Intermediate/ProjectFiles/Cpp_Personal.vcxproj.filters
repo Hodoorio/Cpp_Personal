@@ -88,6 +88,9 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\FCardDataTableRow.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
@@ -95,6 +98,9 @@
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.cpp">

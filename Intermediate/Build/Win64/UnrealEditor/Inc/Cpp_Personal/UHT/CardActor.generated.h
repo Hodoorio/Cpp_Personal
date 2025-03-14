@@ -9,16 +9,13 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-enum class ERank : uint8;
-enum class ESuit : uint8;
 #ifdef CPP_PERSONAL_CardActor_generated_h
 #error "CardActor.generated.h already included, missing '#pragma once' in CardActor.h"
 #endif
 #define CPP_PERSONAL_CardActor_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execSetFaceUp); \
-	DECLARE_FUNCTION(execSetCard);
+	DECLARE_FUNCTION(execSetFaceUp);
 
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_CardActor_h_14_INCLASS_NO_PURE_DECLS \

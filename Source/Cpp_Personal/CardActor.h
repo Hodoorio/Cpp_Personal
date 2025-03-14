@@ -2,10 +2,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Card.h"  // 카드 정보 (ESuit, ERank) 포함
+#include "Engine/DataTable.h"
+#include "CardEnums.h"
+#include "FCardDataTableRow.h"
 #include "Components/StaticMeshComponent.h"
-#include "Materials/MaterialInstanceDynamic.h"
-#include "Engine/Texture2D.h"
 #include "CardActor.generated.h"
 
 UCLASS()
@@ -20,40 +20,32 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 🎴 카드 메시
+    // ✅ 데이터 테이블 참조
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Card")
+    UDataTable* CardDataTable;
+
+    // ✅ 카드 메시 및 머티리얼
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UStaticMeshComponent* CardMesh;
 
-    // 📌 카드 머티리얼 (앞면, 뒷면)
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
-    UMaterialInterface* FaceMaterial;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Card")
+    UMaterialInterface* FaceMaterial; // 카드 앞면 머티리얼
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Card")
-    UMaterialInterface* BackMaterial;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Card")
+    UMaterialInterface* BackMaterial; // 카드 뒷면 머티리얼
 
-    // ✅ 개별적인 머티리얼 인스턴스 (각 카드마다 따로 생성)
-    UPROPERTY()
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UMaterialInstanceDynamic* MID;
 
-    // 카드 정보
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
-    ESuit Suit;
-
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
-    ERank Rank;
-
-    // 카드 설정 함수 (문양 & 숫자 설정)
-    UFUNCTION(BlueprintCallable, Category = "Card")
+    // ✅ 카드 정보
     void SetCard(ESuit NewSuit, ERank NewRank);
 
-    // 🔄 카드 앞/뒷면 설정 함수
+    // ✅ 카드 앞/뒷면 설정 함수
     UFUNCTION(BlueprintCallable, Category = "Card")
     void SetFaceUp(bool bIsFaceUp);
 
 private:
-    // 텍스처를 설정하는 함수
-    void SetCardTexture(UTexture2D* NewTexture);
-
-    // 문양과 숫자를 기반으로 텍스처 인덱스를 계산하는 함수
-    int32 GetTextureIndex(ESuit InSuit, ERank InRank);
+    ESuit Suit;
+    ERank Rank;
+    bool bIsFaceUp;
 };

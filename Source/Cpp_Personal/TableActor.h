@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CardComponent.h"
+#include "Card.h"
 #include "TableActor.generated.h"
 
 UCLASS()
