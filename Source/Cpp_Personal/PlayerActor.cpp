@@ -28,10 +28,16 @@ bool APlayerActor::PlaceBet(int32 BetAmount)
     if (BetAmount > 0 && BetAmount <= Coins)
     {
         Coins -= BetAmount;
-        CurrentBet = BetAmount;
+        CurrentBet += BetAmount;
         return true;
     }
     return false;
+}
+
+void APlayerActor::MaxBet()
+{
+    CurrentBet += Coins;
+    Coins = 0;
 }
 
 // 🎉 승리 시 배팅 금액의 2배 획득

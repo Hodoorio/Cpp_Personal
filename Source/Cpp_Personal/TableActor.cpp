@@ -57,7 +57,7 @@ ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardInd
 
     if (bIsPlayer)
     {
-        SpawnLocation = FVector(CardIndex * 50.0f, -180.0f, OffsetZ);
+        SpawnLocation = FVector(CardIndex * -50.0f, -180.0f, OffsetZ);
         SpawnRotator = FRotator(0.0f,180.0f,0.0f);
     }   
     else

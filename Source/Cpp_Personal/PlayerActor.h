@@ -49,6 +49,9 @@ public:
     bool PlaceBet(int32 BetAmount);
 
     UFUNCTION(BlueprintCallable, Category = "Player")
+    void MaxBet();
+
+    UFUNCTION(BlueprintCallable, Category = "Player")
     void WinBet();
 
     UFUNCTION(BlueprintCallable, Category = "Player")

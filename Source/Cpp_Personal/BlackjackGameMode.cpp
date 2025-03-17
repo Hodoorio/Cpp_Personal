@@ -45,7 +45,7 @@ void ABlackjackGameMode::BeginPlay()
     UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%s, Dealer=%s, Table=%s"),
         *GetNameSafe(Player), *GetNameSafe(Dealer), *GetNameSafe(Table));
    
-
+    CreateHUD();
 }
 
 
@@ -151,22 +151,42 @@ void ABlackjackGameMode::PlayerStand()
 {
     if (!Player || !Dealer || !Table) return;
 
-    //UE_LOG(LogTemp, Warning,
     GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Stands. Dealer's Turn Begins."));
+
+    // ✅ 딜러의 첫 번째 카드 공개
+    if (Dealer->Hands.Num() > 0)
+    {
+        UCard* FirstDealerCardData = Dealer->Hands[0];  // ✅ UCard* 데이터 가져오기
+        ACardActor* FirstDealerCardActor = Table->SpawnCard(FirstDealerCardData, false, 0);
+        if (FirstDealerCardActor)
+        {
+            FirstDealerCardActor->SetFaceUp(true);
+        }
+    }
 
     // 🔹 딜러 턴 시작
     while (Dealer->GetHandValue() < 17)
     {
         UCard* DealerCard = Dealer->DrawCard();
-        Dealer->GiveCardToHand(DealerCard); 
-        ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, Dealer->Hands.Num() - 1);      
+        if (!DealerCard)
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("Error: Dealer tried to draw a NULL card!"));
+            return;
+        }
+
+        Dealer->GiveCardToHand(DealerCard);
+
+        // 🔹 올바른 카드 인덱스 계산
+        int32 DealerCardIndex = Dealer->Hands.Num() - 1;
+        ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, DealerCardIndex);
+
         if (DealerCardActor)
         {
             DealerCardActor->SetFaceUp(true);
         }
     }
 
-    // 결과 판정
+    // 🔹 결과 판정
     int32 PlayerValue = Player->GetHandValue(0);
     int32 DealerValue = Dealer->GetHandValue();
 
@@ -182,4 +202,35 @@ void ABlackjackGameMode::PlayerStand()
     {
         GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("Dealer Wins!"));
     }
+}
+
+void ABlackjackGameMode::CreateHUD()
+{
+    if (BlackjackHUDClass)
+    {
+        BlackjackHUD = CreateWidget<UUserWidget>(GetWorld(), BlackjackHUDClass);
+        if (BlackjackHUD)
+        {
+            BlackjackHUD->AddToViewport();
+        }
+    }
+}
+
+void ABlackjackGameMode::PlayerSplit()
+{
+    if (!Player)
+    {
+        UE_LOG(LogTemp, Error, TEXT("PlayerSplit(): Player is NULL!"));
+        return;
+    }
+
+    if (!Player->CanSplit())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("PlayerSplit(): Split is not allowed!"));
+        return;
+    }
+
+    // 🎲 스플릿 실행
+    Player->Split();
+    GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Split!"));
 }

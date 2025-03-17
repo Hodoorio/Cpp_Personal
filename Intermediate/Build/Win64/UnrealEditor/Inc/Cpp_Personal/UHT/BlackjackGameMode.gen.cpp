@@ -18,6 +18,7 @@ CPP_PERSONAL_API UClass* Z_Construct_UClass_APlayerActor_NoRegister();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_ATableActor_NoRegister();
 CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_EGameState();
 ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
+UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
 
@@ -50,6 +51,36 @@ DEFINE_FUNCTION(ABlackjackGameMode::execPlayerHit)
 	P_NATIVE_END;
 }
 // End Class ABlackjackGameMode Function PlayerHit
+
+// Begin Class ABlackjackGameMode Function PlayerSplit
+struct Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Game" },
+		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABlackjackGameMode, nullptr, "PlayerSplit", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ABlackjackGameMode::execPlayerSplit)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->PlayerSplit();
+	P_NATIVE_END;
+}
+// End Class ABlackjackGameMode Function PlayerSplit
 
 // Begin Class ABlackjackGameMode Function PlayerStand
 struct Z_Construct_UFunction_ABlackjackGameMode_PlayerStand_Statics
@@ -123,6 +154,7 @@ void ABlackjackGameMode::StaticRegisterNativesABlackjackGameMode()
 	UClass* Class = ABlackjackGameMode::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "PlayerHit", &ABlackjackGameMode::execPlayerHit },
+		{ "PlayerSplit", &ABlackjackGameMode::execPlayerSplit },
 		{ "PlayerStand", &ABlackjackGameMode::execPlayerStand },
 		{ "StartGame", &ABlackjackGameMode::execStartGame },
 	};
@@ -141,6 +173,26 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 		{ "IncludePath", "BlackjackGameMode.h" },
 		{ "ModuleRelativePath", "BlackjackGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlackjackHUDClass_MetaData[] = {
+		{ "Category", "UI" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xf0\x9f\x94\xb9 UI \xec\x9c\x84\xec\xa0\xaf \xed\x81\xb4\xeb\x9e\x98\xec\x8a\xa4 (\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95 \xea\xb0\x80\xeb\x8a\xa5)\n" },
+#endif
+		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xf0\x9f\x94\xb9 UI \xec\x9c\x84\xec\xa0\xaf \xed\x81\xb4\xeb\x9e\x98\xec\x8a\xa4 (\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95 \xea\xb0\x80\xeb\x8a\xa5)" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlackjackHUD_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xf0\x9f\x94\xb9 \xec\x8b\xa4\xec\xa0\x9c UI \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4\n" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xf0\x9f\x94\xb9 \xec\x8b\xa4\xec\xa0\x9c UI \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentState_MetaData[] = {
 		{ "Category", "GameState" },
@@ -177,6 +229,8 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 		{ "ModuleRelativePath", "BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FClassPropertyParams NewProp_BlackjackHUDClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackjackHUD;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentState_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_CurrentState;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_PlayerClass;
@@ -189,6 +243,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerHit, "PlayerHit" }, // 2606702037
+		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit, "PlayerSplit" }, // 1913210306
 		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerStand, "PlayerStand" }, // 4248726134
 		{ &Z_Construct_UFunction_ABlackjackGameMode_StartGame, "StartGame" }, // 1601284650
 	};
@@ -198,6 +253,8 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUDClass = { "BlackjackHUDClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUDClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUDClass_MetaData), NewProp_BlackjackHUDClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUD = { "BlackjackHUD", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUD), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUD_MetaData), NewProp_BlackjackHUD_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, CurrentState), Z_Construct_UEnum_Cpp_Personal_EGameState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentState_MetaData), NewProp_CurrentState_MetaData) }; // 1497492983
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_PlayerClass = { "PlayerClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, PlayerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_APlayerActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerClass_MetaData), NewProp_PlayerClass_MetaData) };
@@ -207,6 +264,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGame
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_Dealer = { "Dealer", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, Dealer), Z_Construct_UClass_ADealerActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Dealer_MetaData), NewProp_Dealer_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_Table = { "Table", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, Table), Z_Construct_UClass_ATableActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Table_MetaData), NewProp_Table_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABlackjackGameMode_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUDClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUD,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_PlayerClass,
@@ -257,10 +316,10 @@ ABlackjackGameMode::~ABlackjackGameMode() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 1430929524U) },
+		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 1928348812U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_3681647804(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_2606582363(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

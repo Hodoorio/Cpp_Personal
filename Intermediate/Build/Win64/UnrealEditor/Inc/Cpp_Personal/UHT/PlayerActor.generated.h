@@ -29,6 +29,7 @@ template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FHand>();
 	DECLARE_FUNCTION(execGiveCardToHand); \
 	DECLARE_FUNCTION(execLoseBet); \
 	DECLARE_FUNCTION(execWinBet); \
+	DECLARE_FUNCTION(execMaxBet); \
 	DECLARE_FUNCTION(execPlaceBet); \
 	DECLARE_FUNCTION(execInitializeCoins);
 

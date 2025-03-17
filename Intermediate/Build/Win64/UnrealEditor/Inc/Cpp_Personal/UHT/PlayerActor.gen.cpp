@@ -319,6 +319,36 @@ DEFINE_FUNCTION(APlayerActor::execLoseBet)
 }
 // End Class APlayerActor Function LoseBet
 
+// Begin Class APlayerActor Function MaxBet
+struct Z_Construct_UFunction_APlayerActor_MaxBet_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "PlayerActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerActor_MaxBet_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerActor, nullptr, "MaxBet", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerActor_MaxBet_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerActor_MaxBet_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_APlayerActor_MaxBet()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerActor_MaxBet_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(APlayerActor::execMaxBet)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->MaxBet();
+	P_NATIVE_END;
+}
+// End Class APlayerActor Function MaxBet
+
 // Begin Class APlayerActor Function PlaceBet
 struct Z_Construct_UFunction_APlayerActor_PlaceBet_Statics
 {
@@ -458,6 +488,7 @@ void APlayerActor::StaticRegisterNativesAPlayerActor()
 		{ "GiveCardToHand", &APlayerActor::execGiveCardToHand },
 		{ "InitializeCoins", &APlayerActor::execInitializeCoins },
 		{ "LoseBet", &APlayerActor::execLoseBet },
+		{ "MaxBet", &APlayerActor::execMaxBet },
 		{ "PlaceBet", &APlayerActor::execPlaceBet },
 		{ "Split", &APlayerActor::execSplit },
 		{ "WinBet", &APlayerActor::execWinBet },
@@ -525,6 +556,7 @@ struct Z_Construct_UClass_APlayerActor_Statics
 		{ &Z_Construct_UFunction_APlayerActor_GiveCardToHand, "GiveCardToHand" }, // 3769311595
 		{ &Z_Construct_UFunction_APlayerActor_InitializeCoins, "InitializeCoins" }, // 2061368837
 		{ &Z_Construct_UFunction_APlayerActor_LoseBet, "LoseBet" }, // 3835517458
+		{ &Z_Construct_UFunction_APlayerActor_MaxBet, "MaxBet" }, // 2213150520
 		{ &Z_Construct_UFunction_APlayerActor_PlaceBet, "PlaceBet" }, // 2320736329
 		{ &Z_Construct_UFunction_APlayerActor_Split, "Split" }, // 2389091677
 		{ &Z_Construct_UFunction_APlayerActor_WinBet, "WinBet" }, // 1430046737
@@ -595,10 +627,10 @@ struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_
 		{ FHand::StaticStruct, Z_Construct_UScriptStruct_FHand_Statics::NewStructOps, TEXT("Hand"), &Z_Registration_Info_UScriptStruct_Hand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHand), 3206153688U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 3222824018U) },
+		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 4045136418U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_3824968031(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_3819547729(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);

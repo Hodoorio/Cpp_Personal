@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Blueprint/UserWidget.h"
 #include "PlayerActor.h"
 #include "DealerActor.h"
 #include "TableActor.h"
@@ -20,6 +21,18 @@ protected:
     virtual void BeginPlay() override;
 
 public:
+public:
+    // 🔹 UI 위젯 클래스 (블루프린트에서 설정 가능)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+    TSubclassOf<UUserWidget> BlackjackHUDClass;
+
+    // 🔹 실제 UI 인스턴스
+    UPROPERTY()
+    UUserWidget* BlackjackHUD;
+
+    // 🔹 UI 생성 함수
+    void CreateHUD();
+
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GameState")
     EGameState CurrentState;
 
@@ -52,5 +65,8 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Game")
     void PlayerStand();
+
+    UFUNCTION(BlueprintCallable, Category = "Game")
+    void PlayerSplit();
 
 };
