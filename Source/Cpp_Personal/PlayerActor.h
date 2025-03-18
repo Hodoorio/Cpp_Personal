@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h"
+#include "BlackjackHUD.h"
 #include "PlayerActor.generated.h"
 
 USTRUCT(BlueprintType)
@@ -40,6 +41,11 @@ public:
     // ✂ 스플릿 활성화 여부
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
     bool bIsSplitActive;
+    
+    // UI 타입 변수 선언 (베팅 금액 업데이트를 위한)
+    UPROPERTY(BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
+    UBlackjackHUD* BlackjackHUD;
+
 
     // 🔹 플레이어 기능
     UFUNCTION(BlueprintCallable, Category = "Player")

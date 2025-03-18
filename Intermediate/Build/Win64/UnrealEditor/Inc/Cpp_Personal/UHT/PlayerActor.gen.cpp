@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerActor() {}
 // Begin Cross Module References
 CPP_PERSONAL_API UClass* Z_Construct_UClass_APlayerActor();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_APlayerActor_NoRegister();
+CPP_PERSONAL_API UClass* Z_Construct_UClass_UBlackjackHUD_NoRegister();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UCard_NoRegister();
 CPP_PERSONAL_API UScriptStruct* Z_Construct_UScriptStruct_FHand();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -541,6 +542,18 @@ struct Z_Construct_UClass_APlayerActor_Statics
 		{ "ToolTip", "\xe2\x9c\x82 \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf \xed\x99\x9c\xec\x84\xb1\xed\x99\x94 \xec\x97\xac\xeb\xb6\x80" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlackjackHUD_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "UI" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// UI \xed\x83\x80\xec\x9e\x85 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8 (\xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8\xeb\xa5\xbc \xec\x9c\x84\xed\x95\x9c)\n" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "PlayerActor.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UI \xed\x83\x80\xec\x9e\x85 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8 (\xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8\xeb\xa5\xbc \xec\x9c\x84\xed\x95\x9c)" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Coins;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_CurrentBet;
@@ -548,6 +561,7 @@ struct Z_Construct_UClass_APlayerActor_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Hands;
 	static void NewProp_bIsSplitActive_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsSplitActive;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackjackHUD;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -576,12 +590,14 @@ void Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive_SetBit(void
 	((APlayerActor*)Obj)->bIsSplitActive = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive = { "bIsSplitActive", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerActor), &Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsSplitActive_MetaData), NewProp_bIsSplitActive_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_BlackjackHUD = { "BlackjackHUD", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, BlackjackHUD), Z_Construct_UClass_UBlackjackHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUD_MetaData), NewProp_BlackjackHUD_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerActor_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_Coins,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_CurrentBet,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerActor_Statics::NewProp_BlackjackHUD,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_APlayerActor_Statics::DependentSingletons[])() = {
@@ -627,10 +643,10 @@ struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_
 		{ FHand::StaticStruct, Z_Construct_UScriptStruct_FHand_Statics::NewStructOps, TEXT("Hand"), &Z_Registration_Info_UScriptStruct_Hand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHand), 3206153688U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 4045136418U) },
+		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 2800170369U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_3819547729(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_614916006(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);

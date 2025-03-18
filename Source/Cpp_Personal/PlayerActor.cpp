@@ -1,4 +1,7 @@
 #include "PlayerActor.h"
+#include "BlackjackHUD.h"
+#include "Kismet/GameplayStatics.h"
+#include "BlackjackGameMode.h"
 
 APlayerActor::APlayerActor()
 {
@@ -14,7 +17,15 @@ APlayerActor::APlayerActor()
 void APlayerActor::BeginPlay()
 {
     Super::BeginPlay();
+
+    // ✅ 게임모드에서 BlackjackHUD 가져오기
+    ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
+    if (GameMode && GameMode->BlackjackHUD)
+    {
+        BlackjackHUD = Cast<UBlackjackHUD>(GameMode->BlackjackHUD);
+    }
 }
+
 
 // 🎲 플레이어 코인 초기화
 void APlayerActor::InitializeCoins(int32 StartingCoins)
@@ -29,10 +40,19 @@ bool APlayerActor::PlaceBet(int32 BetAmount)
     {
         Coins -= BetAmount;
         CurrentBet += BetAmount;
+
+        // ✅ GameMode의 이벤트를 호출하여 UI 업데이트
+        ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
+        if (GameMode)
+        {
+            GameMode->UpdatePlayerInfo(Coins, CurrentBet);
+        }
+
         return true;
     }
     return false;
 }
+
 
 void APlayerActor::MaxBet()
 {

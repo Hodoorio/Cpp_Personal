@@ -1,6 +1,9 @@
 #include "BlackjackGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine.h"
+#include "Engine/GameInstance.h"
+#include "BlackjackHUD.h"
+#include "GameFramework/Character.h"  // ACharacter 클래스 정의 포함
 
 ABlackjackGameMode::ABlackjackGameMode()
 {
@@ -44,11 +47,10 @@ void ABlackjackGameMode::BeginPlay()
 
     UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%s, Dealer=%s, Table=%s"),
         *GetNameSafe(Player), *GetNameSafe(Dealer), *GetNameSafe(Table));
-   
+
     CreateHUD();
+
 }
-
-
 
 void ABlackjackGameMode::StartGame()
 {
@@ -67,13 +69,13 @@ void ABlackjackGameMode::StartGame()
         return;
     }
 
-
-
+    if (BlackjackHUD)
+    {
+        BlackjackHUD->UpdatePlayerInfo(Player->Coins, Player->CurrentBet);
+    }
 
     for (int i = 0; i < 2; i++)
     {
-        
-
         UCard* PlayerCard = Dealer->DrawCard();
         if (!PlayerCard)
         {
@@ -106,18 +108,10 @@ void ABlackjackGameMode::StartGame()
                 DealerCardActor->SetFaceUp(true); // 두 번째 딜러 카드는 앞면
             }
         }
-
-
     }
-
-    /*UE_LOG(LogTemp, Warning, TEXT("StartGame(): Player=%d"),
-        Player->GetHandValue());*/
 
     CurrentState = EGameState::PlayerTurn;
 }
-
-
-
 
 void ABlackjackGameMode::PlayerHit()
 {
@@ -134,13 +128,9 @@ void ABlackjackGameMode::PlayerHit()
             NewCardActor->SetFaceUp(true);
         }
 
-        /*UE_LOG(LogTemp, Warning, TEXT("PlayerHit(): Player=%d"),
-            Player->GetHandValue());*/
-
         // 플레이어가 버스트(21 초과)인지 확인
         if (Player->GetHandValue(0) > 21)
         {
-            //UE_LOG(LogTemp, Warning, TEXT("Player Busts! Dealer Wins."));
             GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Busts! Dealer Wins."));
             PlayerStand();  // 자동으로 딜러 턴으로 넘어감
         }
@@ -187,20 +177,28 @@ void ABlackjackGameMode::PlayerStand()
     }
 
     // 🔹 결과 판정
+    FString ResultMessage;
     int32 PlayerValue = Player->GetHandValue(0);
     int32 DealerValue = Dealer->GetHandValue();
 
     if (DealerValue > 21 || PlayerValue > DealerValue)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Wins!"));
+        ResultMessage = "Player Wins!";
     }
     else if (PlayerValue == DealerValue)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("It's a Tie!"));
+        ResultMessage = "It's a Tie!";
     }
     else
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("Dealer Wins!"));
+        ResultMessage = "Dealer Wins!";
+    }
+
+    GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, *ResultMessage);
+
+    if (BlackjackHUD)
+    {
+        BlackjackHUD->UpdateMessageText(ResultMessage); // ✅ UI 메시지 업데이트
     }
 }
 
@@ -208,7 +206,7 @@ void ABlackjackGameMode::CreateHUD()
 {
     if (BlackjackHUDClass)
     {
-        BlackjackHUD = CreateWidget<UUserWidget>(GetWorld(), BlackjackHUDClass);
+        BlackjackHUD = CreateWidget<UBlackjackHUD>(GetWorld(), BlackjackHUDClass);
         if (BlackjackHUD)
         {
             BlackjackHUD->AddToViewport();
@@ -234,3 +232,9 @@ void ABlackjackGameMode::PlayerSplit()
     Player->Split();
     GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Split!"));
 }
+
+void ABlackjackGameMode::UpdatePlayerInfo(int32 NewCoins, int32 NewBet)
+{
+    OnPlayerInfoUpdated.Broadcast(NewCoins, NewBet);
+}
+

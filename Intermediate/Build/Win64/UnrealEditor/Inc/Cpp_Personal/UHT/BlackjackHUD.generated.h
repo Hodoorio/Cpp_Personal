@@ -22,7 +22,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOnBet10Clicked); \
 	DECLARE_FUNCTION(execOnSplitClicked); \
 	DECLARE_FUNCTION(execOnStandClicked); \
-	DECLARE_FUNCTION(execOnHitClicked);
+	DECLARE_FUNCTION(execOnHitClicked); \
+	DECLARE_FUNCTION(execUpdateMessageText); \
+	DECLARE_FUNCTION(execUpdatePlayerInfo);
 
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_10_INCLASS_NO_PURE_DECLS \

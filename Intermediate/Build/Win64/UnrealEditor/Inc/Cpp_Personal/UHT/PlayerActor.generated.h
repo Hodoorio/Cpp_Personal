@@ -15,14 +15,14 @@ class UCard;
 #endif
 #define CPP_PERSONAL_PlayerActor_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_11_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_12_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FHand_Statics; \
 	CPP_PERSONAL_API static class UScriptStruct* StaticStruct();
 
 
 template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FHand>();
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execSplit); \
 	DECLARE_FUNCTION(execCanSplit); \
 	DECLARE_FUNCTION(execGetHandValue); \
@@ -34,7 +34,7 @@ template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FHand>();
 	DECLARE_FUNCTION(execInitializeCoins);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerActor(); \
 	friend struct Z_Construct_UClass_APlayerActor_Statics; \
@@ -43,7 +43,7 @@ public: \
 	DECLARE_SERIALIZER(APlayerActor)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	APlayerActor(APlayerActor&&); \
@@ -55,13 +55,13 @@ public: \
 	NO_API virtual ~APlayerActor();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_17_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_18_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_20_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
