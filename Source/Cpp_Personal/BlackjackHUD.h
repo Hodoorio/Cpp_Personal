@@ -4,6 +4,9 @@
 #include "Blueprint/UserWidget.h"
 #include "BlackjackHUD.generated.h"
 
+// 🟢 전방 선언: "BlackjackGameMode.h"를 직접 포함하지 않음
+class ABlackjackGameMode;
+
 UCLASS()
 class CPP_PERSONAL_API UBlackjackHUD : public UUserWidget
 {
@@ -14,7 +17,32 @@ public:
     void UpdatePlayerInfo(int32 PlayerCoins, int32 CurrentBet);
 
     UFUNCTION(BlueprintCallable, Category = "Blackjack UI")
-    void UpdateMessageText(const FString& Message);
+    void UpdateMessageText(const FString& Message, float TextSize = 250.0f);  // 텍스트 크기 파라미터 추가
+
+    UFUNCTION(BlueprintCallable, Category = "Blackjack UI")
+    void InitializeUI(int32 StartingCoins);
+
+    UFUNCTION(BlueprintCallable, Category = "Blackjack UI")
+    void NextGame();
+
+    // UI 버튼 활성화/비활성화 함수
+    UFUNCTION(BlueprintCallable)
+    void SetActionButtonsEnabled(bool bEnabled);
+
+    UFUNCTION(BlueprintCallable)
+    void SetBetButtonsEnabled(bool bEnabled);
+
+    // 🔹 에이스 선택 버튼 UI 표시
+    UFUNCTION(BlueprintCallable)
+    void ShowAceChoice();
+
+    // 🔹 에이스 버튼 숨김
+    UFUNCTION(BlueprintCallable)
+    void HideAceChoice();
+
+    // 점수 업데이트 함수
+    UFUNCTION(BlueprintCallable)
+    void UpdateScores(const FString& PlayerScore, const FString& DealerScore);
 
 
 public:
@@ -25,7 +53,6 @@ public:
     UPROPERTY(meta = (BindWidget))
     class UTextBlock* TXT_BetAmount;
 
-    // 게임 승패 표시
     UPROPERTY(meta = (BindWidget))
     class UTextBlock* TXT_Message;
 
@@ -54,6 +81,25 @@ public:
     UPROPERTY(meta = (BindWidget))
     class UButton* BTN_Bet;
 
+    // 🔹 A 선택 버튼
+    UPROPERTY(meta = (BindWidget))
+    class UButton* BTN_AceAsOne;
+
+    UPROPERTY(meta = (BindWidget))
+    class UButton* BTN_AceAsEleven;
+
+    // A 예시 이미지
+    UPROPERTY(meta = (BindWidget))
+    class UImage* Ace_Image;
+
+    // 플레이어 점수 UI
+    UPROPERTY(meta = (BindWidget))
+    class UTextBlock* TXT_PlayerScore;  
+
+    // 딜러 점수 UI
+    UPROPERTY(meta = (BindWidget))
+    class UTextBlock* TXT_DealerScore;  
+
 protected:
     virtual void NativeConstruct() override;
 
@@ -81,4 +127,11 @@ private:
 
     UFUNCTION()
     void OnBetClicked();
+
+    void OnAceAsOneClicked();
+
+    void OnAceAsElevenClicked();
+
+private:
+    ABlackjackGameMode* GameMode;
 };

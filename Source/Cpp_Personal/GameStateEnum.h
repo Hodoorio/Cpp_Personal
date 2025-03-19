@@ -10,5 +10,7 @@ enum class EGameState : uint8
     WaitingForBet   UMETA(DisplayName = "Waiting For Bet"),
     PlayerTurn      UMETA(DisplayName = "Player Turn"),
     DealerTurn      UMETA(DisplayName = "Dealer Turn"),
-    GameOver        UMETA(DisplayName = "Game Over")
+    GameOver        UMETA(DisplayName = "Game Over"),
+    Betting        UMETA(DisplayName = "Betting")
+
 };

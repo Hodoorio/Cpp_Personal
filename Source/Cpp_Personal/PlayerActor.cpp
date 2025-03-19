@@ -43,9 +43,9 @@ bool APlayerActor::PlaceBet(int32 BetAmount)
 
         // ✅ GameMode의 이벤트를 호출하여 UI 업데이트
         ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
-        if (GameMode)
+        if (GameMode && GameMode->BlackjackHUD)
         {
-            GameMode->UpdatePlayerInfo(Coins, CurrentBet);
+            GameMode->BlackjackHUD->UpdatePlayerInfo(Coins, CurrentBet);
         }
 
         return true;
@@ -58,6 +58,12 @@ void APlayerActor::MaxBet()
 {
     CurrentBet += Coins;
     Coins = 0;
+
+    ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
+    if (GameMode && GameMode->BlackjackHUD)
+    {
+        GameMode->BlackjackHUD->UpdatePlayerInfo(Coins, CurrentBet);
+    }
 }
 
 // 🎉 승리 시 배팅 금액의 2배 획득
@@ -85,25 +91,27 @@ void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
 // 🏆 현재 핸드의 총 점수 계산
 int32 APlayerActor::GetHandValue(int32 HandIndex) const
 {
-    if (HandIndex < 0 || HandIndex >= Hands.Num()) return 0;
+    if (Hands.Num() == 0) return 0;
 
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
-    for (const UCard* Card : Hands[HandIndex].Cards)
+    for (UCard* Card : Hands)
     {
-        if (Card)
-        {
-            int32 CardValue = Card->GetCardValue();
-            TotalValue += CardValue;
+        if (!Card) continue;
 
-            if (Card->Rank == ERank::Ace)
-            {
-                AceCount++;
-            }
+        int32 CardValue = Card->Value;
+
+        if (Card->Rank == ERank::Ace)
+        {
+            AceCount++;
+            CardValue = 11;  // 기본적으로 11로 처리
         }
+
+        TotalValue += CardValue;
     }
 
+    // 🎯 Ace 조정 (21 초과 시 1로 변환)
     while (TotalValue > 21 && AceCount > 0)
     {
         TotalValue -= 10;
@@ -112,6 +120,7 @@ int32 APlayerActor::GetHandValue(int32 HandIndex) const
 
     return TotalValue;
 }
+
 
 // ✂ 스플릿 가능 여부 확인
 bool APlayerActor::CanSplit() const
@@ -132,4 +141,16 @@ bool APlayerActor::Split()
     Hands[0].Cards.RemoveAt(1);
 
     return true;
+}
+
+void APlayerActor::SetAceValue(int32 NewValue)
+{
+    for (UCard* Card : Hands[0].Cards)
+    {
+        if (Card->Rank == ERank::Ace)
+        {
+            Card->Value = NewValue;
+            return;
+        }
+    }
 }

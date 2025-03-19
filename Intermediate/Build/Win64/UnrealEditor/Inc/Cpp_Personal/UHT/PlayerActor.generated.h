@@ -23,6 +23,7 @@ class UCard;
 template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FHand>();
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetAceValue); \
 	DECLARE_FUNCTION(execSplit); \
 	DECLARE_FUNCTION(execCanSplit); \
 	DECLARE_FUNCTION(execGetHandValue); \

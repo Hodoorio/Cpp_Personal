@@ -76,4 +76,7 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Player")
     bool Split();
+
+    UFUNCTION(BlueprintCallable, Category = "Player")
+    void SetAceValue(int32 NewValue);
 };

@@ -32,6 +32,8 @@ struct Z_Construct_UEnum_Cpp_Personal_EGameState_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "Betting.DisplayName", "Betting" },
+		{ "Betting.Name", "EGameState::Betting" },
 		{ "BlueprintType", "true" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xea\xb2\x8c\xec\x9e\x84 \xec\x83\x81\xed\x83\x9c Enum\n" },
@@ -55,6 +57,7 @@ struct Z_Construct_UEnum_Cpp_Personal_EGameState_Statics
 		{ "EGameState::PlayerTurn", (int64)EGameState::PlayerTurn },
 		{ "EGameState::DealerTurn", (int64)EGameState::DealerTurn },
 		{ "EGameState::GameOver", (int64)EGameState::GameOver },
+		{ "EGameState::Betting", (int64)EGameState::Betting },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
@@ -84,10 +87,10 @@ UEnum* Z_Construct_UEnum_Cpp_Personal_EGameState()
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_GameStateEnum_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ EGameState_StaticEnum, TEXT("EGameState"), &Z_Registration_Info_UEnum_EGameState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1497492983U) },
+		{ EGameState_StaticEnum, TEXT("EGameState"), &Z_Registration_Info_UEnum_EGameState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3021376259U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_GameStateEnum_h_3084374694(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_GameStateEnum_h_119490198(TEXT("/Script/Cpp_Personal"),
 	nullptr, 0,
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_GameStateEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_GameStateEnum_h_Statics::EnumInfo));

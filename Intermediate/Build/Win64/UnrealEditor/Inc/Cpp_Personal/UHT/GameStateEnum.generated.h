@@ -23,7 +23,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EGameState::WaitingForBet) \
 	op(EGameState::PlayerTurn) \
 	op(EGameState::DealerTurn) \
-	op(EGameState::GameOver) 
+	op(EGameState::GameOver) \
+	op(EGameState::Betting) 
 
 enum class EGameState : uint8;
 template<> struct TIsUEnumClass<EGameState> { enum { Value = true }; };

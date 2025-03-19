@@ -4,6 +4,7 @@ UCard::UCard()
 {
     Suit = ESuit::Hearts;
     Rank = ERank::Ace;
+    InitializeValue();
 }
 
 // 카드의 점수를 반환하는 함수 (Ace는 기본 11로 설정)
@@ -38,4 +39,20 @@ FString UCard::ToString() const
     FString RankString = RankEnum->GetNameStringByValue((int64)Rank);
 
     return RankString + TEXT(" of ") + SuitString;
+}
+
+void UCard::InitializeValue()
+{
+    if (Rank >= ERank::Two && Rank <= ERank::Ten)
+    {
+        Value = static_cast<int32>(Rank) + 1;  // 2~10
+    }
+    else if (Rank >= ERank::Jack && Rank <= ERank::King)
+    {
+        Value = 10;  // J, Q, K는 10점
+    }
+    else if (Rank == ERank::Ace)
+    {
+        Value = 11;  // 기본적으로 A는 11점 (플레이어가 선택 가능)
+    }
 }

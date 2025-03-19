@@ -2,16 +2,21 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Blueprint/UserWidget.h"
-#include "PlayerActor.h"
-#include "DealerActor.h"
-#include "TableActor.h"
-#include "BlackjackHUD.h"
 #include "GameStateEnum.h"
 #include "BlackjackGameMode.generated.h"
 
+// 🟢 **전방 선언 (Forward Declaration)** → #include 제거
+class APlayerActor;
+class ADealerActor;
+class ATableActor;
+class UBlackjackHUD;
+class UUserWidget;
+
+// 🎲 UI 업데이트 이벤트
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerInfoUpdated, int32, Coins, int32, BetAmount);
 
+// 플레이어와 딜러 점수 이벤트
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnScoreUpdated, int32, PlayerScore, int32, DealerScore);
 UCLASS()
 class CPP_PERSONAL_API ABlackjackGameMode : public AGameModeBase
 {
@@ -24,38 +29,11 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 🎲 플레이어 정보 갱신 (UI가 이걸 호출하도록 변경)
+    // 🔹 **UI 관련 메서드**
+    void CreateHUD();
     void UpdatePlayerInfo(int32 NewCoins, int32 NewBet);
 
-    // 🔹 UI 생성 함수
-    void CreateHUD();
-
-public:
-    // 현재 턴 정보    
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GameState")
-    EGameState CurrentState;
-
-    // 🎲 블루프린트에서 직접 설정할 변수들
-    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
-    TSubclassOf<APlayerActor> PlayerClass = nullptr;
-
-    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
-    TSubclassOf<ADealerActor> DealerClass = nullptr;
-
-    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
-    TSubclassOf<ATableActor> TableClass = nullptr;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
-    APlayerActor* Player = nullptr;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
-    ADealerActor* Dealer = nullptr;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "BlackjackActor")
-    ATableActor* Table = nullptr;
-
-
-    // 게임 시작 함수
+    // 🔹 **게임 흐름 관련 메서드**
     UFUNCTION(BlueprintCallable, Category = "Game")
     void StartGame();
 
@@ -68,18 +46,76 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Game")
     void PlayerSplit();
 
+    UFUNCTION(BlueprintCallable, Category = "Game")
+    void ConfirmBet();
+
+    UFUNCTION()
+    void HandleAceChoice(int32 ChosenValue);
+
+    // 게임이 끝날 때마다 카드 정리
+    void ClearTableCards();
+
+    // 다음 게임을 위한 리셋 처리
+    void ResetForNextRound();
+
+    // 게임 종료(프로젝트 종료 x) 처리 
+    void EndGame();
+
+    // 게임 오버(코인이 0개 일시) 처리
+    void GameOver();
+
+    // 입력 비활성화 처리
+    void DisablePlayerInput();
+
+    // 입력을 UI모드로 설정
+    void SetInputModeUIOnly();
+
+    // UI 카드 점수 업데이트
+    void UpdateScoresUI();
 
 public:
-    // 🎲 플레이어 정보 업데이트 이벤트 (UI가 이를 감지)
+    // **현재 게임 상태**
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GameState")
+    EGameState CurrentState;
+
+    // **블루프린트에서 설정할 수 있는 클래스 변수**
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<APlayerActor> PlayerClass = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<ADealerActor> DealerClass = nullptr;
+
+    UPROPERTY(EditDefaultsOnly, Category = "BlackjackActor")
+    TSubclassOf<ATableActor> TableClass = nullptr;
+
+    // **실제 인스턴스**
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
+    APlayerActor* Player = nullptr;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
+    ADealerActor* Dealer = nullptr;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
+    ATableActor* Table = nullptr;
+
+public:
+    // 🎲 **플레이어 정보 업데이트 이벤트 (UI 연동)**
     UPROPERTY(BlueprintAssignable, Category = "GameMode|Events")
     FOnPlayerInfoUpdated OnPlayerInfoUpdated;
 
-    // 🔹 UI 위젯 클래스 (블루프린트에서 설정 가능)
+    // **플레이어와 딜러 점수 출력 업데이트 이벤트 (UI 연동)**
+    UPROPERTY(BlueprintAssignable, Category = "GameMode|Events")
+    FOnScoreUpdated OnScoreUpdated;
+
+    // 🔹 **UI 관련 변수**
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-    TSubclassOf<UUserWidget> BlackjackHUDClass;
+    TSubclassOf<UBlackjackHUD> BlackjackHUDClass;  // ✅ `UUserWidget` → `UBlackjackHUD`로 변경
 
-    // 🔹 실제 UI 인스턴스
     UPROPERTY()
-    UBlackjackHUD* BlackjackHUD;
+    UBlackjackHUD* BlackjackHUD;  // ✅ 명확한 타입 지정
 
+    UPROPERTY()
+    FTimerHandle RestartTimerHandle;
+
+    FName GameOverLevelName = "";
 };
