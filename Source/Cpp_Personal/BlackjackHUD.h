@@ -128,8 +128,9 @@ private:
     UFUNCTION()
     void OnBetClicked();
 
+    UFUNCTION()
     void OnAceAsOneClicked();
-
+    UFUNCTION()
     void OnAceAsElevenClicked();
 
 private:

@@ -37,22 +37,34 @@ void UBlackjackHUD::NativeConstruct()
 
 void UBlackjackHUD::ShowAceChoice()
 {
-    if (BTN_AceAsOne) BTN_AceAsOne->SetVisibility(ESlateVisibility::Visible);
-    if (BTN_AceAsEleven) BTN_AceAsEleven->SetVisibility(ESlateVisibility::Visible);
-    if (Ace_Image) Ace_Image->SetVisibility(ESlateVisibility::Visible);
+    /*BTN_AceAsOne->SetVisibility(ESlateVisibility::Visible);
+    BTN_AceAsEleven->SetVisibility(ESlateVisibility::Visible);
+    Ace_Image->SetVisibility(ESlateVisibility::Visible);*/
+
+    BTN_AceAsOne->SetIsEnabled(true);
+    BTN_AceAsEleven->SetIsEnabled(true);
+    Ace_Image->SetIsEnabled(true);
 
     // 🎲 A 선택하는 동안 다른 버튼 비활성화
     SetActionButtonsEnabled(false);
+
+    UE_LOG(LogTemp, Warning, TEXT("A 선택지 활성화"));
 }
 
 void UBlackjackHUD::HideAceChoice()
 {
-    if (BTN_AceAsOne) BTN_AceAsOne->SetVisibility(ESlateVisibility::Hidden);
-    if (BTN_AceAsEleven) BTN_AceAsEleven->SetVisibility(ESlateVisibility::Hidden);
-    if (Ace_Image) Ace_Image->SetVisibility(ESlateVisibility::Hidden);
+    /*BTN_AceAsOne->SetVisibility(ESlateVisibility::Hidden);
+    BTN_AceAsEleven->SetVisibility(ESlateVisibility::Hidden);
+    Ace_Image->SetVisibility(ESlateVisibility::Hidden);*/
+
+    BTN_AceAsOne->SetIsEnabled(false);
+    BTN_AceAsEleven->SetIsEnabled(false);
+    Ace_Image->SetIsEnabled(false);
 
     // 🎲 선택 후 액션 버튼 다시 활성화
     SetActionButtonsEnabled(true);
+
+    UE_LOG(LogTemp, Warning, TEXT("A 선택지 비활성화"));
 }
 
 void UBlackjackHUD::UpdateScores(const FString& PlayerScore, const FString& DealerScore)

@@ -4,6 +4,7 @@
 #include "PlayerActor.h"
 #include "DealerActor.h"
 #include "TableActor.h"
+#include "Deck.h"
 #include "BlackjackHUD.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/PlayerController.h"
@@ -76,89 +77,94 @@ void ABlackjackGameMode::StartGame()
         return;
     }
 
-    if (!Dealer->Deck)
+    // ✅ Hands 배열 초기화
+    Player->Hands.Empty();
+    Dealer->Hands.Empty();
+
+    Player->Hands.Add(FHand()); // ✅ Player의 첫 번째 핸드 추가
+    if (Player->Hands.Num() == 0)
     {
-        UE_LOG(LogTemp, Error, TEXT("StartGame(): Dealer->Deck is NULL! Cannot start the game."));
+        UE_LOG(LogTemp, Error, TEXT("StartGame(): Player의 Hands 배열이 정상적으로 초기화되지 않았습니다!"));
         return;
     }
 
-    // ✅ UI 버튼 상태 변경
-    if (BlackjackHUD)
-    {
-        BlackjackHUD->SetActionButtonsEnabled(true);
-        BlackjackHUD->SetBetButtonsEnabled(false);
-        BlackjackHUD->UpdatePlayerInfo(Player->Coins, Player->CurrentBet);
-    }
+    // ✅ 점수 초기화
+    PlayerScore = 0;
+    DealerScore = 0;
+    PlayerAces = 0;
+    DealerAces = 0;
 
-    if (BlackjackHUD)
-    {
-        BlackjackHUD->UpdateScores(TEXT("0"), TEXT("0"));
-    }
-
-    // ✅ 카드 2장씩 지급
     for (int i = 0; i < 2; i++)
     {
+        // 🎲 플레이어 카드 지급
         UCard* PlayerCard = Dealer->DrawCard();
         if (PlayerCard)
         {
             Player->GiveCardToHand(PlayerCard, 0);
-            ACardActor* PlayerCardActor = Table->SpawnCard(PlayerCard, true, i);
-            if (PlayerCardActor)
-            {
-                PlayerCardActor->SetFaceUp(true);
-            }
-        }
+            PlayerScore += PlayerCard->Value;
 
-        UCard* DealerCard = Dealer->DrawCard();
-        if (DealerCard)
-        {
-            Dealer->GiveCardToHand(DealerCard);
-            ACardActor* DealerCardActor = Table->SpawnCard(DealerCard, false, i);
-            if (DealerCardActor)
+            if (PlayerCard->Rank == ERank::Ace)
             {
-                DealerCardActor->SetFaceUp(i != 0); // 첫 번째 딜러 카드만 뒷면
+                PlayerAces++;
             }
+
+            ACardActor* PlayerCardActor = Table->SpawnCard(PlayerCard, true, i);
+            if (PlayerCardActor) PlayerCardActor->SetFaceUp(true);
         }
     }
+
+    AdjustForAces(PlayerScore, PlayerAces);
     UpdateScoresUI();
 
     CurrentState = EGameState::PlayerTurn;
 }
 
+
+
+
+
+
 void ABlackjackGameMode::PlayerHit()
 {
     if (!Player || !Dealer || !Table) return;
 
+    // ✅ Hands 배열이 비어있는지 체크
+    if (Player->Hands.Num() == 0)
+    {
+        UE_LOG(LogTemp, Error, TEXT("PlayerHit(): Player의 Hands 배열이 비어 있습니다! 카드 지급이 올바르게 되었는지 확인하세요."));
+        return;
+    }
+
     UCard* NewCard = Dealer->DrawCard();
     if (NewCard)
     {
-        Player->GiveCardToHand(NewCard, 0);
-        ACardActor* NewCardActor = Table->SpawnCard(NewCard, true, Player->Hands[0].Cards.Num() - 1);
-        if (NewCardActor)
+        Player->GiveCardToHand(NewCard, 0); // ✅ 여기에서 Hands[0]을 사용하므로, 위에서 체크해야 함
+        PlayerScore += NewCard->Value;
+
+        if (NewCard->Rank == ERank::Ace)
         {
-            NewCardActor->SetFaceUp(true);
+            PlayerAces++;
         }
+
+        AdjustForAces(PlayerScore, PlayerAces);
+
+        ACardActor* NewCardActor = Table->SpawnCard(NewCard, true, Player->Hands[0].Cards.Num() - 1);
+        if (NewCardActor) NewCardActor->SetFaceUp(true);
 
         UpdateScoresUI();
 
-        // ✅ 새 카드가 A라면 선택할 기회 제공
-        if (NewCard->Rank == ERank::Ace)
-        {
-            if (BlackjackHUD)
-            {
-                BlackjackHUD->ShowAceChoice();  // A 선택 버튼 표시
-            }
-            return;
-        }
-
-        // ✅ 21 초과 시 자동으로 Stand
-        if (Player->GetHandValue(0) > 21)
+        if (PlayerScore > 21)
         {
             GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("Player Busts! Dealer Wins."));
             PlayerStand();
         }
     }
 }
+
+
+
+
+
 
 void ABlackjackGameMode::PlayerStand()
 {
@@ -182,11 +188,12 @@ void ABlackjackGameMode::PlayerStand()
         Table->SpawnCard(DealerCard, false, Dealer->Hands.Num() - 1)->SetFaceUp(true);
     }
 
-    // ✅ 점수 갱신
-    UpdateScoresUI();  
+    // ✅ 딜러 턴 종료 후 점수 업데이트 (최종적으로 한 번만 실행)
+    UpdateScoresUI();
 
     EndGame();
 }
+
 
 void ABlackjackGameMode::ConfirmBet()
 {
@@ -210,20 +217,31 @@ void ABlackjackGameMode::HandleAceChoice(int32 ChosenValue)
 {
     if (!Player) return;
 
-    Player->SetAceValue(ChosenValue); // 🎲 플레이어가 선택한 값으로 A 처리
-
-    if (BlackjackHUD)
+    if (ChosenValue == 1 && PlayerScore > 11)
     {
-        BlackjackHUD->HideAceChoice(); // 🎲 선택 후 UI 숨김
+        PlayerScore -= 10;
+        PlayerAces--;
     }
 
-    // ✅ 선택 후 즉시 점수 확인
-    if (Player->GetHandValue(0) > 21)
+    UpdateScoresUI();
+
+    if (PlayerScore > 21)
     {
         GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, TEXT("Player Busts! Dealer Wins."));
         PlayerStand();
     }
 }
+
+
+void ABlackjackGameMode::AdjustForAces(int32& Score, int32& Aces)
+{
+    while (Score > 21 && Aces > 0)
+    {
+        Score -= 10;
+        Aces--;
+    }
+}
+
 
 void ABlackjackGameMode::PlayerSplit()
 {
@@ -256,7 +274,7 @@ void ABlackjackGameMode::EndGame()
     int32 PlayerValue = Player->GetHandValue(0);
     int32 DealerValue = Dealer->GetHandValue();
 
-    if (PlayerValue > 21) // ✅ 플레이어가 버스트
+    if (PlayerValue > 21)
     {
         ResultMessage = "Dealer Wins!";
     }
@@ -285,11 +303,14 @@ void ABlackjackGameMode::EndGame()
 
     Player->CurrentBet = 0;
 
-    // ✅ 사용된 카드 정리
+    // ✅ 카드 액터 제거 및 손패 초기화 추가
     ClearTableCards();
+    Player->ClearHand();
+    Dealer->ClearDealerHand();
 
     GetWorldTimerManager().SetTimer(RestartTimerHandle, this, &ABlackjackGameMode::ResetForNextRound, 3.0f, false);
 }
+
 
 void ABlackjackGameMode::ClearTableCards()
 {
@@ -310,13 +331,13 @@ void ABlackjackGameMode::ClearTableCards()
     }
 }
 
+
+
 void ABlackjackGameMode::ResetForNextRound()
 {
     if (Player->Coins <= 0)
     {
-
         BlackjackHUD->UpdateMessageText("Game Over! No more coins left.", 100.0f);
-        //GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Game Over! No more coins left."));
         return;
     }
 
@@ -327,10 +348,21 @@ void ABlackjackGameMode::ResetForNextRound()
         BlackjackHUD->SetActionButtonsEnabled(false);
     }
 
+    // ✅ 플레이어와 딜러 핸드 초기화
     Player->Hands.Empty();
     Dealer->Hands.Empty();
+
+    // ✅ 테이블 위의 카드 제거
+    ClearTableCards();
+
+    // ✅ 덱을 다시 생성하고 셔플
+    Deck->InitializeDeck();
+    Deck->ShuffleDeck();
+
     CurrentState = EGameState::Betting;
 }
+
+
 
 void ABlackjackGameMode::GameOver()
 {
@@ -370,24 +402,22 @@ void ABlackjackGameMode::SetInputModeUIOnly()
 
 void ABlackjackGameMode::UpdateScoresUI()
 {
-    if (!BlackjackHUD || !Player || !Dealer) return;
+    if (!BlackjackHUD) return;
 
-    // 🎯 플레이어 점수 계산
-    int32 PlayerScore = Player->GetHandValue(0);
     FString PlayerScoreText = FString::Printf(TEXT("Player: %d"), PlayerScore);
+    FString DealerScoreText = CurrentState == EGameState::PlayerTurn
+        ? TEXT("Dealer: ?")
+        : FString::Printf(TEXT("Dealer: %d"), DealerScore);
 
-    // 🎯 딜러 점수 계산 (첫 번째 카드만 표시)
-    FString DealerScoreText = TEXT("Dealer: ?");
-
-    if (Dealer->Hands.Num() > 0)  // 🚨 배열 크기 체크 추가
-    {
-        int32 DealerFirstCardValue = Dealer->Hands[0]->Value;
-        DealerScoreText = FString::Printf(TEXT("Dealer: %d"), DealerFirstCardValue);
-    }
-
-    // 🎯 UI 업데이트
     BlackjackHUD->UpdateScores(PlayerScoreText, DealerScoreText);
 }
+
+
+
+
+
+
+
 
 
 

@@ -57,30 +57,62 @@ void ADealerActor::GiveCardToHand(UCard* NewCard)
 }
 
 // 🏆 현재 핸드의 총 점수 계산
-int32 ADealerActor::GetHandValue() const
+int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
 {
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
-    for (const UCard* Card : Hands)
-    {
-        if (Card)
-        {
-            int32 CardValue = Card->GetCardValue();
-            TotalValue += CardValue;
+    UE_LOG(LogTemp, Warning, TEXT("===== 딜러 핸드 점수 계산 ====="));
 
-            if (Card->Rank == ERank::Ace)
-            {
-                AceCount++;
-            }
+    for (int32 i = 0; i < Hands.Num(); i++)
+    {
+        if (!bIncludeHiddenCard && i == 0)  // 첫 번째 카드는 숨김
+        {
+            UE_LOG(LogTemp, Warning, TEXT("딜러 첫 번째 카드는 숨겨짐"));
+            continue;
         }
+
+        UCard* Card = Hands[i];
+        if (!Card) continue; // NULL 체크
+
+        int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;
+
+        if (Card->Rank == ERank::Ace)
+        {
+            CardValue = 11;
+            AceCount++;
+        }
+
+        TotalValue += CardValue;
+
+        // ✅ 카드 정보 로그 출력
+        FString SuitString;
+        switch (Card->Suit)
+        {
+        case ESuit::Hearts:   SuitString = "Hearts"; break;
+        case ESuit::Diamonds: SuitString = "Diamonds"; break;
+        case ESuit::Clubs:    SuitString = "Clubs"; break;
+        case ESuit::Spades:   SuitString = "Spades"; break;
+        }
+        UE_LOG(LogTemp, Warning, TEXT("딜러 카드: %s %d -> 점수: %d , %d줄"), *SuitString, static_cast<int32>(Card->Rank) + 1, CardValue, i);
     }
 
+    // 🎯 Ace 조정 (21 초과 시 1로 변환)
     while (TotalValue > 21 && AceCount > 0)
     {
         TotalValue -= 10;
         AceCount--;
     }
 
+    UE_LOG(LogTemp, Warning, TEXT("총 점수: %d"), TotalValue);
     return TotalValue;
+}
+
+
+
+
+void ADealerActor::ClearDealerHand()
+{
+    Hands.Empty();  // ✅ 딜러 카드 초기화
+    UE_LOG(LogTemp, Warning, TEXT("ClearDealerHand(): 딜러 손패 초기화 완료"));
 }

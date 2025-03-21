@@ -133,6 +133,64 @@ DEFINE_FUNCTION(UBlackjackHUD::execNextGame)
 }
 // End Class UBlackjackHUD Function NextGame
 
+// Begin Class UBlackjackHUD Function OnAceAsElevenClicked
+struct Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BlackjackHUD.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlackjackHUD, nullptr, "OnAceAsElevenClicked", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UBlackjackHUD::execOnAceAsElevenClicked)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnAceAsElevenClicked();
+	P_NATIVE_END;
+}
+// End Class UBlackjackHUD Function OnAceAsElevenClicked
+
+// Begin Class UBlackjackHUD Function OnAceAsOneClicked
+struct Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BlackjackHUD.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlackjackHUD, nullptr, "OnAceAsOneClicked", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UBlackjackHUD::execOnAceAsOneClicked)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnAceAsOneClicked();
+	P_NATIVE_END;
+}
+// End Class UBlackjackHUD Function OnAceAsOneClicked
+
 // Begin Class UBlackjackHUD Function OnBet100Clicked
 struct Z_Construct_UFunction_UBlackjackHUD_OnBet100Clicked_Statics
 {
@@ -667,6 +725,8 @@ void UBlackjackHUD::StaticRegisterNativesUBlackjackHUD()
 		{ "HideAceChoice", &UBlackjackHUD::execHideAceChoice },
 		{ "InitializeUI", &UBlackjackHUD::execInitializeUI },
 		{ "NextGame", &UBlackjackHUD::execNextGame },
+		{ "OnAceAsElevenClicked", &UBlackjackHUD::execOnAceAsElevenClicked },
+		{ "OnAceAsOneClicked", &UBlackjackHUD::execOnAceAsOneClicked },
 		{ "OnBet100Clicked", &UBlackjackHUD::execOnBet100Clicked },
 		{ "OnBet10Clicked", &UBlackjackHUD::execOnBet10Clicked },
 		{ "OnBet50Clicked", &UBlackjackHUD::execOnBet50Clicked },
@@ -835,6 +895,8 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ &Z_Construct_UFunction_UBlackjackHUD_HideAceChoice, "HideAceChoice" }, // 2557531625
 		{ &Z_Construct_UFunction_UBlackjackHUD_InitializeUI, "InitializeUI" }, // 2614910525
 		{ &Z_Construct_UFunction_UBlackjackHUD_NextGame, "NextGame" }, // 2558579975
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked, "OnAceAsElevenClicked" }, // 351254140
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked, "OnAceAsOneClicked" }, // 3048203745
 		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet100Clicked, "OnBet100Clicked" }, // 847041370
 		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet10Clicked, "OnBet10Clicked" }, // 476698825
 		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet50Clicked, "OnBet50Clicked" }, // 3148846861
@@ -932,10 +994,10 @@ UBlackjackHUD::~UBlackjackHUD() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 817192904U) },
+		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 1342668695U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_4083797738(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_2444059475(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

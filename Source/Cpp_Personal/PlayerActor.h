@@ -79,4 +79,8 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Player")
     void SetAceValue(int32 NewValue);
+
+    UFUNCTION(BlueprintCallable, Category = "Player")
+    void ClearHand();
+
 };

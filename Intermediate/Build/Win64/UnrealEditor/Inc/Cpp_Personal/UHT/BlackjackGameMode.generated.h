@@ -14,15 +14,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CPP_PERSONAL_BlackjackGameMode_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_16_DELEGATE \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_17_DELEGATE \
 CPP_PERSONAL_API void FOnPlayerInfoUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnPlayerInfoUpdated, int32 Coins, int32 BetAmount);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_19_DELEGATE \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_20_DELEGATE \
 CPP_PERSONAL_API void FOnScoreUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnScoreUpdated, int32 PlayerScore, int32 DealerScore);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execHandleAceChoice); \
 	DECLARE_FUNCTION(execConfirmBet); \
 	DECLARE_FUNCTION(execPlayerSplit); \
@@ -31,7 +31,7 @@ CPP_PERSONAL_API void FOnScoreUpdated_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execStartGame);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABlackjackGameMode(); \
 	friend struct Z_Construct_UClass_ABlackjackGameMode_Statics; \
@@ -40,7 +40,7 @@ public: \
 	DECLARE_SERIALIZER(ABlackjackGameMode)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABlackjackGameMode(ABlackjackGameMode&&); \
@@ -52,13 +52,13 @@ public: \
 	NO_API virtual ~ABlackjackGameMode();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_20_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_21_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_23_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -18,6 +18,36 @@ ENGINE_API UClass* Z_Construct_UClass_AActor();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
 
+// Begin Class ADealerActor Function ClearDealerHand
+struct Z_Construct_UFunction_ADealerActor_ClearDealerHand_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Dealer" },
+		{ "ModuleRelativePath", "DealerActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADealerActor_ClearDealerHand_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADealerActor, nullptr, "ClearDealerHand", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_ClearDealerHand_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADealerActor_ClearDealerHand_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ADealerActor_ClearDealerHand()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADealerActor_ClearDealerHand_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ADealerActor::execClearDealerHand)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ClearDealerHand();
+	P_NATIVE_END;
+}
+// End Class ADealerActor Function ClearDealerHand
+
 // Begin Class ADealerActor Function DrawCard
 struct Z_Construct_UFunction_ADealerActor_DrawCard_Statics
 {
@@ -71,6 +101,7 @@ struct Z_Construct_UFunction_ADealerActor_GetHandValue_Statics
 {
 	struct DealerActor_eventGetHandValue_Parms
 	{
+		bool bIncludeHiddenCard;
 		int32 ReturnValue;
 	};
 #if WITH_METADATA
@@ -79,18 +110,27 @@ struct Z_Construct_UFunction_ADealerActor_GetHandValue_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x94\xb9 \xed\x98\x84\xec\x9e\xac \xed\x95\xb8\xeb\x93\x9c\xec\x9d\x98 \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0 \xed\x95\xa8\xec\x88\x98\n" },
 #endif
+		{ "CPP_Default_bIncludeHiddenCard", "true" },
 		{ "ModuleRelativePath", "DealerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xed\x98\x84\xec\x9e\xac \xed\x95\xb8\xeb\x93\x9c\xec\x9d\x98 \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0 \xed\x95\xa8\xec\x88\x98" },
 #endif
 	};
 #endif // WITH_METADATA
+	static void NewProp_bIncludeHiddenCard_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIncludeHiddenCard;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
+void Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard_SetBit(void* Obj)
+{
+	((DealerActor_eventGetHandValue_Parms*)Obj)->bIncludeHiddenCard = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard = { "bIncludeHiddenCard", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(DealerActor_eventGetHandValue_Parms), &Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DealerActor_eventGetHandValue_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers) < 2048);
@@ -107,9 +147,10 @@ UFunction* Z_Construct_UFunction_ADealerActor_GetHandValue()
 }
 DEFINE_FUNCTION(ADealerActor::execGetHandValue)
 {
+	P_GET_UBOOL(Z_Param_bIncludeHiddenCard);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(int32*)Z_Param__Result=P_THIS->GetHandValue();
+	*(int32*)Z_Param__Result=P_THIS->GetHandValue(Z_Param_bIncludeHiddenCard);
 	P_NATIVE_END;
 }
 // End Class ADealerActor Function GetHandValue
@@ -168,6 +209,7 @@ void ADealerActor::StaticRegisterNativesADealerActor()
 {
 	UClass* Class = ADealerActor::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "ClearDealerHand", &ADealerActor::execClearDealerHand },
 		{ "DrawCard", &ADealerActor::execDrawCard },
 		{ "GetHandValue", &ADealerActor::execGetHandValue },
 		{ "GiveCardToHand", &ADealerActor::execGiveCardToHand },
@@ -207,8 +249,9 @@ struct Z_Construct_UClass_ADealerActor_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADealerActor_ClearDealerHand, "ClearDealerHand" }, // 1123122398
 		{ &Z_Construct_UFunction_ADealerActor_DrawCard, "DrawCard" }, // 2161365038
-		{ &Z_Construct_UFunction_ADealerActor_GetHandValue, "GetHandValue" }, // 3833486962
+		{ &Z_Construct_UFunction_ADealerActor_GetHandValue, "GetHandValue" }, // 2735166772
 		{ &Z_Construct_UFunction_ADealerActor_GiveCardToHand, "GiveCardToHand" }, // 4017863481
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -266,10 +309,10 @@ ADealerActor::~ADealerActor() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 2315667260U) },
+		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 423500111U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_1058297243(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_3444586246(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

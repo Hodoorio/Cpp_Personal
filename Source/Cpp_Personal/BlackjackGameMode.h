@@ -11,6 +11,7 @@ class ADealerActor;
 class ATableActor;
 class UBlackjackHUD;
 class UUserWidget;
+class UDeck;
 
 // 🎲 UI 업데이트 이벤트
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerInfoUpdated, int32, Coins, int32, BetAmount);
@@ -51,6 +52,8 @@ public:
 
     UFUNCTION()
     void HandleAceChoice(int32 ChosenValue);
+
+    void AdjustForAces(int32& Score, int32& Aces);
 
     // 게임이 끝날 때마다 카드 정리
     void ClearTableCards();
@@ -98,6 +101,11 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
     ATableActor* Table = nullptr;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
+    UDeck* Deck = nullptr;
+
+
+
 public:
     // 🎲 **플레이어 정보 업데이트 이벤트 (UI 연동)**
     UPROPERTY(BlueprintAssignable, Category = "GameMode|Events")
@@ -118,4 +126,10 @@ public:
     FTimerHandle RestartTimerHandle;
 
     FName GameOverLevelName = "";
+
+private:
+    int32 PlayerScore = 0;
+    int32 DealerScore = 0;
+    int32 PlayerAces = 0; // A 개수 추적
+    int32 DealerAces = 0;
 };

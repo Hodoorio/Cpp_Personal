@@ -137,6 +137,36 @@ DEFINE_FUNCTION(APlayerActor::execCanSplit)
 }
 // End Class APlayerActor Function CanSplit
 
+// Begin Class APlayerActor Function ClearHand
+struct Z_Construct_UFunction_APlayerActor_ClearHand_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "PlayerActor.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerActor_ClearHand_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerActor, nullptr, "ClearHand", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerActor_ClearHand_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerActor_ClearHand_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_APlayerActor_ClearHand()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerActor_ClearHand_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(APlayerActor::execClearHand)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ClearHand();
+	P_NATIVE_END;
+}
+// End Class APlayerActor Function ClearHand
+
 // Begin Class APlayerActor Function GetHandValue
 struct Z_Construct_UFunction_APlayerActor_GetHandValue_Statics
 {
@@ -528,6 +558,7 @@ void APlayerActor::StaticRegisterNativesAPlayerActor()
 	UClass* Class = APlayerActor::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CanSplit", &APlayerActor::execCanSplit },
+		{ "ClearHand", &APlayerActor::execClearHand },
 		{ "GetHandValue", &APlayerActor::execGetHandValue },
 		{ "GiveCardToHand", &APlayerActor::execGiveCardToHand },
 		{ "InitializeCoins", &APlayerActor::execInitializeCoins },
@@ -610,6 +641,7 @@ struct Z_Construct_UClass_APlayerActor_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_APlayerActor_CanSplit, "CanSplit" }, // 2814878181
+		{ &Z_Construct_UFunction_APlayerActor_ClearHand, "ClearHand" }, // 3428092638
 		{ &Z_Construct_UFunction_APlayerActor_GetHandValue, "GetHandValue" }, // 2300102311
 		{ &Z_Construct_UFunction_APlayerActor_GiveCardToHand, "GiveCardToHand" }, // 3769311595
 		{ &Z_Construct_UFunction_APlayerActor_InitializeCoins, "InitializeCoins" }, // 2061368837
@@ -688,10 +720,10 @@ struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_
 		{ FHand::StaticStruct, Z_Construct_UScriptStruct_FHand_Statics::NewStructOps, TEXT("Hand"), &Z_Registration_Info_UScriptStruct_Hand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHand), 3206153688U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 3804951225U) },
+		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 942850038U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_723618527(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_604124340(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);

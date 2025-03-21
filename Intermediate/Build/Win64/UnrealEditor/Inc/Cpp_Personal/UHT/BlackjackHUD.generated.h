@@ -15,6 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define CPP_PERSONAL_BlackjackHUD_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnAceAsElevenClicked); \
+	DECLARE_FUNCTION(execOnAceAsOneClicked); \
 	DECLARE_FUNCTION(execOnBetClicked); \
 	DECLARE_FUNCTION(execOnBetMaxClicked); \
 	DECLARE_FUNCTION(execOnBet100Clicked); \

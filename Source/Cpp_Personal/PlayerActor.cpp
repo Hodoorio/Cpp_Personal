@@ -80,46 +80,78 @@ void APlayerActor::LoseBet()
 }
 
 // 🃏 카드 받기 함수 (핸드 선택 가능)
-void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
+void APlayerActor::GiveCardToHand(UCard* Card, int32 HandIndex)
 {
-    if (NewCard && HandIndex >= 0 && HandIndex < Hands.Num())
+    if (!Card) return;
+
+    // ✅ Hands 배열 체크
+    if (HandIndex < 0 || HandIndex >= Hands.Num())
     {
-        Hands[HandIndex].Cards.Add(NewCard);
+        UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): 유효하지 않은 HandIndex (%d)! Hands 배열 크기: %d"), HandIndex, Hands.Num());
+        return;
     }
+
+    Hands[HandIndex].Cards.Add(Card);
 }
+
 
 // 🏆 현재 핸드의 총 점수 계산
 int32 APlayerActor::GetHandValue(int32 HandIndex) const
 {
-    if (Hands.Num() == 0) return 0;
+    if (Hands.Num() == 0 || HandIndex >= Hands.Num()) return 0;
 
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
-    for (UCard* Card : Hands)
+    const FHand& Hand = Hands[HandIndex];
+
+    UE_LOG(LogTemp, Warning, TEXT("===== 플레이어 핸드 점수 계산 ====="));
+
+    for (UCard* Card : Hand.Cards)
     {
         if (!Card) continue;
 
-        int32 CardValue = Card->Value;
+        int32 CardValue = 0;
 
-        if (Card->Rank == ERank::Ace)
+        if (Card->Rank >= ERank::Jack)
         {
+            CardValue = 10;
+        }
+        else if (Card->Rank == ERank::Ace)
+        {
+            CardValue = 11;
             AceCount++;
-            CardValue = 11;  // 기본적으로 11로 처리
+        }
+        else
+        {
+            CardValue = static_cast<int32>(Card->Rank) + 1;
         }
 
         TotalValue += CardValue;
+
+        // ✅ 개별 카드 점수 로그 출력
+        FString SuitString;
+        switch (Card->Suit)
+        {
+        case ESuit::Hearts:   SuitString = "Hearts"; break;
+        case ESuit::Diamonds: SuitString = "Diamonds"; break;
+        case ESuit::Clubs:    SuitString = "Clubs"; break;
+        case ESuit::Spades:   SuitString = "Spades"; break;
+        }
+        UE_LOG(LogTemp, Warning, TEXT("카드: %s %d -> 점수: %d"), *SuitString, static_cast<int32>(Card->Rank) + 1, CardValue);
     }
 
-    // 🎯 Ace 조정 (21 초과 시 1로 변환)
+    // ✅ Ace(에이스) 조정
     while (TotalValue > 21 && AceCount > 0)
     {
         TotalValue -= 10;
         AceCount--;
     }
 
+    UE_LOG(LogTemp, Warning, TEXT("총 점수: %d"), TotalValue);
     return TotalValue;
 }
+
 
 
 // ✂ 스플릿 가능 여부 확인
@@ -153,4 +185,10 @@ void APlayerActor::SetAceValue(int32 NewValue)
             return;
         }
     }
+}
+
+void APlayerActor::ClearHand()
+{
+    Hands.Empty();  // ✅ 플레이어 카드 초기화
+    UE_LOG(LogTemp, Warning, TEXT("ClearHand(): 플레이어 손패 초기화 완료"));
 }

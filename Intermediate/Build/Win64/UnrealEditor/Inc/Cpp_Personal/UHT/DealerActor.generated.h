@@ -16,6 +16,7 @@ class UCard;
 #define CPP_PERSONAL_DealerActor_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execClearDealerHand); \
 	DECLARE_FUNCTION(execGiveCardToHand); \
 	DECLARE_FUNCTION(execGetHandValue); \
 	DECLARE_FUNCTION(execDrawCard);
