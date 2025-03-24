@@ -64,6 +64,9 @@ public:
     // 게임 종료(프로젝트 종료 x) 처리 
     void EndGame();
 
+    // 딜러 점수 계산 처리
+    void CalculateDealerScore();
+
     // 게임 오버(코인이 0개 일시) 처리
     void GameOver();
 
@@ -125,7 +128,10 @@ public:
     UPROPERTY()
     FTimerHandle RestartTimerHandle;
 
-    FName GameOverLevelName = "";
+    // 블루프린트에서 설정할 수 있는 GameOver 레벨
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Over")
+    TSoftObjectPtr<UWorld> GameOverLevel;
+
 
 private:
     int32 PlayerScore = 0;

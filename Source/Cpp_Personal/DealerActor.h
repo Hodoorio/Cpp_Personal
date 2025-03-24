@@ -6,6 +6,16 @@
 #include "DeckActor.h"
 #include "DealerActor.generated.h"
 
+
+USTRUCT(BlueprintType)
+struct FDealerHand
+{
+    GENERATED_BODY()
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Hand")
+    TArray<UCard*> Cards;  // ✅ 카드 목록
+};
+
 UCLASS()
 class CPP_PERSONAL_API ADealerActor : public AActor
 {
@@ -20,7 +30,8 @@ protected:
 public:
     // 🔹 딜러의 카드 핸드
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer")
-    TArray<UCard*> Hands;
+    //TArray<UCard*> Hands;
+    TArray<FDealerHand> Hands;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dealer")
     ADeckActor* Deck;

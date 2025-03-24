@@ -103,7 +103,7 @@ int32 APlayerActor::GetHandValue(int32 HandIndex) const
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
-    const FHand& Hand = Hands[HandIndex];
+    const FPlayerHand& Hand = Hands[HandIndex];
 
     UE_LOG(LogTemp, Warning, TEXT("===== 플레이어 핸드 점수 계산 ====="));
 
@@ -181,11 +181,12 @@ void APlayerActor::SetAceValue(int32 NewValue)
     {
         if (Card->Rank == ERank::Ace)
         {
-            Card->Value = NewValue;
+            Card->SetAceValue(NewValue);  // ✅ A 카드 값 설정
             return;
         }
     }
 }
+
 
 void APlayerActor::ClearHand()
 {

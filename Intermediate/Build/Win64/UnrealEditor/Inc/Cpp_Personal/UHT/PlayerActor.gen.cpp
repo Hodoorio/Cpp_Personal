@@ -14,26 +14,26 @@ CPP_PERSONAL_API UClass* Z_Construct_UClass_APlayerActor();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_APlayerActor_NoRegister();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UBlackjackHUD_NoRegister();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UCard_NoRegister();
-CPP_PERSONAL_API UScriptStruct* Z_Construct_UScriptStruct_FHand();
+CPP_PERSONAL_API UScriptStruct* Z_Construct_UScriptStruct_FPlayerHand();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
 
-// Begin ScriptStruct FHand
-static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_Hand;
-class UScriptStruct* FHand::StaticStruct()
+// Begin ScriptStruct FPlayerHand
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_PlayerHand;
+class UScriptStruct* FPlayerHand::StaticStruct()
 {
-	if (!Z_Registration_Info_UScriptStruct_Hand.OuterSingleton)
+	if (!Z_Registration_Info_UScriptStruct_PlayerHand.OuterSingleton)
 	{
-		Z_Registration_Info_UScriptStruct_Hand.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FHand, (UObject*)Z_Construct_UPackage__Script_Cpp_Personal(), TEXT("Hand"));
+		Z_Registration_Info_UScriptStruct_PlayerHand.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FPlayerHand, (UObject*)Z_Construct_UPackage__Script_Cpp_Personal(), TEXT("PlayerHand"));
 	}
-	return Z_Registration_Info_UScriptStruct_Hand.OuterSingleton;
+	return Z_Registration_Info_UScriptStruct_PlayerHand.OuterSingleton;
 }
-template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<FHand>()
+template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<FPlayerHand>()
 {
-	return FHand::StaticStruct();
+	return FPlayerHand::StaticStruct();
 }
-struct Z_Construct_UScriptStruct_FHand_Statics
+struct Z_Construct_UScriptStruct_FPlayerHand_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
@@ -50,39 +50,39 @@ struct Z_Construct_UScriptStruct_FHand_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
-		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FHand>();
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FPlayerHand>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FHand_Statics::NewProp_Cards_Inner = { "Cards", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UCard_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FHand_Statics::NewProp_Cards = { "Cards", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FHand, Cards), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Cards_MetaData), NewProp_Cards_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FHand_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHand_Statics::NewProp_Cards_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FHand_Statics::NewProp_Cards,
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FPlayerHand_Statics::NewProp_Cards_Inner = { "Cards", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UCard_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FPlayerHand_Statics::NewProp_Cards = { "Cards", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FPlayerHand, Cards), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Cards_MetaData), NewProp_Cards_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FPlayerHand_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerHand_Statics::NewProp_Cards_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerHand_Statics::NewProp_Cards,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHand_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FHand_Statics::StructParams = {
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerHand_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FPlayerHand_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_Cpp_Personal,
 	nullptr,
 	&NewStructOps,
-	"Hand",
-	Z_Construct_UScriptStruct_FHand_Statics::PropPointers,
-	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHand_Statics::PropPointers),
-	sizeof(FHand),
-	alignof(FHand),
+	"PlayerHand",
+	Z_Construct_UScriptStruct_FPlayerHand_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerHand_Statics::PropPointers),
+	sizeof(FPlayerHand),
+	alignof(FPlayerHand),
 	RF_Public|RF_Transient|RF_MarkAsNative,
 	EStructFlags(0x00000001),
-	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHand_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FHand_Statics::Struct_MetaDataParams)
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerHand_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FPlayerHand_Statics::Struct_MetaDataParams)
 };
-UScriptStruct* Z_Construct_UScriptStruct_FHand()
+UScriptStruct* Z_Construct_UScriptStruct_FPlayerHand()
 {
-	if (!Z_Registration_Info_UScriptStruct_Hand.InnerSingleton)
+	if (!Z_Registration_Info_UScriptStruct_PlayerHand.InnerSingleton)
 	{
-		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_Hand.InnerSingleton, Z_Construct_UScriptStruct_FHand_Statics::StructParams);
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_PlayerHand.InnerSingleton, Z_Construct_UScriptStruct_FPlayerHand_Statics::StructParams);
 	}
-	return Z_Registration_Info_UScriptStruct_Hand.InnerSingleton;
+	return Z_Registration_Info_UScriptStruct_PlayerHand.InnerSingleton;
 }
-// End ScriptStruct FHand
+// End ScriptStruct FPlayerHand
 
 // Begin Class APlayerActor Function CanSplit
 struct Z_Construct_UFunction_APlayerActor_CanSplit_Statics
@@ -660,8 +660,8 @@ struct Z_Construct_UClass_APlayerActor_Statics
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Coins = { "Coins", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Coins), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Coins_MetaData), NewProp_Coins_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_CurrentBet = { "CurrentBet", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, CurrentBet), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentBet_MetaData), NewProp_CurrentBet_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands_Inner = { "Hands", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FHand, METADATA_PARAMS(0, nullptr) }; // 3206153688
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands = { "Hands", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Hands), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hands_MetaData), NewProp_Hands_MetaData) }; // 3206153688
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands_Inner = { "Hands", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPlayerHand, METADATA_PARAMS(0, nullptr) }; // 595892350
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands = { "Hands", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Hands), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hands_MetaData), NewProp_Hands_MetaData) }; // 595892350
 void Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive_SetBit(void* Obj)
 {
 	((APlayerActor*)Obj)->bIsSplitActive = 1;
@@ -717,13 +717,13 @@ APlayerActor::~APlayerActor() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FHand::StaticStruct, Z_Construct_UScriptStruct_FHand_Statics::NewStructOps, TEXT("Hand"), &Z_Registration_Info_UScriptStruct_Hand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FHand), 3206153688U) },
+		{ FPlayerHand::StaticStruct, Z_Construct_UScriptStruct_FPlayerHand_Statics::NewStructOps, TEXT("PlayerHand"), &Z_Registration_Info_UScriptStruct_PlayerHand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerHand), 595892350U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 942850038U) },
+		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 3726575000U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_604124340(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_2369897866(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);

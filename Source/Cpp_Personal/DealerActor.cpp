@@ -42,7 +42,14 @@ UCard* ADealerActor::DrawCard()
         return nullptr;
     }
 
-    Hands.Add(NewCard);
+    // ✅ 핸드가 비어 있으면 추가
+    if (Hands.Num() == 0)
+    {
+        Hands.Add(FDealerHand());
+    }
+
+    // ✅ 딜러 핸드에 카드 추가
+    Hands[0].Cards.Add(NewCard);
     return NewCard;
 }
 
@@ -52,19 +59,31 @@ void ADealerActor::GiveCardToHand(UCard* NewCard)
 {
     if (NewCard)
     {
-        Hands.Add(NewCard);
+        if (Hands.Num() == 0)
+        {
+            Hands.Add(FDealerHand());  // ✅ 첫 번째 핸드 생성
+        }
+        Hands[0].Cards.Add(NewCard);
     }
 }
 
 // 🏆 현재 핸드의 총 점수 계산
 int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
 {
+    if (Hands.Num() == 0 || Hands[0].Cards.Num() == 0)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): Dealer has no cards."));
+        return 0;
+    }
+
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
     UE_LOG(LogTemp, Warning, TEXT("===== 딜러 핸드 점수 계산 ====="));
 
-    for (int32 i = 0; i < Hands.Num(); i++)
+    const FDealerHand& Hand = Hands[0];
+
+    for (int32 i = 0; i < Hand.Cards.Num(); i++)
     {
         if (!bIncludeHiddenCard && i == 0)  // 첫 번째 카드는 숨김
         {
@@ -72,7 +91,7 @@ int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
             continue;
         }
 
-        UCard* Card = Hands[i];
+        UCard* Card = Hand.Cards[i];
         if (!Card) continue; // NULL 체크
 
         int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;

@@ -9,17 +9,21 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class ERank : uint8;
+enum class ESuit : uint8;
 #ifdef CPP_PERSONAL_Card_generated_h
 #error "Card.generated.h already included, missing '#pragma once' in Card.h"
 #endif
 #define CPP_PERSONAL_Card_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execToString); \
-	DECLARE_FUNCTION(execGetCardValue);
+	DECLARE_FUNCTION(execSetAceValue); \
+	DECLARE_FUNCTION(execGetCardValue); \
+	DECLARE_FUNCTION(execSetCard);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCard(); \
 	friend struct Z_Construct_UClass_UCard_Statics; \
@@ -28,7 +32,7 @@ public: \
 	DECLARE_SERIALIZER(UCard)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UCard(UCard&&); \
@@ -40,13 +44,13 @@ public: \
 	NO_API virtual ~UCard();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_10_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_8_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_13_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

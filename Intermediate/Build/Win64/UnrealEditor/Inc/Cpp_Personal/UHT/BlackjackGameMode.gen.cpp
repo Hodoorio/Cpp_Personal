@@ -23,6 +23,7 @@ CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_EGameState();
 CPP_PERSONAL_API UFunction* Z_Construct_UDelegateFunction_Cpp_Personal_OnPlayerInfoUpdated__DelegateSignature();
 CPP_PERSONAL_API UFunction* Z_Construct_UDelegateFunction_Cpp_Personal_OnScoreUpdated__DelegateSignature();
 ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
+ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTimerHandle();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
@@ -464,6 +465,16 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 		{ "ToolTip", "\xe2\x9c\x85 \xeb\xaa\x85\xed\x99\x95\xed\x95\x9c \xed\x83\x80\xec\x9e\x85 \xec\xa7\x80\xec\xa0\x95" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GameOverLevel_MetaData[] = {
+		{ "Category", "Game Over" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 GameOver \xeb\xa0\x88\xeb\xb2\xa8\n" },
+#endif
+		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 GameOver \xeb\xa0\x88\xeb\xb2\xa8" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentState_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_CurrentState;
@@ -479,6 +490,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 	static const UECodeGen_Private::FClassPropertyParams NewProp_BlackjackHUDClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BlackjackHUD;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_RestartTimerHandle;
+	static const UECodeGen_Private::FSoftObjectPropertyParams NewProp_GameOverLevel;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -509,6 +521,7 @@ const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ABl
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUDClass = { "BlackjackHUDClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUDClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UBlackjackHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUDClass_MetaData), NewProp_BlackjackHUDClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUD = { "BlackjackHUD", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUD), Z_Construct_UClass_UBlackjackHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUD_MetaData), NewProp_BlackjackHUD_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_RestartTimerHandle = { "RestartTimerHandle", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, RestartTimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RestartTimerHandle_MetaData), NewProp_RestartTimerHandle_MetaData) }; // 756291145
+const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_GameOverLevel = { "GameOverLevel", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, GameOverLevel), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GameOverLevel_MetaData), NewProp_GameOverLevel_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABlackjackGameMode_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_CurrentState,
@@ -524,6 +537,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABlackjac
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUDClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUD,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_RestartTimerHandle,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_GameOverLevel,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABlackjackGameMode_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABlackjackGameMode_Statics::DependentSingletons[])() = {
@@ -566,10 +580,10 @@ ABlackjackGameMode::~ABlackjackGameMode() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 155311174U) },
+		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 2823297799U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_474511816(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_4200552518(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

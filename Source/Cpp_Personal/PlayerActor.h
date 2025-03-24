@@ -7,12 +7,12 @@
 #include "PlayerActor.generated.h"
 
 USTRUCT(BlueprintType)
-struct FHand
+struct FPlayerHand
 {
     GENERATED_BODY()
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Hand")
-    TArray<UCard*> Cards;
+    TArray<UCard*> Cards;  // ✅ 플레이어 카드 리스트
 };
 
 UCLASS()
@@ -36,7 +36,7 @@ public:
 
     // 🃏 플레이어의 핸드 (기본 & 스플릿)
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
-    TArray<FHand> Hands;
+    TArray<FPlayerHand> Hands;
 
     // ✂ 스플릿 활성화 여부
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")

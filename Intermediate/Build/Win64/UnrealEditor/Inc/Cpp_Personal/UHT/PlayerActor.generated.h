@@ -16,11 +16,11 @@ class UCard;
 #define CPP_PERSONAL_PlayerActor_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_12_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FHand_Statics; \
+	friend struct Z_Construct_UScriptStruct_FPlayerHand_Statics; \
 	CPP_PERSONAL_API static class UScriptStruct* StaticStruct();
 
 
-template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FHand>();
+template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FPlayerHand>();
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execClearHand); \

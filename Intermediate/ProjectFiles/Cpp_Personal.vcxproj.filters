@@ -14,6 +14,8 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <None Include="..\..\1222.txt" />
+    <None Include="..\..\MainMenu.PNG" />
+    <None Include="..\..\Temp.txt" />
     <None Include="..\..\카드 텍스쳐 넘버링규칙.txt" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -97,6 +99,18 @@
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuGameMode.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuGameMode.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuHUD.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuHUD.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.cpp">
