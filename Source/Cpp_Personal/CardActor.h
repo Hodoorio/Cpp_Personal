@@ -8,6 +8,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "CardActor.generated.h"
 
+class UCard;
 UCLASS()
 class CPP_PERSONAL_API ACardActor : public AActor
 {
@@ -44,8 +45,11 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Card")
     void SetFaceUp(bool bIsFaceUp);
 
+    // 카드 데이터 가져오기
+    UCard* GetCard() const;
+
 private:
-    ESuit Suit;
-    ERank Rank;
-    bool bIsFaceUp;
+    ESuit Suit = ESuit::Clubs;
+    ERank Rank = ERank::Ace;
+    bool bIsFaceUp = false;
 };

@@ -5,14 +5,16 @@
 #include "Card.h"
 #include "Deck.generated.h"
 
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, EditInlineNew)
 class CPP_PERSONAL_API UDeck : public UObject
 {
     GENERATED_BODY()
 
 public:
     // 생성자
-    UDeck();
+    UDeck(const FObjectInitializer& ObjectInitializer);
+
+	void BeginPlay();
 
     // 덱에 들어있는 카드 리스트
     UPROPERTY(BlueprintReadOnly, Category = "Deck")

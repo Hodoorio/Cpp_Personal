@@ -35,6 +35,7 @@ void UMainMenuHUD::LoadTargetLevel()
 {
     if (TargetLevel.IsValid())
     {
+        UE_LOG(LogTemp, Warning, TEXT("TargetLevel 유효: %s"), *TargetLevel.GetAssetName());
         UGameplayStatics::OpenLevelBySoftObjectPtr(this, TargetLevel);
     }
     else

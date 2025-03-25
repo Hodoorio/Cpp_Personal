@@ -17,6 +17,8 @@ class UCard;
 #define CPP_PERSONAL_TableActor_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_TableActor_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execClearTableCards); \
+	DECLARE_FUNCTION(execFindCardActor); \
 	DECLARE_FUNCTION(execSpawnCard);
 
 

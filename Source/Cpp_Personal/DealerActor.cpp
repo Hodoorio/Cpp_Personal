@@ -55,15 +55,54 @@ UCard* ADealerActor::DrawCard()
 
 
 // 🃏 카드 추가 함수
+
+//void ADealerActor::GiveCardToHand(UCard* NewCard)
+//{
+//    if (NewCard)
+//    {
+//        if (Hands.Num() == 0)
+//        {
+//            Hands.Add(FDealerHand());  // ✅ 첫 번째 핸드 생성
+//        }
+//        Hands[0].Cards.Add(NewCard);
+//    }
+//}
 void ADealerActor::GiveCardToHand(UCard* NewCard)
 {
-    if (NewCard)
+    if (!NewCard)
     {
-        if (Hands.Num() == 0)
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): NewCard가 NULL입니다."));
+        return;
+    }
+
+    bool bCardAlreadyExists = false;
+
+    // FDealerHand 내부의 카드 배열에서 NewCard를 직접 검색
+    for (const FDealerHand& Hand : Hands)
+    {
+        if (Hand.Cards.Contains(NewCard))
         {
-            Hands.Add(FDealerHand());  // ✅ 첫 번째 핸드 생성
+            bCardAlreadyExists = true;
+            break;
         }
-        Hands[0].Cards.Add(NewCard);
+    }
+
+    if (!bCardAlreadyExists)
+    {
+        // 첫 번째 핸드에 NewCard를 추가
+        if (Hands.Num() > 0)
+        {
+            Hands[0].Cards.Add(NewCard);
+            UE_LOG(LogTemp, Warning, TEXT("딜러 핸드에 새 카드 추가: %s"), *NewCard->GetCardName());
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): Hands 배열이 비어 있습니다."));
+        }
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 카드가 이미 딜러의 핸드에 존재합니다: %s"), *NewCard->GetCardName());
     }
 }
 

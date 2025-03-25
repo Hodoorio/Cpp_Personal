@@ -80,18 +80,34 @@ void APlayerActor::LoseBet()
 }
 
 // 🃏 카드 받기 함수 (핸드 선택 가능)
-void APlayerActor::GiveCardToHand(UCard* Card, int32 HandIndex)
+
+//void APlayerActor::GiveCardToHand(UCard* Card, int32 HandIndex)
+//{
+//    if (!Card) return;
+//
+//    // ✅ Hands 배열 체크
+//    if (HandIndex < 0 || HandIndex >= Hands.Num())
+//    {
+//        UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): 유효하지 않은 HandIndex (%d)! Hands 배열 크기: %d"), HandIndex, Hands.Num());
+//        return;
+//    }
+//
+//    Hands[HandIndex].Cards.Add(Card);
+//}
+
+void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
 {
-    if (!Card) return;
+    if (!NewCard || HandIndex >= Hands.Num()) return;
 
-    // ✅ Hands 배열 체크
-    if (HandIndex < 0 || HandIndex >= Hands.Num())
+    if (!Hands[HandIndex].Cards.Contains(NewCard)) // 중복 추가 방지
     {
-        UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): 유효하지 않은 HandIndex (%d)! Hands 배열 크기: %d"), HandIndex, Hands.Num());
-        return;
+        Hands[HandIndex].Cards.Add(NewCard);
+        UE_LOG(LogTemp, Warning, TEXT("플레이어가 새로운 카드를 받았습니다: %s"), *NewCard->GetCardName());
     }
-
-    Hands[HandIndex].Cards.Add(Card);
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("플레이어 핸드에 이미 포함된 카드입니다: %s"), *NewCard->GetCardName());
+    }
 }
 
 

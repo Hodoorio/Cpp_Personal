@@ -14,9 +14,18 @@ class CPP_PERSONAL_API ATableActor : public AActor
 public:
     ATableActor();
 
-protected:
     virtual void BeginPlay() override;
 
+    // 🔹 카드 배치 함수
+    UFUNCTION(BlueprintCallable, Category = "Table")
+    ACardActor* SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex);
+
+    UFUNCTION(BlueprintCallable, Category = "Cards")
+    ACardActor* FindCardActor(const UCard* Card) const;
+
+    // 🎲 테이블 초기화 (카드 액터 제거)
+    UFUNCTION(BlueprintCallable, Category = "Table")
+    void ClearTableCards();
 public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Table")
     UStaticMeshComponent* TableMesh;
@@ -34,8 +43,9 @@ public:
 
     ACardActor* CardActor = nullptr;
 
-    // 🔹 카드 배치 함수
-    UFUNCTION(BlueprintCallable, Category = "Table")
-    ACardActor* SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardIndex);
+private:
+    // 테이블 위에 있는 카드 액터 목록
+    UPROPERTY()
+    TArray<ACardActor*> CardActors;
 
 };
