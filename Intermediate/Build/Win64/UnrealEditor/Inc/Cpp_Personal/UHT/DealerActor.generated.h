@@ -10,26 +10,27 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UCard;
+class UDeck;
+struct FDealerHand;
 #ifdef CPP_PERSONAL_DealerActor_generated_h
 #error "DealerActor.generated.h already included, missing '#pragma once' in DealerActor.h"
 #endif
 #define CPP_PERSONAL_DealerActor_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_13_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_12_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FDealerHand_Statics; \
 	CPP_PERSONAL_API static class UScriptStruct* StaticStruct();
 
 
 template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FDealerHand>();
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execClearDealerHand); \
-	DECLARE_FUNCTION(execGiveCardToHand); \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetHands); \
 	DECLARE_FUNCTION(execGetHandValue); \
 	DECLARE_FUNCTION(execDrawCard);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADealerActor(); \
 	friend struct Z_Construct_UClass_ADealerActor_Statics; \
@@ -38,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(ADealerActor)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ADealerActor(ADealerActor&&); \
@@ -50,13 +51,13 @@ public: \
 	NO_API virtual ~ADealerActor();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_19_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_21_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_22_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

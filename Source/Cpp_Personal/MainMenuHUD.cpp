@@ -33,13 +33,27 @@ void UMainMenuHUD::OnEndClicked()
 
 void UMainMenuHUD::LoadTargetLevel()
 {
-    if (TargetLevel.IsValid())
+    if (!LevelToLoad.IsEmpty())
     {
-        UE_LOG(LogTemp, Warning, TEXT("TargetLevel 유효: %s"), *TargetLevel.GetAssetName());
-        UGameplayStatics::OpenLevelBySoftObjectPtr(this, TargetLevel);
+        UE_LOG(LogTemp, Warning, TEXT("LoadLevel(): %s 레벨을 로드합니다."), *LevelToLoad);
+        UGameplayStatics::OpenLevel(this, FName(*LevelToLoad));
     }
     else
     {
-        UE_LOG(LogTemp, Warning, TEXT("TargetLevel이 설정되지 않았습니다. 레벨 이동이 생략됩니다."));
+        UE_LOG(LogTemp, Error, TEXT("LoadLevel(): LevelToLoad가 비어 있습니다. 로드를 수행할 수 없습니다."));
     }
 }
+
+
+//void UMainMenuHUD::LoadTargetLevel()
+//{
+//    if (TargetLevel.IsValid())
+//    {
+//        UE_LOG(LogTemp, Warning, TEXT("TargetLevel 유효: %s"), *TargetLevel.GetAssetName());
+//        UGameplayStatics::OpenLevelBySoftObjectPtr(this, TargetLevel);
+//    }
+//    else
+//    {
+//        UE_LOG(LogTemp, Warning, TEXT("TargetLevel이 설정되지 않았습니다. 레벨 이동이 생략됩니다."));
+//    }
+//}

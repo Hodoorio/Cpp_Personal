@@ -12,7 +12,6 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuHUD() {}
 // Begin Cross Module References
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UMainMenuHUD();
 CPP_PERSONAL_API UClass* Z_Construct_UClass_UMainMenuHUD_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
@@ -160,20 +159,20 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "MainMenuHUD.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetLevel_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LevelToLoad_MetaData[] = {
 		{ "Category", "Level" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 \xeb\xa0\x88\xeb\xb2\xa8 \xeb\xb3\x80\xec\x88\x98\n" },
+		{ "Comment", "/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Level\")\n    TSoftObjectPtr<UWorld> TargetLevel;*/" },
 #endif
 		{ "ModuleRelativePath", "MainMenuHUD.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 \xeb\xa0\x88\xeb\xb2\xa8 \xeb\xb3\x80\xec\x88\x98" },
+		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Level\")\n    TSoftObjectPtr<UWorld> TargetLevel;" },
 #endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BTN_Start;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BTN_End;
-	static const UECodeGen_Private::FSoftObjectPropertyParams NewProp_TargetLevel;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_LevelToLoad;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -189,11 +188,11 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_BTN_Start = { "BTN_Start", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuHUD, BTN_Start), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BTN_Start_MetaData), NewProp_BTN_Start_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_BTN_End = { "BTN_End", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuHUD, BTN_End), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BTN_End_MetaData), NewProp_BTN_End_MetaData) };
-const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_TargetLevel = { "TargetLevel", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuHUD, TargetLevel), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetLevel_MetaData), NewProp_TargetLevel_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_LevelToLoad = { "LevelToLoad", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuHUD, LevelToLoad), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LevelToLoad_MetaData), NewProp_LevelToLoad_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainMenuHUD_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_BTN_Start,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_BTN_End,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_TargetLevel,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuHUD_Statics::NewProp_LevelToLoad,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMainMenuHUD_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMainMenuHUD_Statics::DependentSingletons[])() = {
@@ -237,10 +236,10 @@ UMainMenuHUD::~UMainMenuHUD() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMainMenuHUD, UMainMenuHUD::StaticClass, TEXT("UMainMenuHUD"), &Z_Registration_Info_UClass_UMainMenuHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuHUD), 1076689208U) },
+		{ Z_Construct_UClass_UMainMenuHUD, UMainMenuHUD::StaticClass, TEXT("UMainMenuHUD"), &Z_Registration_Info_UClass_UMainMenuHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuHUD), 3572267744U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_3263526478(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_736397309(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -2,21 +2,23 @@
 #include "Card.h"
 #include "Kismet/KismetMathLibrary.h"
 
-UDeck::UDeck(const FObjectInitializer& ObjectInitializer)
-    : Super(ObjectInitializer)
-{
-    // 생성자에서 아무런 추가 로직을 호출하지 않습니다.
-}
+//UDeck::UDeck(const FObjectInitializer& ObjectInitializer)
+//    : Super(ObjectInitializer)
+//{
+//    // 생성자는 객체 생성만 처리
+//    UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
+//}
 
+UDeck::UDeck()
+{
+	// 생성자는 객체 생성만 처리
+	UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
+}
 
 // 덱 초기화 (52장 생성)
 void UDeck::InitializeDeck()
 {
-    if (Cards.Num() > 0)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("InitializeDeck(): 덱이 이미 초기화되었습니다."));
-        return;
-    }
+    Cards.Empty(); // 기존 카드 리스트 초기화
 
     for (int Suit = 0; Suit < 4; ++Suit)
     {
@@ -29,45 +31,32 @@ void UDeck::InitializeDeck()
                 NewCard->SetCard(static_cast<ESuit>(Suit), static_cast<ERank>(Rank));
                 Cards.Add(NewCard);
             }
-            else
-            {
-                UE_LOG(LogTemp, Error, TEXT("InitializeDeck(): NewObject<UCard> 실패! Suit: %d, Rank: %d"), Suit, Rank);
-            }
         }
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("InitializeDeck(): 덱 초기화 완료, 총 카드 수: %d"), Cards.Num());
+    UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 총 카드 수: %d"), Cards.Num());
 }
 
-// 덱 섞기
 void UDeck::ShuffleDeck()
 {
-    if (Cards.Num() <= 1)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("ShuffleDeck(): 카드가 1장 이하이므로 셔플을 생략합니다."));
-        return;
-    }
-
     int32 LastIndex = Cards.Num() - 1;
     for (int32 i = LastIndex; i > 0; --i)
     {
-        int32 SwapIndex = UKismetMathLibrary::RandomIntegerInRange(0, i);
-        Cards.Swap(i, SwapIndex); // 카드 교환
+        int32 SwapIndex = FMath::RandRange(0, i);
+        Cards.Swap(i, SwapIndex);
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("ShuffleDeck(): 덱이 섞였습니다."));
+    UE_LOG(LogTemp, Warning, TEXT("ShuffleDeck(): 덱 섞기 완료."));
 }
 
-// 카드 뽑기
 UCard* UDeck::DrawCard()
 {
     if (Cards.Num() == 0)
     {
-        UE_LOG(LogTemp, Error, TEXT("DrawCard(): 덱이 비어있습니다! 카드를 뽑을 수 없습니다."));
+        UE_LOG(LogTemp, Error, TEXT("DrawCard(): 덱이 비어 있습니다."));
         return nullptr;
     }
 
-    // 덱의 첫 번째 카드를 가져옴
     UCard* DrawnCard = Cards[0];
     Cards.RemoveAt(0);
 

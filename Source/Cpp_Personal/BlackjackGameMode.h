@@ -32,7 +32,7 @@ protected:
 public:
     // 🔹 **UI 관련 메서드**
     void CreateHUD();
-    void UpdatePlayerInfo(int32 NewCoins, int32 NewBet);
+    //void UpdatePlayerInfo(int32 NewCoins, int32 NewBet);
 
     // 🔹 **게임 흐름 관련 메서드**
     UFUNCTION(BlueprintCallable, Category = "Game")
@@ -53,8 +53,9 @@ public:
     UFUNCTION()
     void HandleAceChoice(int32 ChosenValue);
 
-    void AdjustForAces(int32& Score, int32& Aces);
+    void AdjustForAces(int32& Score, int32& AcesCount);
 
+    
     // 게임이 끝날 때마다 카드 정리
     void ClearTableCards();
 
@@ -78,6 +79,8 @@ public:
 
     // UI 카드 점수 업데이트
     void UpdateScoresUI();
+
+	void DealInitialCards();
 
 public:
     // **현재 게임 상태**
@@ -104,7 +107,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
     ATableActor* Table = nullptr;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "BlackjackActor")
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Deck")
     UDeck* Deck = nullptr;
 
 

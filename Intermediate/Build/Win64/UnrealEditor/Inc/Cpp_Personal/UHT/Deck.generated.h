@@ -15,13 +15,13 @@ class UCard;
 #endif
 #define CPP_PERSONAL_Deck_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execDrawCard); \
 	DECLARE_FUNCTION(execShuffleDeck); \
 	DECLARE_FUNCTION(execInitializeDeck);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUDeck(); \
 	friend struct Z_Construct_UClass_UDeck_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(UDeck)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UDeck(UDeck&&); \
@@ -38,17 +38,17 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UDeck); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UDeck); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UDeck) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UDeck) \
 	NO_API virtual ~UDeck();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_8_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_9_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_11_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -1,6 +1,7 @@
 #include "BlackjackHUD.h"
 #include "BlackjackGameMode.h"
 #include "PlayerActor.h"
+#include "Card.h"
 #include "Components/TextBlock.h"
 #include "Components/Button.h"
 #include "Components/Image.h"
@@ -125,6 +126,22 @@ void UBlackjackHUD::InitializeUI(int32 StartingCoins)
     // 🎲 초기에는 베팅 버튼만 활성화, 액션 버튼 비활성화
     SetActionButtonsEnabled(false);
     SetBetButtonsEnabled(true);
+}
+
+void UBlackjackHUD::CheckAndEnableAceButton(UCard* Card)
+{
+    if (Card->Rank == ERank::Ace)
+    {
+        // Ace 선택 버튼 활성화
+        ShowAceChoice();
+        UE_LOG(LogTemp, Warning, TEXT("CheckAndEnableAceButton(): Ace 선택 버튼이 활성화되었습니다."));
+    }
+    else
+    {
+        // Ace가 아닌 경우 버튼 비활성화
+        HideAceChoice();
+        UE_LOG(LogTemp, Warning, TEXT("CheckAndEnableAceButton(): Ace가 아니므로 버튼이 비활성화되었습니다."));
+    }
 }
 
 void UBlackjackHUD::SetActionButtonsEnabled(bool bEnabled)

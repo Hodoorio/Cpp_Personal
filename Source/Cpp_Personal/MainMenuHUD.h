@@ -26,8 +26,11 @@ public:
     class UButton* BTN_End;
 
     // 블루프린트에서 설정할 수 있는 레벨 변수
+    /*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
+    TSoftObjectPtr<UWorld> TargetLevel;*/
+
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Level")
-    TSoftObjectPtr<UWorld> TargetLevel;
+    FString LevelToLoad; // 레벨 이름을 문자열로 저장
 
 
     // 버튼 클릭 시 호출될 함수

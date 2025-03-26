@@ -24,9 +24,12 @@ void ADeckActor::BeginPlay()
 
 UCard* ADeckActor::DrawCard()
 {
-    if (Deck)
+    // Deck 객체가 유효한지 확인
+    if (!Deck)
     {
-        return Deck->DrawCard();
+        UE_LOG(LogTemp, Error, TEXT("DrawCard(): Deck 객체가 NULL입니다!"));
+        return nullptr;
     }
-    return nullptr;
+
+    return Deck->DrawCard();
 }

@@ -6,6 +6,7 @@
 
 // 🟢 전방 선언: "BlackjackGameMode.h"를 직접 포함하지 않음
 class ABlackjackGameMode;
+class UCard;
 
 UCLASS()
 class CPP_PERSONAL_API UBlackjackHUD : public UUserWidget
@@ -21,6 +22,8 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Blackjack UI")
     void InitializeUI(int32 StartingCoins);
+
+    void CheckAndEnableAceButton(UCard* Card);
 
     UFUNCTION(BlueprintCallable, Category = "Blackjack UI")
     void NextGame();

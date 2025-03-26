@@ -97,19 +97,24 @@ void APlayerActor::LoseBet()
 
 void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
 {
-    if (!NewCard || HandIndex >= Hands.Num()) return;
+    // 기본 유효성 검사
+    if (!NewCard)
+    {
+        UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): NewCard가 NULL입니다."));
+        return;
+    }
 
-    if (!Hands[HandIndex].Cards.Contains(NewCard)) // 중복 추가 방지
+    // Hands 배열 초기화 확인 및 카드 추가
+    if (Hands.Num() <= HandIndex)
     {
-        Hands[HandIndex].Cards.Add(NewCard);
-        UE_LOG(LogTemp, Warning, TEXT("플레이어가 새로운 카드를 받았습니다: %s"), *NewCard->GetCardName());
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 지정된 HandIndex(%d)가 유효하지 않으므로 새 Hand를 생성합니다."), HandIndex);
+        Hands.Add(FPlayerHand());
     }
-    else
-    {
-        UE_LOG(LogTemp, Warning, TEXT("플레이어 핸드에 이미 포함된 카드입니다: %s"), *NewCard->GetCardName());
-    }
+
+    Hands[HandIndex].Cards.Add(NewCard); // 카드 추가
+    UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 핸드(%d)에 카드 추가 완료 -> %s"), HandIndex, *NewCard->GetCardName());
+    UE_LOG(LogTemp, Warning, TEXT("현재 핸드(%d)의 카드 수: %d"), HandIndex, Hands[HandIndex].Cards.Num());
 }
-
 
 // 🏆 현재 핸드의 총 점수 계산
 int32 APlayerActor::GetHandValue(int32 HandIndex) const

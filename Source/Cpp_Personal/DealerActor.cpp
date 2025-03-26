@@ -1,5 +1,7 @@
 #include "DealerActor.h"
-#include "Kismet/GameplayStatics.h"
+#include "Deck.h" // UDeck 클래스 포함
+#include "CardActor.h" // ACardActor 클래스 포함
+#include "EngineUtils.h" // TActorIterator 정의 포함
 
 ADealerActor::ADealerActor()
 {
@@ -9,64 +11,36 @@ ADealerActor::ADealerActor()
 void ADealerActor::BeginPlay()
 {
     Super::BeginPlay();
-
-    // 레벨에서 자동으로 `DeckActor` 찾기
-    if (!Deck)
-    {
-        Deck = Cast<ADeckActor>(UGameplayStatics::GetActorOfClass(this, ADeckActor::StaticClass()));
-        if (!Deck)
-        {
-            UE_LOG(LogTemp, Error, TEXT("BeginPlay(): Deck not found! Dealer cannot draw cards."));
-        }
-        else
-        {
-            UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): Deck successfully assigned to Dealer."));
-        }
-    }
 }
 
-
 // 🎴 카드 드로우 함수
-UCard* ADealerActor::DrawCard()
+UCard* ADealerActor::DrawCard(UDeck* Deck)
 {
     if (!Deck)
     {
-        UE_LOG(LogTemp, Error, TEXT("DrawCard(): Deck is NULL! Dealer cannot draw a card."));
+        UE_LOG(LogTemp, Error, TEXT("DrawCard(): Deck이 NULL입니다!"));
         return nullptr;
     }
 
     UCard* NewCard = Deck->DrawCard();
     if (!NewCard)
     {
-        UE_LOG(LogTemp, Error, TEXT("DrawCard(): Failed to draw a card from the deck! Deck may be empty."));
+        UE_LOG(LogTemp, Error, TEXT("DrawCard(): Deck에서 카드를 가져올 수 없습니다."));
         return nullptr;
     }
 
-    // ✅ 핸드가 비어 있으면 추가
     if (Hands.Num() == 0)
     {
-        Hands.Add(FDealerHand());
+        Hands.Add(FDealerHand()); // 첫 번째 핸드 생성
     }
 
-    // ✅ 딜러 핸드에 카드 추가
-    Hands[0].Cards.Add(NewCard);
+    Hands[0].Cards.Add(NewCard); // 카드 추가
+    UE_LOG(LogTemp, Warning, TEXT("DrawCard(): 딜러가 카드를 뽑았습니다 -> Suit: %d, Rank: %d"),
+        static_cast<int32>(NewCard->Suit), static_cast<int32>(NewCard->Rank));
     return NewCard;
 }
 
-
 // 🃏 카드 추가 함수
-
-//void ADealerActor::GiveCardToHand(UCard* NewCard)
-//{
-//    if (NewCard)
-//    {
-//        if (Hands.Num() == 0)
-//        {
-//            Hands.Add(FDealerHand());  // ✅ 첫 번째 핸드 생성
-//        }
-//        Hands[0].Cards.Add(NewCard);
-//    }
-//}
 void ADealerActor::GiveCardToHand(UCard* NewCard)
 {
     if (!NewCard)
@@ -75,63 +49,31 @@ void ADealerActor::GiveCardToHand(UCard* NewCard)
         return;
     }
 
-    bool bCardAlreadyExists = false;
-
-    // FDealerHand 내부의 카드 배열에서 NewCard를 직접 검색
-    for (const FDealerHand& Hand : Hands)
+    if (Hands.Num() == 0)
     {
-        if (Hand.Cards.Contains(NewCard))
-        {
-            bCardAlreadyExists = true;
-            break;
-        }
+        Hands.Add(FDealerHand()); // 첫 번째 핸드 생성
     }
 
-    if (!bCardAlreadyExists)
-    {
-        // 첫 번째 핸드에 NewCard를 추가
-        if (Hands.Num() > 0)
-        {
-            Hands[0].Cards.Add(NewCard);
-            UE_LOG(LogTemp, Warning, TEXT("딜러 핸드에 새 카드 추가: %s"), *NewCard->GetCardName());
-        }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): Hands 배열이 비어 있습니다."));
-        }
-    }
-    else
-    {
-        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 카드가 이미 딜러의 핸드에 존재합니다: %s"), *NewCard->GetCardName());
-    }
+    Hands[0].Cards.Add(NewCard);
+    UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 딜러 핸드에 새 카드 추가 -> %s"), *NewCard->GetCardName());
 }
 
-// 🏆 현재 핸드의 총 점수 계산
+// 🏆 핸드 점수 계산
 int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
 {
-    if (Hands.Num() == 0 || Hands[0].Cards.Num() == 0)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): Dealer has no cards."));
-        return 0;
-    }
-
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
-    UE_LOG(LogTemp, Warning, TEXT("===== 딜러 핸드 점수 계산 ====="));
-
-    const FDealerHand& Hand = Hands[0];
-
-    for (int32 i = 0; i < Hand.Cards.Num(); i++)
+    for (int32 i = 0; i < Hands[0].Cards.Num(); ++i)
     {
-        if (!bIncludeHiddenCard && i == 0)  // 첫 번째 카드는 숨김
+        if (!bIncludeHiddenCard && i == 0) // 첫 번째 카드 숨김 처리
         {
-            UE_LOG(LogTemp, Warning, TEXT("딜러 첫 번째 카드는 숨겨짐"));
+            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 첫 번째 카드는 숨김 처리됨."));
             continue;
         }
 
-        UCard* Card = Hand.Cards[i];
-        if (!Card) continue; // NULL 체크
+        UCard* Card = Hands[0].Cards[i];
+        if (!Card) continue;
 
         int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;
 
@@ -142,35 +84,79 @@ int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
         }
 
         TotalValue += CardValue;
-
-        // ✅ 카드 정보 로그 출력
-        FString SuitString;
-        switch (Card->Suit)
-        {
-        case ESuit::Hearts:   SuitString = "Hearts"; break;
-        case ESuit::Diamonds: SuitString = "Diamonds"; break;
-        case ESuit::Clubs:    SuitString = "Clubs"; break;
-        case ESuit::Spades:   SuitString = "Spades"; break;
-        }
-        UE_LOG(LogTemp, Warning, TEXT("딜러 카드: %s %d -> 점수: %d , %d줄"), *SuitString, static_cast<int32>(Card->Rank) + 1, CardValue, i);
     }
 
-    // 🎯 Ace 조정 (21 초과 시 1로 변환)
+    // Ace 조정
     while (TotalValue > 21 && AceCount > 0)
     {
         TotalValue -= 10;
         AceCount--;
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("총 점수: %d"), TotalValue);
+    UE_LOG(LogTemp, Warning, TEXT("딜러 점수 계산 완료 (공개 여부 %s): %d"),
+        bIncludeHiddenCard ? TEXT("포함됨") : TEXT("숨김"), TotalValue);
     return TotalValue;
 }
 
+// 🃏 카드 공개 처리 함수
+void ADealerActor::SetAllCardsFaceUp()
+{
+    if (Hands.Num() == 0 || Hands[0].Cards.Num() == 0)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("SetAllCardsFaceUp(): 딜러의 손패가 비어 있습니다."));
+        return;
+    }
 
+    for (UCard* Card : Hands[0].Cards)
+    {
+        if (!Card)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("SetAllCardsFaceUp(): NULL 카드를 발견했습니다."));
+            continue;
+        }
 
+        // FindCardActor를 활용하여 액터 검색 및 처리
+        ACardActor* CardActor = FindCardActor(Card);
+        if (CardActor)
+        {
+            CardActor->SetFaceUp(true); // 카드 공개
+            UE_LOG(LogTemp, Warning, TEXT("SetAllCardsFaceUp(): 카드 %s가 공개되었습니다."), *Card->GetCardName());
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("SetAllCardsFaceUp(): 대상 카드 액터를 찾지 못했습니다 -> %s"), *Card->GetCardName());
+        }
+    }
+}
+const TArray<FDealerHand>& ADealerActor::GetHands() const
+{
+    return Hands;
+}
 
+// 손패 초기화
 void ADealerActor::ClearDealerHand()
 {
-    Hands.Empty();  // ✅ 딜러 카드 초기화
-    UE_LOG(LogTemp, Warning, TEXT("ClearDealerHand(): 딜러 손패 초기화 완료"));
+    Hands.Empty();
+    UE_LOG(LogTemp, Warning, TEXT("ClearDealerHand(): 딜러 손패 초기화 완료."));
+}
+
+ACardActor* ADealerActor::FindCardActor(UCard* TargetCard) const
+{
+    if (!GetWorld())
+    {
+        UE_LOG(LogTemp, Error, TEXT("FindCardActor(): GetWorld()가 NULL입니다. 액터 검색이 불가능합니다."));
+        return nullptr;
+    }
+
+    for (TActorIterator<ACardActor> It(GetWorld()); It; ++It)
+    {
+        ACardActor* CardActor = *It;
+        if (CardActor && CardActor->GetCard() == TargetCard)
+        {
+            return CardActor; // 카드와 연결된 액터 반환
+        }
+    }
+
+    UE_LOG(LogTemp, Warning, TEXT("FindCardActor(): 대상 카드를 가진 액터를 찾지 못했습니다 -> %s"), *TargetCard->GetCardName());
+    return nullptr;
 }

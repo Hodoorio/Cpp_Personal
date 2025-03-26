@@ -1,20 +1,22 @@
-#pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Card.h"
-#include "DeckActor.h"
+#include "Card.h" // UCard 클래스
 #include "DealerActor.generated.h"
 
+class UDeck;
+class ACardActor;
 
 USTRUCT(BlueprintType)
 struct FDealerHand
 {
     GENERATED_BODY()
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Hand")
-    TArray<UCard*> Cards;  // ✅ 카드 목록
+public:
+    // 딜러 핸드에 포함된 카드 배열
+    UPROPERTY(BlueprintReadWrite, Category = "Dealer")
+    TArray<UCard*> Cards;
 };
+
 
 UCLASS()
 class CPP_PERSONAL_API ADealerActor : public AActor
@@ -24,32 +26,31 @@ class CPP_PERSONAL_API ADealerActor : public AActor
 public:
     ADealerActor();
 
-protected:
+    // 게임 시작 시 호출
     virtual void BeginPlay() override;
 
-public:
-    // 🔹 딜러의 카드 핸드
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer")
-    //TArray<UCard*> Hands;
-    TArray<FDealerHand> Hands;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dealer")
-    ADeckActor* Deck;
-
-    // 🔹 카드 드로우 함수
+    // 카드 드로우 함수
     UFUNCTION(BlueprintCallable, Category = "Dealer")
-    UCard* DrawCard();
+    UCard* DrawCard(UDeck* Deck);
 
-    // 🔹 현재 핸드의 점수 계산 함수
-    UFUNCTION(BlueprintCallable, Category = "Dealer")
-    int32 GetHandValue(bool bIncludeHiddenCard = true) const; // ✅ 매개변수 추가
-
-
-    // 🃏 카드 추가 함수 (플레이어와 동일한 역할)
-    UFUNCTION(BlueprintCallable, Category = "Dealer")
+    // 카드 추가 함수
     void GiveCardToHand(UCard* NewCard);
 
+    // 핸드 점수 계산
     UFUNCTION(BlueprintCallable, Category = "Dealer")
+    int32 GetHandValue(bool bIncludeHiddenCard = false) const;
+
+    void SetAllCardsFaceUp();
+
+    UFUNCTION(BlueprintCallable, Category = "Dealer")
+    const TArray<FDealerHand>& GetHands() const;
+
+    // 딜러의 손패 초기화
     void ClearDealerHand();
 
+    ACardActor* FindCardActor(UCard* TargetCard) const;
+
+private:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer", meta = (AllowPrivateAccess = "true"))
+    TArray<FDealerHand> Hands;
 };

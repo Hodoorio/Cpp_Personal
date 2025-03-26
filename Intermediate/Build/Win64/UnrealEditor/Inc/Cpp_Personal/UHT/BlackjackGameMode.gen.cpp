@@ -413,7 +413,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 		{ "ModuleRelativePath", "BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Deck_MetaData[] = {
-		{ "Category", "BlackjackActor" },
+		{ "Category", "Deck" },
 		{ "ModuleRelativePath", "BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnPlayerInfoUpdated_MetaData[] = {
@@ -580,10 +580,10 @@ ABlackjackGameMode::~ABlackjackGameMode() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 2823297799U) },
+		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 595837444U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_4200552518(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_2980796961(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
