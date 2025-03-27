@@ -6,6 +6,9 @@
 #include "BlackjackHUD.h"
 #include "PlayerActor.generated.h"
 
+class UDeck;
+class ATableActor;
+
 USTRUCT(BlueprintType)
 struct FPlayerHand
 {
@@ -27,25 +30,8 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // 🎲 플레이어 코인 시스템
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
-    int32 Coins;
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
-    int32 CurrentBet;
-
-    // 🃏 플레이어의 핸드 (기본 & 스플릿)
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
-    TArray<FPlayerHand> Hands;
-
-    // ✂ 스플릿 활성화 여부
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
-    bool bIsSplitActive;
-    
-    // UI 타입 변수 선언 (베팅 금액 업데이트를 위한)
-    UPROPERTY(BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
-    UBlackjackHUD* BlackjackHUD;
-
+    void InitialDeal(UDeck* Deck, ATableActor* Table);
 
     // 🔹 플레이어 기능
     UFUNCTION(BlueprintCallable, Category = "Player")
@@ -56,6 +42,8 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Player")
     void MaxBet();
+
+    void ResetBet();
 
     UFUNCTION(BlueprintCallable, Category = "Player")
     void WinBet();
@@ -82,5 +70,28 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "Player")
     void ClearHand();
+
+
+public:
+    // 🎲 플레이어 코인 시스템
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
+    int32 Coins;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
+    int32 CurrentBet;
+
+    // 🃏 플레이어의 핸드 (기본 & 스플릿)
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
+    TArray<FPlayerHand> Hands;
+
+    // ✂ 스플릿 활성화 여부
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player")
+    bool bIsSplitActive;
+
+    // UI 타입 변수 선언 (베팅 금액 업데이트를 위한)
+    UPROPERTY(BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
+    UBlackjackHUD* BlackjackHUD;
+
+    ABlackjackGameMode* GameMode = nullptr;
 
 };

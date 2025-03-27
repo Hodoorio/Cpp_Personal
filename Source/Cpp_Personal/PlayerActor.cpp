@@ -1,7 +1,9 @@
 #include "PlayerActor.h"
 #include "BlackjackHUD.h"
-#include "Kismet/GameplayStatics.h"
 #include "BlackjackGameMode.h"
+#include "TableActor.h"
+#include "Deck.h"
+#include "Kismet/GameplayStatics.h"
 
 APlayerActor::APlayerActor()
 {
@@ -19,13 +21,44 @@ void APlayerActor::BeginPlay()
     Super::BeginPlay();
 
     // ✅ 게임모드에서 BlackjackHUD 가져오기
-    ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
+    GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
     if (GameMode && GameMode->BlackjackHUD)
     {
         BlackjackHUD = Cast<UBlackjackHUD>(GameMode->BlackjackHUD);
     }
 }
 
+
+void APlayerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
+{
+    if (!Deck || !Table)
+    {
+        UE_LOG(LogTemp, Error, TEXT("InitialDeal(): Deck 또는 Table이 NULL입니다!"));
+        return;
+    }
+
+    if (Hands.Num() == 0)
+    {
+        Hands.Add(FPlayerHand()); // 첫 번째 손패 생성
+    }
+
+    for (int32 i = 0; i < 2; ++i)
+    {
+        UCard* NewCard = Deck->DrawCard();
+        if (NewCard)
+        {
+            GiveCardToHand(NewCard, 0);
+
+            ACardActor* CardActor = Table->SpawnCard(NewCard, true, i);
+            if (CardActor)
+            {
+                CardActor->SetFaceUp(true); // 앞면 표시
+            }
+        }
+    }
+
+    UE_LOG(LogTemp, Warning, TEXT("InitialDeal(): 플레이어가 초기 카드를 배분했습니다. 총 카드 수: %d"), Hands[0].Cards.Num());
+}
 
 // 🎲 플레이어 코인 초기화
 void APlayerActor::InitializeCoins(int32 StartingCoins)
@@ -42,7 +75,6 @@ bool APlayerActor::PlaceBet(int32 BetAmount)
         CurrentBet += BetAmount;
 
         // ✅ GameMode의 이벤트를 호출하여 UI 업데이트
-        ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
         if (GameMode && GameMode->BlackjackHUD)
         {
             GameMode->BlackjackHUD->UpdatePlayerInfo(Coins, CurrentBet);
@@ -59,12 +91,26 @@ void APlayerActor::MaxBet()
     CurrentBet += Coins;
     Coins = 0;
 
-    ABlackjackGameMode* GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(this));
+    
+}
+
+
+void APlayerActor::ResetBet()
+{
+	Coins += CurrentBet; // 코인에 베팅 금액 추가
+    CurrentBet = 0; // 베팅 금액을 0으로 초기화
+
+    // UI 업데이트 (베팅 금액 표시를 0으로 설정)
+        
     if (GameMode && GameMode->BlackjackHUD)
     {
         GameMode->BlackjackHUD->UpdatePlayerInfo(Coins, CurrentBet);
     }
+
+    UE_LOG(LogTemp, Warning, TEXT("ResetBet(): 베팅 금액이 0으로 초기화되었습니다."));
 }
+
+
 
 // 🎉 승리 시 배팅 금액의 2배 획득
 void APlayerActor::WinBet()
@@ -79,21 +125,6 @@ void APlayerActor::LoseBet()
     CurrentBet = 0;
 }
 
-// 🃏 카드 받기 함수 (핸드 선택 가능)
-
-//void APlayerActor::GiveCardToHand(UCard* Card, int32 HandIndex)
-//{
-//    if (!Card) return;
-//
-//    // ✅ Hands 배열 체크
-//    if (HandIndex < 0 || HandIndex >= Hands.Num())
-//    {
-//        UE_LOG(LogTemp, Error, TEXT("GiveCardToHand(): 유효하지 않은 HandIndex (%d)! Hands 배열 크기: %d"), HandIndex, Hands.Num());
-//        return;
-//    }
-//
-//    Hands[HandIndex].Cards.Add(Card);
-//}
 
 void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
 {

@@ -1,6 +1,7 @@
 #include "DealerActor.h"
 #include "Deck.h" // UDeck 클래스 포함
 #include "CardActor.h" // ACardActor 클래스 포함
+#include "TableActor.h" // ATableActor 클래스 포함
 #include "EngineUtils.h" // TActorIterator 정의 포함
 
 ADealerActor::ADealerActor()
@@ -11,6 +12,45 @@ ADealerActor::ADealerActor()
 void ADealerActor::BeginPlay()
 {
     Super::BeginPlay();
+}
+
+void ADealerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
+{
+    if (!Deck || !Table)
+    {
+        UE_LOG(LogTemp, Error, TEXT("InitialDeal(): Deck 또는 Table이 NULL입니다!"));
+        return;
+    }
+
+    Hands.Empty(); // 딜러의 손 초기화
+
+    // 첫 번째 카드: 숨긴 상태로 추가
+    UCard* FirstCard = DrawCard(Deck);
+    if (FirstCard)
+    {
+        GiveCardToHand(FirstCard);
+
+        ACardActor* CardActor = Table->SpawnCard(FirstCard, false, 0); // 숨긴 카드
+        if (CardActor)
+        {
+            CardActor->SetFaceUp(false); // 앞면 숨김
+        }
+    }
+
+    // 두 번째 카드: 공개 상태로 추가
+    UCard* SecondCard = DrawCard(Deck);
+    if (SecondCard)
+    {
+        GiveCardToHand(SecondCard);
+
+        ACardActor* CardActor = Table->SpawnCard(SecondCard, false, 1); // 공개된 카드
+        if (CardActor)
+        {
+            CardActor->SetFaceUp(true); // 앞면 표시
+        }
+    }
+
+    UE_LOG(LogTemp, Warning, TEXT("InitialDeal(): 딜러가 초기 카드를 배분했습니다. 총 카드 수: %d"), Hands.Num());
 }
 
 // 🎴 카드 드로우 함수

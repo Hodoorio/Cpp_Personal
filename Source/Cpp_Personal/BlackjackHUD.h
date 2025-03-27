@@ -81,6 +81,10 @@ public:
     UPROPERTY(meta = (BindWidget))
     class UButton* BTN_BetMax;
 
+    // 베팅 금액 리셋 버튼
+    UPROPERTY(meta = (BindWidget))
+    class UButton* BTN_BetReset;
+
     UPROPERTY(meta = (BindWidget))
     class UButton* BTN_Bet;
 
@@ -101,8 +105,12 @@ public:
 
     // 딜러 점수 UI
     UPROPERTY(meta = (BindWidget))
-    class UTextBlock* TXT_DealerScore;  
+    class UTextBlock* TXT_DealerScore; 
 
+	// 다음 게임 이동 버튼
+    UPROPERTY(meta = (BindWidget))
+    class UButton* BTN_NextGame;
+    
 protected:
     virtual void NativeConstruct() override;
 
@@ -129,12 +137,18 @@ private:
     void OnBetMaxClicked();
 
     UFUNCTION()
+    void OnBetResetClicked();
+
+    UFUNCTION()
     void OnBetClicked();
 
     UFUNCTION()
     void OnAceAsOneClicked();
     UFUNCTION()
     void OnAceAsElevenClicked();
+
+    UFUNCTION()
+    void OnNextGameClicked();
 
 private:
     ABlackjackGameMode* GameMode;

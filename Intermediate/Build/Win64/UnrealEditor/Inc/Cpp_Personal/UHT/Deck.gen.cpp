@@ -164,6 +164,7 @@ struct Z_Construct_UClass_UDeck_Statics
 		{ "IncludePath", "Deck.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Deck.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "UCLASS(Blueprintable, EditInlineNew" },
 #endif
@@ -241,10 +242,10 @@ UDeck::~UDeck() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UDeck, UDeck::StaticClass, TEXT("UDeck"), &Z_Registration_Info_UClass_UDeck, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDeck), 1989089435U) },
+		{ Z_Construct_UClass_UDeck, UDeck::StaticClass, TEXT("UDeck"), &Z_Registration_Info_UClass_UDeck, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDeck), 3488193374U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_4196844699(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_1058471229(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Deck_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

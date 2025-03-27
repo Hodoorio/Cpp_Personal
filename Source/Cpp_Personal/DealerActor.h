@@ -1,3 +1,5 @@
+#pragma once
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h" // UCard 클래스
@@ -5,6 +7,7 @@
 
 class UDeck;
 class ACardActor;
+class ATableActor;
 
 USTRUCT(BlueprintType)
 struct FDealerHand
@@ -29,6 +32,8 @@ public:
     // 게임 시작 시 호출
     virtual void BeginPlay() override;
 
+    void InitialDeal(UDeck* Deck, ATableActor* Table);
+
     // 카드 드로우 함수
     UFUNCTION(BlueprintCallable, Category = "Dealer")
     UCard* DrawCard(UDeck* Deck);
@@ -49,6 +54,7 @@ public:
     void ClearDealerHand();
 
     ACardActor* FindCardActor(UCard* TargetCard) const;
+
 
 private:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer", meta = (AllowPrivateAccess = "true"))

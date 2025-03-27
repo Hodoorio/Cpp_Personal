@@ -2,23 +2,24 @@
 #include "Card.h"
 #include "Kismet/KismetMathLibrary.h"
 
-//UDeck::UDeck(const FObjectInitializer& ObjectInitializer)
-//    : Super(ObjectInitializer)
-//{
-//    // 생성자는 객체 생성만 처리
-//    UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
-//}
-
-UDeck::UDeck()
+UDeck::UDeck(const FObjectInitializer& ObjectInitializer)
+    : Super(ObjectInitializer)
 {
-	// 생성자는 객체 생성만 처리
-	UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
+    // 생성자는 객체 생성만 처리
+    UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
 }
 
-// 덱 초기화 (52장 생성)
+
 void UDeck::InitializeDeck()
 {
-    Cards.Empty(); // 기존 카드 리스트 초기화
+    if (bIsInitialized) // 초기화 여부 확인 플래그
+    {
+        UE_LOG(LogTemp, Warning, TEXT("덱이 이미 초기화되었습니다."));
+        return;
+    }
+
+    bIsInitialized = true; // 초기화 완료 플래그 설정
+    Cards.Empty();
 
     for (int Suit = 0; Suit < 4; ++Suit)
     {
@@ -33,9 +34,10 @@ void UDeck::InitializeDeck()
             }
         }
     }
-
-    UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 총 카드 수: %d"), Cards.Num());
+    UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 카드 수: %d"), Cards.Num());
 }
+
+
 
 void UDeck::ShuffleDeck()
 {

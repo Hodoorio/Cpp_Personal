@@ -19,19 +19,29 @@ void UBlackjackHUD::NativeConstruct()
     if (BTN_Bet50) BTN_Bet50->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBet50Clicked);
     if (BTN_Bet100) BTN_Bet100->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBet100Clicked);
     if (BTN_BetMax) BTN_BetMax->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetMaxClicked);
+    if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetResetClicked);
     if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetClicked);
+
+    // 🔹 A 선택 버튼 바인딩
+    if (BTN_AceAsOne) BTN_AceAsOne->OnClicked.AddDynamic(this, &UBlackjackHUD::OnAceAsOneClicked);
+    if (BTN_AceAsEleven) BTN_AceAsEleven->OnClicked.AddDynamic(this, &UBlackjackHUD::OnAceAsElevenClicked);
+
+    // 다음 게임 버튼 바인딩
+    if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnNextGameClicked);
 
     // ✅ 게임 모드 가져오기
     GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
    
     UpdateMessageText("Place Your Bets!", 120.0f);
 
-    // 🔹 A 선택 버튼 바인딩
-    if (BTN_AceAsOne) BTN_AceAsOne->OnClicked.AddDynamic(this, &UBlackjackHUD::OnAceAsOneClicked);
-    if (BTN_AceAsEleven) BTN_AceAsEleven->OnClicked.AddDynamic(this, &UBlackjackHUD::OnAceAsElevenClicked);
+    
 
     // A 선택 버튼은 기본적으로 숨김
     HideAceChoice();
+
+    
+
+
 }
 
   // Add this include at the top of the file
@@ -239,6 +249,16 @@ void UBlackjackHUD::OnBetMaxClicked()
     }
 }
 
+void UBlackjackHUD::OnBetResetClicked()
+{
+    if (GameMode)
+    {
+        GameMode->Player->ResetBet(); // 베팅 초기화
+    }
+    UE_LOG(LogTemp, Warning, TEXT("OnBetResetButtonClicked(): 베팅 금액 초기화 버튼이 클릭되었습니다."));
+
+}
+
 
 void UBlackjackHUD::OnBetClicked()
 {
@@ -266,4 +286,8 @@ void UBlackjackHUD::OnAceAsElevenClicked()
     {
         GameMode->HandleAceChoice(11);
     }
+}
+
+void UBlackjackHUD::OnNextGameClicked()
+{
 }

@@ -98,6 +98,12 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\FCardDataTableRow.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\GameDataInstance.cpp">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\GameDataInstance.h">
+      <Filter>Source\Cpp_Personal</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>

@@ -53,9 +53,11 @@ public:
     UFUNCTION()
     void HandleAceChoice(int32 ChosenValue);
 
-    void AdjustForAces(int32& Score, int32& AcesCount);
+    void AdjustForAces(int32& Score, int32& AcesCount, int32 ChosenAceValue = 0);
 
-    
+    //void AdjustForAces(int32& Score, int32& AcesCount);
+
+
     // 게임이 끝날 때마다 카드 정리
     void ClearTableCards();
 
@@ -80,7 +82,15 @@ public:
     // UI 카드 점수 업데이트
     void UpdateScoresUI();
 
-	void DealInitialCards();
+    void DealInitialCards();
+
+    void SaveCoins();
+
+    void RestoreCoins();
+
+    void RestartGame();
+
+    void UpdateHighScore();
 
 public:
     // **현재 게임 상태**
@@ -141,4 +151,7 @@ private:
     int32 DealerScore = 0;
     int32 PlayerAces = 0; // A 개수 추적
     int32 DealerAces = 0;
+
+    
+
 };
