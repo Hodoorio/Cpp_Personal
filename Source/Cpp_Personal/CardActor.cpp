@@ -48,34 +48,50 @@ void ACardActor::BeginPlay()
 // ✅ Suit과 Rank에 맞는 텍스처를 찾아서 적용
 void ACardActor::SetCard(ESuit NewSuit, ERank NewRank)
 {
+    // 카드 설정 로그
+    UE_LOG(LogTemp, Warning, TEXT("SetCard(): 호출됨 - Suit: %d, Rank: %d"), static_cast<int32>(NewSuit), static_cast<int32>(NewRank));
+
     Suit = NewSuit;
     Rank = NewRank;
 
+    // 데이터 테이블 초기화 여부 확인
     if (!CardDataTable)
     {
         UE_LOG(LogTemp, Error, TEXT("SetCard(): CardDataTable is NULL."));
         return;
     }
 
-    // 데이터 테이블에서 찾을 수 없는 경우를 처리
-    FString RowKey = FString::Printf(TEXT("%d_%d"), (int32)Suit, (int32)Rank);
+    // RowKey 생성 및 디버깅
+    FString RowKey = FString::Printf(TEXT("%d_%d"), static_cast<int32>(Suit), static_cast<int32>(Rank));
     FName RowName = FName(*RowKey);
+    UE_LOG(LogTemp, Warning, TEXT("SetCard(): 생성된 RowKey -> %s"), *RowKey);
 
+    // 데이터 테이블 조회
     FString ContextString;
     FCardDataTableRow* CardData = CardDataTable->FindRow<FCardDataTableRow>(RowName, ContextString);
 
-    if (!CardData || !CardData->CardTexture)
+    if (!CardData)
     {
-        UE_LOG(LogTemp, Error, TEXT("SetCard(): Failed to find valid data for RowKey %s"), *RowKey);
+        UE_LOG(LogTemp, Error, TEXT("SetCard(): RowKey가 데이터 테이블에 없습니다 -> RowKey: %s"), *RowKey);
         return;
     }
 
-    // 텍스처가 존재할 때만 적용
+    if (!CardData->CardTexture)
+    {
+        UE_LOG(LogTemp, Error, TEXT("SetCard(): RowKey는 유효하지만 텍스처가 없습니다 -> RowKey: %s"), *RowKey);
+        return;
+    }
+
+    // 텍스처 적용 확인
     if (MID)
     {
         MID->SetTextureParameterValue(FName("Card_Image"), CardData->CardTexture);
         CardMesh->SetMaterial(0, MID);
         UE_LOG(LogTemp, Warning, TEXT("SetCard(): Texture applied successfully."));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("SetCard(): MID(Material Instance Dynamic)이 NULL입니다."));
     }
 }
 

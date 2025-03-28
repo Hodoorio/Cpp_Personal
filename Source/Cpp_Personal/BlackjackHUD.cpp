@@ -19,7 +19,7 @@ void UBlackjackHUD::NativeConstruct()
     if (BTN_Bet50) BTN_Bet50->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBet50Clicked);
     if (BTN_Bet100) BTN_Bet100->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBet100Clicked);
     if (BTN_BetMax) BTN_BetMax->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetMaxClicked);
-    if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetResetClicked);
+    if (BTN_BetReset) BTN_BetReset->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetResetClicked);
     if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnBetClicked);
 
     // 🔹 A 선택 버튼 바인딩
@@ -27,7 +27,7 @@ void UBlackjackHUD::NativeConstruct()
     if (BTN_AceAsEleven) BTN_AceAsEleven->OnClicked.AddDynamic(this, &UBlackjackHUD::OnAceAsElevenClicked);
 
     // 다음 게임 버튼 바인딩
-    if (BTN_Bet) BTN_Bet->OnClicked.AddDynamic(this, &UBlackjackHUD::OnNextGameClicked);
+    if (BTN_NextGame) BTN_NextGame->OnClicked.AddDynamic(this, &UBlackjackHUD::OnNextGameClicked);
 
     // ✅ 게임 모드 가져오기
     GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
@@ -39,7 +39,7 @@ void UBlackjackHUD::NativeConstruct()
     // A 선택 버튼은 기본적으로 숨김
     HideAceChoice();
 
-    
+	BTN_NextGame->SetVisibility(ESlateVisibility::Hidden);
 
 
 }
@@ -76,6 +76,12 @@ void UBlackjackHUD::HideAceChoice()
     SetActionButtonsEnabled(true);
 
     UE_LOG(LogTemp, Warning, TEXT("A 선택지 비활성화"));
+}
+
+void UBlackjackHUD::ShowNextGameButton()
+{
+	BTN_NextGame->SetVisibility(ESlateVisibility::Visible);
+	UE_LOG(LogTemp, Warning, TEXT("ShowNextGameButton(): 다음 게임 버튼이 활성화되었습니다."));
 }
 
 void UBlackjackHUD::UpdateScores(const FString& PlayerScore, const FString& DealerScore)
@@ -167,6 +173,7 @@ void UBlackjackHUD::SetBetButtonsEnabled(bool bEnabled)
     BTN_Bet50->SetIsEnabled(bEnabled);
     BTN_Bet100->SetIsEnabled(bEnabled);
     BTN_BetMax->SetIsEnabled(bEnabled);
+	BTN_BetReset->SetIsEnabled(bEnabled);
     BTN_Bet->SetIsEnabled(bEnabled);
 }
 
@@ -290,4 +297,17 @@ void UBlackjackHUD::OnAceAsElevenClicked()
 
 void UBlackjackHUD::OnNextGameClicked()
 {
+    UE_LOG(LogTemp, Warning, TEXT("OnNextGameClicked(): '다음 게임' 버튼이 클릭되었습니다."));
+
+    // 게임 모드 참조
+    if (!GameMode)
+    {
+        UE_LOG(LogTemp, Error, TEXT("OnNextGameClicked(): GameMode를 찾을 수 없습니다."));
+        return;
+    }
+
+    // 게임 모드에서 다음 라운드 준비
+    GameMode->RestartGame();
+
+    UE_LOG(LogTemp, Warning, TEXT("OnNextGameClicked(): 다음 게임이 초기화되었습니다."));
 }

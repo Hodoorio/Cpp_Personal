@@ -43,6 +43,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void HideAceChoice();
 
+	UFUNCTION(BlueprintCallable)
+	void ShowNextGameButton();
+
     // 점수 업데이트 함수
     UFUNCTION(BlueprintCallable)
     void UpdateScores(const FString& PlayerScore, const FString& DealerScore);
@@ -111,6 +114,7 @@ public:
     UPROPERTY(meta = (BindWidget))
     class UButton* BTN_NextGame;
     
+
 protected:
     virtual void NativeConstruct() override;
 
@@ -151,5 +155,8 @@ private:
     void OnNextGameClicked();
 
 private:
-    ABlackjackGameMode* GameMode;
+	ABlackjackGameMode* GameMode;  // 게임 모드 변수
+
+    bool bIsGameEnding = false; // EndGame 호출 상태를 저장하는 플래그
+
 };

@@ -517,7 +517,9 @@ void ABlackjackGameMode::EndGame()
     GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, *ResultMessage);
 
     ResetForNextRound();
-    RestartGame();
+    BlackjackHUD->ShowNextGameButton();
+    
+    
     UE_LOG(LogTemp, Warning, TEXT("EndGame(): 다음 라운드로!"));
 
 }

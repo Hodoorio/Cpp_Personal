@@ -21,21 +21,32 @@ void UDeck::InitializeDeck()
     bIsInitialized = true; // 초기화 완료 플래그 설정
     Cards.Empty();
 
-    for (int Suit = 0; Suit < 4; ++Suit)
+    for (int Suit = static_cast<int32>(ESuit::Hearts); Suit <= static_cast<int32>(ESuit::Spades); ++Suit) // Hearts~Spades
     {
-        for (int Rank = 0; Rank < 13; ++Rank)
+        for (int Rank = static_cast<int32>(ERank::Ace); Rank <= static_cast<int32>(ERank::King); ++Rank) // Ace~King
         {
+            // 명확한 이름 지정
             FName CardName = FName(*FString::Printf(TEXT("Card_%d_%d"), Suit, Rank));
+
+            // 카드 객체 생성 및 초기화
             UCard* NewCard = NewObject<UCard>(this, UCard::StaticClass(), CardName);
+
             if (NewCard)
             {
                 NewCard->SetCard(static_cast<ESuit>(Suit), static_cast<ERank>(Rank));
                 Cards.Add(NewCard);
+                UE_LOG(LogTemp, Warning, TEXT("InitializeDeck(): 카드 생성 완료 -> %s"), *CardName.ToString());
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("InitializeDeck(): 카드 생성 실패 -> Suit: %d, Rank: %d"), Suit, Rank);
             }
         }
     }
+
     UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 카드 수: %d"), Cards.Num());
 }
+
 
 
 

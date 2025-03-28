@@ -28,6 +28,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execOnStandClicked); \
 	DECLARE_FUNCTION(execOnHitClicked); \
 	DECLARE_FUNCTION(execUpdateScores); \
+	DECLARE_FUNCTION(execShowNextGameButton); \
 	DECLARE_FUNCTION(execHideAceChoice); \
 	DECLARE_FUNCTION(execShowAceChoice); \
 	DECLARE_FUNCTION(execSetBetButtonsEnabled); \

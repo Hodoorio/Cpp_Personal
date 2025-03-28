@@ -616,6 +616,35 @@ DEFINE_FUNCTION(UBlackjackHUD::execShowAceChoice)
 }
 // End Class UBlackjackHUD Function ShowAceChoice
 
+// Begin Class UBlackjackHUD Function ShowNextGameButton
+struct Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "BlackjackHUD.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlackjackHUD, nullptr, "ShowNextGameButton", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UBlackjackHUD::execShowNextGameButton)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ShowNextGameButton();
+	P_NATIVE_END;
+}
+// End Class UBlackjackHUD Function ShowNextGameButton
+
 // Begin Class UBlackjackHUD Function UpdateMessageText
 struct Z_Construct_UFunction_UBlackjackHUD_UpdateMessageText_Statics
 {
@@ -798,6 +827,7 @@ void UBlackjackHUD::StaticRegisterNativesUBlackjackHUD()
 		{ "SetActionButtonsEnabled", &UBlackjackHUD::execSetActionButtonsEnabled },
 		{ "SetBetButtonsEnabled", &UBlackjackHUD::execSetBetButtonsEnabled },
 		{ "ShowAceChoice", &UBlackjackHUD::execShowAceChoice },
+		{ "ShowNextGameButton", &UBlackjackHUD::execShowNextGameButton },
 		{ "UpdateMessageText", &UBlackjackHUD::execUpdateMessageText },
 		{ "UpdatePlayerInfo", &UBlackjackHUD::execUpdatePlayerInfo },
 		{ "UpdateScores", &UBlackjackHUD::execUpdateScores },
@@ -994,6 +1024,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ &Z_Construct_UFunction_UBlackjackHUD_SetActionButtonsEnabled, "SetActionButtonsEnabled" }, // 2482509530
 		{ &Z_Construct_UFunction_UBlackjackHUD_SetBetButtonsEnabled, "SetBetButtonsEnabled" }, // 2387107836
 		{ &Z_Construct_UFunction_UBlackjackHUD_ShowAceChoice, "ShowAceChoice" }, // 4283120914
+		{ &Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton, "ShowNextGameButton" }, // 1545191313
 		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateMessageText, "UpdateMessageText" }, // 2733294227
 		{ &Z_Construct_UFunction_UBlackjackHUD_UpdatePlayerInfo, "UpdatePlayerInfo" }, // 2419209806
 		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateScores, "UpdateScores" }, // 3012692489
@@ -1084,10 +1115,10 @@ UBlackjackHUD::~UBlackjackHUD() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 732571319U) },
+		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 2205384631U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_3664854793(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_1870615581(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
