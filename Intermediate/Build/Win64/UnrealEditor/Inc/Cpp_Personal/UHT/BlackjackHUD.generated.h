@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "BlackjackHUD.h"
+// IWYU pragma: private, include "UI/BlackjackHUD.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CPP_PERSONAL_BlackjackHUD_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnNextGameClicked); \
 	DECLARE_FUNCTION(execOnAceAsElevenClicked); \
 	DECLARE_FUNCTION(execOnAceAsOneClicked); \
@@ -39,7 +39,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execUpdatePlayerInfo);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUBlackjackHUD(); \
 	friend struct Z_Construct_UClass_UBlackjackHUD_Statics; \
@@ -48,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(UBlackjackHUD)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UBlackjackHUD(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -62,13 +62,13 @@ public: \
 	NO_API virtual ~UBlackjackHUD();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_11_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_11_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_14_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -76,7 +76,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> CPP_PERSONAL_API UClass* StaticClass<class UBlackjackHUD>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h
+#define CURRENT_FILE_ID FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Cpp_Personal/PlayerActor.h"
+#include "Cpp_Personal/Actor/PlayerActor.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerActor() {}
 
@@ -38,11 +38,11 @@ struct Z_Construct_UScriptStruct_FPlayerHand_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Cards_MetaData[] = {
 		{ "Category", "Hand" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Cards_Inner;
@@ -97,7 +97,7 @@ struct Z_Construct_UFunction_APlayerActor_CanSplit_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xe2\x9c\x82 \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf \xea\xb4\x80\xeb\xa0\xa8 \xea\xb8\xb0\xeb\x8a\xa5\n" },
 #endif
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xe2\x9c\x82 \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf \xea\xb4\x80\xeb\xa0\xa8 \xea\xb8\xb0\xeb\x8a\xa5" },
 #endif
@@ -143,7 +143,7 @@ struct Z_Construct_UFunction_APlayerActor_ClearHand_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -179,7 +179,7 @@ struct Z_Construct_UFunction_APlayerActor_GetHandValue_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
 		{ "CPP_Default_HandIndex", "0" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_HandIndex;
@@ -230,7 +230,7 @@ struct Z_Construct_UFunction_APlayerActor_GiveCardToHand_Statics
 		{ "Comment", "// \xf0\x9f\x94\xb9 \xec\xb9\xb4\xeb\x93\x9c \xea\xb8\xb0\xeb\x8a\xa5\n" },
 #endif
 		{ "CPP_Default_HandIndex", "0" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xec\xb9\xb4\xeb\x93\x9c \xea\xb8\xb0\xeb\x8a\xa5" },
 #endif
@@ -284,7 +284,7 @@ struct Z_Construct_UFunction_APlayerActor_InitializeCoins_Statics
 		{ "Comment", "// \xf0\x9f\x94\xb9 \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xea\xb8\xb0\xeb\x8a\xa5\n" },
 #endif
 		{ "CPP_Default_StartingCoins", "1000" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xea\xb8\xb0\xeb\x8a\xa5" },
 #endif
@@ -326,7 +326,7 @@ struct Z_Construct_UFunction_APlayerActor_LoseBet_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -356,7 +356,7 @@ struct Z_Construct_UFunction_APlayerActor_MaxBet_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -391,7 +391,7 @@ struct Z_Construct_UFunction_APlayerActor_PlaceBet_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_BetAmount;
@@ -442,7 +442,7 @@ struct Z_Construct_UFunction_APlayerActor_SetAceValue_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_NewValue;
@@ -485,7 +485,7 @@ struct Z_Construct_UFunction_APlayerActor_Split_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -528,7 +528,7 @@ struct Z_Construct_UFunction_APlayerActor_WinBet_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -580,29 +580,29 @@ struct Z_Construct_UClass_APlayerActor_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "IncludePath", "PlayerActor.h" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "IncludePath", "Actor/PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Coins_MetaData[] = {
 		{ "Category", "Player" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x8e\xb2 \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xbd\x94\xec\x9d\xb8 \xec\x8b\x9c\xec\x8a\xa4\xed\x85\x9c\n" },
 #endif
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x8e\xb2 \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xbd\x94\xec\x9d\xb8 \xec\x8b\x9c\xec\x8a\xa4\xed\x85\x9c" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentBet_MetaData[] = {
 		{ "Category", "Player" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Hands_MetaData[] = {
 		{ "Category", "Player" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x83\x8f \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x9d\x98 \xed\x95\xb8\xeb\x93\x9c (\xea\xb8\xb0\xeb\xb3\xb8 & \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf)\n" },
 #endif
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x83\x8f \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x9d\x98 \xed\x95\xb8\xeb\x93\x9c (\xea\xb8\xb0\xeb\xb3\xb8 & \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf)" },
 #endif
@@ -612,7 +612,7 @@ struct Z_Construct_UClass_APlayerActor_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xe2\x9c\x82 \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf \xed\x99\x9c\xec\x84\xb1\xed\x99\x94 \xec\x97\xac\xeb\xb6\x80\n" },
 #endif
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xe2\x9c\x82 \xec\x8a\xa4\xed\x94\x8c\xeb\xa6\xbf \xed\x99\x9c\xec\x84\xb1\xed\x99\x94 \xec\x97\xac\xeb\xb6\x80" },
 #endif
@@ -624,7 +624,7 @@ struct Z_Construct_UClass_APlayerActor_Statics
 		{ "Comment", "// UI \xed\x83\x80\xec\x9e\x85 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8 (\xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8\xeb\xa5\xbc \xec\x9c\x84\xed\x95\x9c)\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "PlayerActor.h" },
+		{ "ModuleRelativePath", "Actor/PlayerActor.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "UI \xed\x83\x80\xec\x9e\x85 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8 (\xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8\xeb\xa5\xbc \xec\x9c\x84\xed\x95\x9c)" },
 #endif
@@ -640,17 +640,17 @@ struct Z_Construct_UClass_APlayerActor_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_APlayerActor_CanSplit, "CanSplit" }, // 2814878181
-		{ &Z_Construct_UFunction_APlayerActor_ClearHand, "ClearHand" }, // 3428092638
-		{ &Z_Construct_UFunction_APlayerActor_GetHandValue, "GetHandValue" }, // 2300102311
-		{ &Z_Construct_UFunction_APlayerActor_GiveCardToHand, "GiveCardToHand" }, // 3769311595
-		{ &Z_Construct_UFunction_APlayerActor_InitializeCoins, "InitializeCoins" }, // 2061368837
-		{ &Z_Construct_UFunction_APlayerActor_LoseBet, "LoseBet" }, // 3835517458
-		{ &Z_Construct_UFunction_APlayerActor_MaxBet, "MaxBet" }, // 2213150520
-		{ &Z_Construct_UFunction_APlayerActor_PlaceBet, "PlaceBet" }, // 2320736329
-		{ &Z_Construct_UFunction_APlayerActor_SetAceValue, "SetAceValue" }, // 617636983
-		{ &Z_Construct_UFunction_APlayerActor_Split, "Split" }, // 2389091677
-		{ &Z_Construct_UFunction_APlayerActor_WinBet, "WinBet" }, // 1430046737
+		{ &Z_Construct_UFunction_APlayerActor_CanSplit, "CanSplit" }, // 735112562
+		{ &Z_Construct_UFunction_APlayerActor_ClearHand, "ClearHand" }, // 2424794459
+		{ &Z_Construct_UFunction_APlayerActor_GetHandValue, "GetHandValue" }, // 3059359123
+		{ &Z_Construct_UFunction_APlayerActor_GiveCardToHand, "GiveCardToHand" }, // 3639646567
+		{ &Z_Construct_UFunction_APlayerActor_InitializeCoins, "InitializeCoins" }, // 2577641633
+		{ &Z_Construct_UFunction_APlayerActor_LoseBet, "LoseBet" }, // 966519781
+		{ &Z_Construct_UFunction_APlayerActor_MaxBet, "MaxBet" }, // 1220784061
+		{ &Z_Construct_UFunction_APlayerActor_PlaceBet, "PlaceBet" }, // 2138338647
+		{ &Z_Construct_UFunction_APlayerActor_SetAceValue, "SetAceValue" }, // 3906627471
+		{ &Z_Construct_UFunction_APlayerActor_Split, "Split" }, // 3829268391
+		{ &Z_Construct_UFunction_APlayerActor_WinBet, "WinBet" }, // 1239165851
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -660,8 +660,8 @@ struct Z_Construct_UClass_APlayerActor_Statics
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Coins = { "Coins", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Coins), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Coins_MetaData), NewProp_Coins_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_CurrentBet = { "CurrentBet", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, CurrentBet), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentBet_MetaData), NewProp_CurrentBet_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands_Inner = { "Hands", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPlayerHand, METADATA_PARAMS(0, nullptr) }; // 595892350
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands = { "Hands", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Hands), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hands_MetaData), NewProp_Hands_MetaData) }; // 595892350
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands_Inner = { "Hands", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPlayerHand, METADATA_PARAMS(0, nullptr) }; // 2657475168
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_APlayerActor_Statics::NewProp_Hands = { "Hands", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerActor, Hands), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Hands_MetaData), NewProp_Hands_MetaData) }; // 2657475168
 void Z_Construct_UClass_APlayerActor_Statics::NewProp_bIsSplitActive_SetBit(void* Obj)
 {
 	((APlayerActor*)Obj)->bIsSplitActive = 1;
@@ -714,18 +714,18 @@ APlayerActor::~APlayerActor() {}
 // End Class APlayerActor
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics
+struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FPlayerHand::StaticStruct, Z_Construct_UScriptStruct_FPlayerHand_Statics::NewStructOps, TEXT("PlayerHand"), &Z_Registration_Info_UScriptStruct_PlayerHand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerHand), 595892350U) },
+		{ FPlayerHand::StaticStruct, Z_Construct_UScriptStruct_FPlayerHand_Statics::NewStructOps, TEXT("PlayerHand"), &Z_Registration_Info_UScriptStruct_PlayerHand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerHand), 2657475168U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 3726575000U) },
+		{ Z_Construct_UClass_APlayerActor, APlayerActor::StaticClass, TEXT("APlayerActor"), &Z_Registration_Info_UClass_APlayerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerActor), 2803107754U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_2369897866(TEXT("/Script/Cpp_Personal"),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_PlayerActor_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_3649890546(TEXT("/Script/Cpp_Personal"),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_PlayerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

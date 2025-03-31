@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Cpp_Personal/MainMenuHUD.h"
+#include "Cpp_Personal/UI/MainMenuHUD.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMainMenuHUD() {}
 
@@ -26,7 +26,7 @@ struct Z_Construct_UFunction_UMainMenuHUD_LoadTargetLevel_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xeb\xa0\x88\xeb\xb2\xa8 \xeb\xa1\x9c\xeb\x93\x9c \xed\x95\xa8\xec\x88\x98\n" },
 #endif
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\xa0\x88\xeb\xb2\xa8 \xeb\xa1\x9c\xeb\x93\x9c \xed\x95\xa8\xec\x88\x98" },
 #endif
@@ -58,7 +58,7 @@ struct Z_Construct_UFunction_UMainMenuHUD_OnEndClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -90,7 +90,7 @@ struct Z_Construct_UFunction_UMainMenuHUD_OnStartClicked_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xeb\xb2\x84\xed\x8a\xbc \xed\x81\xb4\xeb\xa6\xad \xec\x8b\x9c \xed\x98\xb8\xec\xb6\x9c\xeb\x90\xa0 \xed\x95\xa8\xec\x88\x98\n" },
 #endif
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\xb2\x84\xed\x8a\xbc \xed\x81\xb4\xeb\xa6\xad \xec\x8b\x9c \xed\x98\xb8\xec\xb6\x9c\xeb\x90\xa0 \xed\x95\xa8\xec\x88\x98" },
 #endif
@@ -140,8 +140,8 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "IncludePath", "MainMenuHUD.h" },
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "IncludePath", "UI/MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Start_MetaData[] = {
 		{ "BindWidget", "" },
@@ -149,7 +149,7 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 		{ "Comment", "// \xeb\xb2\x84\xed\x8a\xbc\xec\x9d\x84 \xec\xb0\xb8\xec\xa1\xb0\xed\x95\xa0 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\xb2\x84\xed\x8a\xbc\xec\x9d\x84 \xec\xb0\xb8\xec\xa1\xb0\xed\x95\xa0 \xeb\xb3\x80\xec\x88\x98 \xec\x84\xa0\xec\x96\xb8" },
 #endif
@@ -157,14 +157,14 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_End_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LevelToLoad_MetaData[] = {
 		{ "Category", "Level" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Level\")\n    TSoftObjectPtr<UWorld> TargetLevel;*/" },
 #endif
-		{ "ModuleRelativePath", "MainMenuHUD.h" },
+		{ "ModuleRelativePath", "UI/MainMenuHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Level\")\n    TSoftObjectPtr<UWorld> TargetLevel;" },
 #endif
@@ -176,9 +176,9 @@ struct Z_Construct_UClass_UMainMenuHUD_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMainMenuHUD_LoadTargetLevel, "LoadTargetLevel" }, // 970427636
-		{ &Z_Construct_UFunction_UMainMenuHUD_OnEndClicked, "OnEndClicked" }, // 2292492212
-		{ &Z_Construct_UFunction_UMainMenuHUD_OnStartClicked, "OnStartClicked" }, // 1968895823
+		{ &Z_Construct_UFunction_UMainMenuHUD_LoadTargetLevel, "LoadTargetLevel" }, // 4133082884
+		{ &Z_Construct_UFunction_UMainMenuHUD_OnEndClicked, "OnEndClicked" }, // 152312214
+		{ &Z_Construct_UFunction_UMainMenuHUD_OnStartClicked, "OnStartClicked" }, // 1190497794
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -233,14 +233,14 @@ UMainMenuHUD::~UMainMenuHUD() {}
 // End Class UMainMenuHUD
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics
+struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_MainMenuHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMainMenuHUD, UMainMenuHUD::StaticClass, TEXT("UMainMenuHUD"), &Z_Registration_Info_UClass_UMainMenuHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuHUD), 3572267744U) },
+		{ Z_Construct_UClass_UMainMenuHUD, UMainMenuHUD::StaticClass, TEXT("UMainMenuHUD"), &Z_Registration_Info_UClass_UMainMenuHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuHUD), 1946442285U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_736397309(TEXT("/Script/Cpp_Personal"),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuHUD_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_MainMenuHUD_h_1094796372(TEXT("/Script/Cpp_Personal"),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_MainMenuHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_MainMenuHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

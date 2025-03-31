@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "DealerActor.h"
+// IWYU pragma: private, include "Actor/DealerActor.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -17,20 +17,20 @@ struct FDealerHand;
 #endif
 #define CPP_PERSONAL_DealerActor_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_15_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_15_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FDealerHand_Statics; \
 	CPP_PERSONAL_API static class UScriptStruct* StaticStruct();
 
 
 template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FDealerHand>();
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetHands); \
 	DECLARE_FUNCTION(execGetHandValue); \
 	DECLARE_FUNCTION(execDrawCard);
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_INCLASS_NO_PURE_DECLS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADealerActor(); \
 	friend struct Z_Construct_UClass_ADealerActor_Statics; \
@@ -39,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(ADealerActor)
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_ENHANCED_CONSTRUCTORS \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ADealerActor(ADealerActor&&); \
@@ -51,13 +51,13 @@ public: \
 	NO_API virtual ~ADealerActor();
 
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_24_PROLOG
-#define FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_GENERATED_BODY \
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_24_PROLOG
+#define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_INCLASS_NO_PURE_DECLS \
-	FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h_27_ENHANCED_CONSTRUCTORS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_INCLASS_NO_PURE_DECLS \
+	FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -65,7 +65,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> CPP_PERSONAL_API UClass* StaticClass<class ADealerActor>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Cpp_Personal_Source_Cpp_Personal_DealerActor_h
+#define CURRENT_FILE_ID FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

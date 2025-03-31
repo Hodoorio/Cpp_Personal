@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Cpp_Personal/BlackjackHUD.h"
+#include "Cpp_Personal/UI/BlackjackHUD.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBlackjackHUD() {}
 
@@ -27,7 +27,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_HideAceChoice_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x94\xb9 \xec\x97\x90\xec\x9d\xb4\xec\x8a\xa4 \xeb\xb2\x84\xed\x8a\xbc \xec\x88\xa8\xea\xb9\x80\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xec\x97\x90\xec\x9d\xb4\xec\x8a\xa4 \xeb\xb2\x84\xed\x8a\xbc \xec\x88\xa8\xea\xb9\x80" },
 #endif
@@ -67,7 +67,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_InitializeUI_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xed\x85\x8d\xec\x8a\xa4\xed\x8a\xb8 \xed\x81\xac\xea\xb8\xb0 \xed\x8c\x8c\xeb\x9d\xbc\xeb\xaf\xb8\xed\x84\xb0 \xec\xb6\x94\xea\xb0\x80\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xed\x85\x8d\xec\x8a\xa4\xed\x8a\xb8 \xed\x81\xac\xea\xb8\xb0 \xed\x8c\x8c\xeb\x9d\xbc\xeb\xaf\xb8\xed\x84\xb0 \xec\xb6\x94\xea\xb0\x80" },
 #endif
@@ -109,7 +109,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_NextGame_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Blackjack UI" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -138,7 +138,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -167,7 +167,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -196,7 +196,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBet100Clicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -225,7 +225,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBet10Clicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -254,7 +254,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBet50Clicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -283,7 +283,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBetClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -312,7 +312,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBetMaxClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -341,7 +341,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnBetResetClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -370,7 +370,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnHitClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -399,7 +399,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnNextGameClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -428,7 +428,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnSplitClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -457,7 +457,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_OnStandClicked_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -493,7 +493,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_SetActionButtonsEnabled_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// UI \xeb\xb2\x84\xed\x8a\xbc \xed\x99\x9c\xec\x84\xb1\xed\x99\x94/\xeb\xb9\x84\xed\x99\x9c\xec\x84\xb1\xed\x99\x94 \xed\x95\xa8\xec\x88\x98\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "UI \xeb\xb2\x84\xed\x8a\xbc \xed\x99\x9c\xec\x84\xb1\xed\x99\x94/\xeb\xb9\x84\xed\x99\x9c\xec\x84\xb1\xed\x99\x94 \xed\x95\xa8\xec\x88\x98" },
 #endif
@@ -543,7 +543,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_SetBetButtonsEnabled_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static void NewProp_bEnabled_SetBit(void* Obj);
@@ -589,7 +589,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_ShowAceChoice_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x94\xb9 \xec\x97\x90\xec\x9d\xb4\xec\x8a\xa4 \xec\x84\xa0\xed\x83\x9d \xeb\xb2\x84\xed\x8a\xbc UI \xed\x91\x9c\xec\x8b\x9c\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 \xec\x97\x90\xec\x9d\xb4\xec\x8a\xa4 \xec\x84\xa0\xed\x83\x9d \xeb\xb2\x84\xed\x8a\xbc UI \xed\x91\x9c\xec\x8b\x9c" },
 #endif
@@ -621,7 +621,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -657,7 +657,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_UpdateMessageText_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Blackjack UI" },
 		{ "CPP_Default_TextSize", "250.000000" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Message_MetaData[] = {
 		{ "NativeConst", "" },
@@ -708,7 +708,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_UpdatePlayerInfo_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Blackjack UI" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_PlayerCoins;
@@ -758,7 +758,7 @@ struct Z_Construct_UFunction_UBlackjackHUD_UpdateScores_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xec\xa0\x90\xec\x88\x98 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xed\x95\xa8\xec\x88\x98\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xec\xa0\x90\xec\x88\x98 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xed\x95\xa8\xec\x88\x98" },
 #endif
@@ -843,8 +843,8 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "IncludePath", "BlackjackHUD.h" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "IncludePath", "UI/BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TXT_PlayerCoins_MetaData[] = {
 		{ "BindWidget", "" },
@@ -852,7 +852,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xf0\x9f\x9f\xa2 \xec\xbd\x94\xec\x9d\xb8 \xeb\xb0\x8f \xeb\xb2\xa0\xed\x8c\x85 \xec\xa0\x95\xeb\xb3\xb4 \xed\x91\x9c\xec\x8b\x9c\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x9f\xa2 \xec\xbd\x94\xec\x9d\xb8 \xeb\xb0\x8f \xeb\xb2\xa0\xed\x8c\x85 \xec\xa0\x95\xeb\xb3\xb4 \xed\x91\x9c\xec\x8b\x9c" },
 #endif
@@ -860,12 +860,12 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TXT_BetAmount_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TXT_Message_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Hit_MetaData[] = {
 		{ "BindWidget", "" },
@@ -873,7 +873,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xf0\x9f\x9f\xa2 \xeb\xb2\x84\xed\x8a\xbc\xeb\x93\xa4\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x9f\xa2 \xeb\xb2\x84\xed\x8a\xbc\xeb\x93\xa4" },
 #endif
@@ -881,32 +881,32 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Stand_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Split_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Bet10_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Bet50_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Bet100_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_BetMax_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_BetReset_MetaData[] = {
 		{ "BindWidget", "" },
@@ -914,7 +914,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xeb\xa6\xac\xec\x85\x8b \xeb\xb2\x84\xed\x8a\xbc\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\xb2\xa0\xed\x8c\x85 \xea\xb8\x88\xec\x95\xa1 \xeb\xa6\xac\xec\x85\x8b \xeb\xb2\x84\xed\x8a\xbc" },
 #endif
@@ -922,7 +922,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_Bet_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_AceAsOne_MetaData[] = {
 		{ "BindWidget", "" },
@@ -930,7 +930,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xf0\x9f\x94\xb9 A \xec\x84\xa0\xed\x83\x9d \xeb\xb2\x84\xed\x8a\xbc\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 A \xec\x84\xa0\xed\x83\x9d \xeb\xb2\x84\xed\x8a\xbc" },
 #endif
@@ -938,7 +938,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTN_AceAsEleven_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Ace_Image_MetaData[] = {
 		{ "BindWidget", "" },
@@ -946,7 +946,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// A \xec\x98\x88\xec\x8b\x9c \xec\x9d\xb4\xeb\xaf\xb8\xec\xa7\x80\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "A \xec\x98\x88\xec\x8b\x9c \xec\x9d\xb4\xeb\xaf\xb8\xec\xa7\x80" },
 #endif
@@ -957,7 +957,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xa0\x90\xec\x88\x98 UI\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xa0\x90\xec\x88\x98 UI" },
 #endif
@@ -968,7 +968,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 UI\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 UI" },
 #endif
@@ -979,7 +979,7 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 		{ "Comment", "// \xeb\x8b\xa4\xec\x9d\x8c \xea\xb2\x8c\xec\x9e\x84 \xec\x9d\xb4\xeb\x8f\x99 \xeb\xb2\x84\xed\x8a\xbc\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackHUD.h" },
+		{ "ModuleRelativePath", "UI/BlackjackHUD.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\x8b\xa4\xec\x9d\x8c \xea\xb2\x8c\xec\x9e\x84 \xec\x9d\xb4\xeb\x8f\x99 \xeb\xb2\x84\xed\x8a\xbc" },
 #endif
@@ -1006,28 +1006,28 @@ struct Z_Construct_UClass_UBlackjackHUD_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UBlackjackHUD_HideAceChoice, "HideAceChoice" }, // 2557531625
-		{ &Z_Construct_UFunction_UBlackjackHUD_InitializeUI, "InitializeUI" }, // 2614910525
-		{ &Z_Construct_UFunction_UBlackjackHUD_NextGame, "NextGame" }, // 2558579975
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked, "OnAceAsElevenClicked" }, // 351254140
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked, "OnAceAsOneClicked" }, // 3048203745
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet100Clicked, "OnBet100Clicked" }, // 847041370
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet10Clicked, "OnBet10Clicked" }, // 476698825
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet50Clicked, "OnBet50Clicked" }, // 3148846861
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetClicked, "OnBetClicked" }, // 3910074445
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetMaxClicked, "OnBetMaxClicked" }, // 1419582287
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetResetClicked, "OnBetResetClicked" }, // 471084289
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnHitClicked, "OnHitClicked" }, // 2907271116
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnNextGameClicked, "OnNextGameClicked" }, // 1448863482
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnSplitClicked, "OnSplitClicked" }, // 1507756536
-		{ &Z_Construct_UFunction_UBlackjackHUD_OnStandClicked, "OnStandClicked" }, // 2408458127
-		{ &Z_Construct_UFunction_UBlackjackHUD_SetActionButtonsEnabled, "SetActionButtonsEnabled" }, // 2482509530
-		{ &Z_Construct_UFunction_UBlackjackHUD_SetBetButtonsEnabled, "SetBetButtonsEnabled" }, // 2387107836
-		{ &Z_Construct_UFunction_UBlackjackHUD_ShowAceChoice, "ShowAceChoice" }, // 4283120914
-		{ &Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton, "ShowNextGameButton" }, // 1545191313
-		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateMessageText, "UpdateMessageText" }, // 2733294227
-		{ &Z_Construct_UFunction_UBlackjackHUD_UpdatePlayerInfo, "UpdatePlayerInfo" }, // 2419209806
-		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateScores, "UpdateScores" }, // 3012692489
+		{ &Z_Construct_UFunction_UBlackjackHUD_HideAceChoice, "HideAceChoice" }, // 580681871
+		{ &Z_Construct_UFunction_UBlackjackHUD_InitializeUI, "InitializeUI" }, // 579421661
+		{ &Z_Construct_UFunction_UBlackjackHUD_NextGame, "NextGame" }, // 2908837277
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsElevenClicked, "OnAceAsElevenClicked" }, // 2893554961
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnAceAsOneClicked, "OnAceAsOneClicked" }, // 3854567922
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet100Clicked, "OnBet100Clicked" }, // 3596767335
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet10Clicked, "OnBet10Clicked" }, // 3726501835
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBet50Clicked, "OnBet50Clicked" }, // 2873820105
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetClicked, "OnBetClicked" }, // 2323684065
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetMaxClicked, "OnBetMaxClicked" }, // 335161000
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnBetResetClicked, "OnBetResetClicked" }, // 801590033
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnHitClicked, "OnHitClicked" }, // 1038959072
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnNextGameClicked, "OnNextGameClicked" }, // 904777395
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnSplitClicked, "OnSplitClicked" }, // 2278030851
+		{ &Z_Construct_UFunction_UBlackjackHUD_OnStandClicked, "OnStandClicked" }, // 3204335874
+		{ &Z_Construct_UFunction_UBlackjackHUD_SetActionButtonsEnabled, "SetActionButtonsEnabled" }, // 1561704994
+		{ &Z_Construct_UFunction_UBlackjackHUD_SetBetButtonsEnabled, "SetBetButtonsEnabled" }, // 1590909061
+		{ &Z_Construct_UFunction_UBlackjackHUD_ShowAceChoice, "ShowAceChoice" }, // 2179806488
+		{ &Z_Construct_UFunction_UBlackjackHUD_ShowNextGameButton, "ShowNextGameButton" }, // 1512625574
+		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateMessageText, "UpdateMessageText" }, // 3560953585
+		{ &Z_Construct_UFunction_UBlackjackHUD_UpdatePlayerInfo, "UpdatePlayerInfo" }, // 643097766
+		{ &Z_Construct_UFunction_UBlackjackHUD_UpdateScores, "UpdateScores" }, // 3638250801
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -1112,14 +1112,14 @@ UBlackjackHUD::~UBlackjackHUD() {}
 // End Class UBlackjackHUD
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics
+struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 2205384631U) },
+		{ Z_Construct_UClass_UBlackjackHUD, UBlackjackHUD::StaticClass, TEXT("UBlackjackHUD"), &Z_Registration_Info_UClass_UBlackjackHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlackjackHUD), 2167420770U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_1870615581(TEXT("/Script/Cpp_Personal"),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackHUD_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_1606512936(TEXT("/Script/Cpp_Personal"),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_UI_BlackjackHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

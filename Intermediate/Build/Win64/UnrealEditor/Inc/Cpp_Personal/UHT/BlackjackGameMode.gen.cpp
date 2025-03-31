@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Cpp_Personal/BlackjackGameMode.h"
+#include "Cpp_Personal/Gamemode/BlackjackGameMode.h"
 #include "Runtime/Engine/Classes/Engine/TimerHandle.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBlackjackGameMode() {}
@@ -41,7 +41,7 @@ struct Z_Construct_UDelegateFunction_Cpp_Personal_OnPlayerInfoUpdated__DelegateS
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x8e\xb2 UI \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x8e\xb2 UI \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8" },
 #endif
@@ -97,7 +97,7 @@ struct Z_Construct_UDelegateFunction_Cpp_Personal_OnScoreUpdated__DelegateSignat
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x99\x80 \xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x99\x80 \xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8" },
 #endif
@@ -146,7 +146,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_ConfirmBet_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Game" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -179,7 +179,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_ChosenValue;
@@ -218,7 +218,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_PlayerHit_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Game" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -248,7 +248,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Game" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -278,7 +278,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_PlayerStand_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Game" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -311,7 +311,7 @@ struct Z_Construct_UFunction_ABlackjackGameMode_StartGame_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x94\xb9 **\xea\xb2\x8c\xec\x9e\x84 \xed\x9d\x90\xeb\xa6\x84 \xea\xb4\x80\xeb\xa0\xa8 \xeb\xa9\x94\xec\x84\x9c\xeb\x93\x9c**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 **\xea\xb2\x8c\xec\x9e\x84 \xed\x9d\x90\xeb\xa6\x84 \xea\xb4\x80\xeb\xa0\xa8 \xeb\xa9\x94\xec\x84\x9c\xeb\x93\x9c**" },
 #endif
@@ -362,8 +362,8 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "BlackjackGameMode.h" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "IncludePath", "Gamemode/BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentState_MetaData[] = {
@@ -371,7 +371,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// **\xed\x98\x84\xec\x9e\xac \xea\xb2\x8c\xec\x9e\x84 \xec\x83\x81\xed\x83\x9c**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "**\xed\x98\x84\xec\x9e\xac \xea\xb2\x8c\xec\x9e\x84 \xec\x83\x81\xed\x83\x9c**" },
 #endif
@@ -381,47 +381,47 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// **\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 \xed\x81\xb4\xeb\x9e\x98\xec\x8a\xa4 \xeb\xb3\x80\xec\x88\x98**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "**\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 \xed\x81\xb4\xeb\x9e\x98\xec\x8a\xa4 \xeb\xb3\x80\xec\x88\x98**" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DealerClass_MetaData[] = {
 		{ "Category", "BlackjackActor" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TableClass_MetaData[] = {
 		{ "Category", "BlackjackActor" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Player_MetaData[] = {
 		{ "Category", "BlackjackActor" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// **\xec\x8b\xa4\xec\xa0\x9c \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "**\xec\x8b\xa4\xec\xa0\x9c \xec\x9d\xb8\xec\x8a\xa4\xed\x84\xb4\xec\x8a\xa4**" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Dealer_MetaData[] = {
 		{ "Category", "BlackjackActor" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Table_MetaData[] = {
 		{ "Category", "BlackjackActor" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Deck_MetaData[] = {
 		{ "Category", "Deck" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnPlayerInfoUpdated_MetaData[] = {
 		{ "Category", "GameMode|Events" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x8e\xb2 **\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xa0\x95\xeb\xb3\xb4 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8 (UI \xec\x97\xb0\xeb\x8f\x99)**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x8e\xb2 **\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4 \xec\xa0\x95\xeb\xb3\xb4 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8 (UI \xec\x97\xb0\xeb\x8f\x99)**" },
 #endif
@@ -431,7 +431,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// **\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x99\x80 \xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 \xec\xb6\x9c\xeb\xa0\xa5 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8 (UI \xec\x97\xb0\xeb\x8f\x99)**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "**\xed\x94\x8c\xeb\xa0\x88\xec\x9d\xb4\xec\x96\xb4\xec\x99\x80 \xeb\x94\x9c\xeb\x9f\xac \xec\xa0\x90\xec\x88\x98 \xec\xb6\x9c\xeb\xa0\xa5 \xec\x97\x85\xeb\x8d\xb0\xec\x9d\xb4\xed\x8a\xb8 \xec\x9d\xb4\xeb\xb2\xa4\xed\x8a\xb8 (UI \xec\x97\xb0\xeb\x8f\x99)**" },
 #endif
@@ -441,7 +441,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xf0\x9f\x94\xb9 **UI \xea\xb4\x80\xeb\xa0\xa8 \xeb\xb3\x80\xec\x88\x98**\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xf0\x9f\x94\xb9 **UI \xea\xb4\x80\xeb\xa0\xa8 \xeb\xb3\x80\xec\x88\x98**" },
 #endif
@@ -451,7 +451,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 		{ "Comment", "// \xe2\x9c\x85 `UUserWidget` \xe2\x86\x92 `UBlackjackHUD`\xeb\xa1\x9c \xeb\xb3\x80\xea\xb2\xbd\n" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xe2\x9c\x85 `UUserWidget` \xe2\x86\x92 `UBlackjackHUD`\xeb\xa1\x9c \xeb\xb3\x80\xea\xb2\xbd" },
 #endif
@@ -460,7 +460,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xe2\x9c\x85 \xeb\xaa\x85\xed\x99\x95\xed\x95\x9c \xed\x83\x80\xec\x9e\x85 \xec\xa7\x80\xec\xa0\x95\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xe2\x9c\x85 \xeb\xaa\x85\xed\x99\x95\xed\x95\x9c \xed\x83\x80\xec\x9e\x85 \xec\xa7\x80\xec\xa0\x95" },
 #endif
@@ -470,7 +470,7 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 GameOver \xeb\xa0\x88\xeb\xb2\xa8\n" },
 #endif
-		{ "ModuleRelativePath", "BlackjackGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xec\x97\x90\xec\x84\x9c \xec\x84\xa4\xec\xa0\x95\xed\x95\xa0 \xec\x88\x98 \xec\x9e\x88\xeb\x8a\x94 GameOver \xeb\xa0\x88\xeb\xb2\xa8" },
 #endif
@@ -494,12 +494,12 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ABlackjackGameMode_ConfirmBet, "ConfirmBet" }, // 3228921421
-		{ &Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice, "HandleAceChoice" }, // 904791562
-		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerHit, "PlayerHit" }, // 2606702037
-		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit, "PlayerSplit" }, // 1913210306
-		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerStand, "PlayerStand" }, // 4248726134
-		{ &Z_Construct_UFunction_ABlackjackGameMode_StartGame, "StartGame" }, // 384935422
+		{ &Z_Construct_UFunction_ABlackjackGameMode_ConfirmBet, "ConfirmBet" }, // 147725453
+		{ &Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice, "HandleAceChoice" }, // 886443244
+		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerHit, "PlayerHit" }, // 2253663415
+		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit, "PlayerSplit" }, // 3878665031
+		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerStand, "PlayerStand" }, // 948592458
+		{ &Z_Construct_UFunction_ABlackjackGameMode_StartGame, "StartGame" }, // 821364504
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -516,8 +516,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGame
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_Dealer = { "Dealer", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, Dealer), Z_Construct_UClass_ADealerActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Dealer_MetaData), NewProp_Dealer_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_Table = { "Table", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, Table), Z_Construct_UClass_ATableActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Table_MetaData), NewProp_Table_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_Deck = { "Deck", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, Deck), Z_Construct_UClass_UDeck_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Deck_MetaData), NewProp_Deck_MetaData) };
-const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_OnPlayerInfoUpdated = { "OnPlayerInfoUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, OnPlayerInfoUpdated), Z_Construct_UDelegateFunction_Cpp_Personal_OnPlayerInfoUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnPlayerInfoUpdated_MetaData), NewProp_OnPlayerInfoUpdated_MetaData) }; // 1292802319
-const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_OnScoreUpdated = { "OnScoreUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, OnScoreUpdated), Z_Construct_UDelegateFunction_Cpp_Personal_OnScoreUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnScoreUpdated_MetaData), NewProp_OnScoreUpdated_MetaData) }; // 3551236112
+const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_OnPlayerInfoUpdated = { "OnPlayerInfoUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, OnPlayerInfoUpdated), Z_Construct_UDelegateFunction_Cpp_Personal_OnPlayerInfoUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnPlayerInfoUpdated_MetaData), NewProp_OnPlayerInfoUpdated_MetaData) }; // 4152547522
+const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_OnScoreUpdated = { "OnScoreUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, OnScoreUpdated), Z_Construct_UDelegateFunction_Cpp_Personal_OnScoreUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnScoreUpdated_MetaData), NewProp_OnScoreUpdated_MetaData) }; // 2215179421
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUDClass = { "BlackjackHUDClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUDClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UBlackjackHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUDClass_MetaData), NewProp_BlackjackHUDClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_BlackjackHUD = { "BlackjackHUD", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, BlackjackHUD), Z_Construct_UClass_UBlackjackHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BlackjackHUD_MetaData), NewProp_BlackjackHUD_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ABlackjackGameMode_Statics::NewProp_RestartTimerHandle = { "RestartTimerHandle", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABlackjackGameMode, RestartTimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RestartTimerHandle_MetaData), NewProp_RestartTimerHandle_MetaData) }; // 756291145
@@ -577,14 +577,14 @@ ABlackjackGameMode::~ABlackjackGameMode() {}
 // End Class ABlackjackGameMode
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics
+struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 595837444U) },
+		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 3313918448U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_2980796961(TEXT("/Script/Cpp_Personal"),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_BlackjackGameMode_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_2585898736(TEXT("/Script/Cpp_Personal"),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

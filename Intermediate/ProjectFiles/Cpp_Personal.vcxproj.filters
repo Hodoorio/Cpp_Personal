@@ -35,28 +35,10 @@
     <Filter Include="Source\Cpp_Personal">
       <UniqueIdentifier>{0FBA1D98-A4EA-33D3-A340-156142793CB6}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackGameMode.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackGameMode.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackHUD.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\BlackjackHUD.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Card.cpp">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Card.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\CardActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\CardComponent.cpp">
@@ -77,22 +59,10 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\Cpp_Personal.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\DealerActor.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\DealerActor.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.cpp">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\Deck.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\DeckActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\FCardDataTableRow.h">
@@ -107,24 +77,6 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuGameMode.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuGameMode.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuHUD.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\MainMenuHUD.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerActor.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
@@ -134,11 +86,68 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.cpp">
-      <Filter>Source\Cpp_Personal</Filter>
+    <Filter Include="Source\Cpp_Personal\Actor">
+      <UniqueIdentifier>{DA5856D8-D8BA-3FE4-9B26-8473FBFB5F2C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\CardActor.cpp">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\TableActor.h">
-      <Filter>Source\Cpp_Personal</Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\CardActor.h">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\DealerActor.cpp">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\DealerActor.h">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\DeckActor.cpp">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\DeckActor.h">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\PlayerActor.cpp">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\PlayerActor.h">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\TableActor.cpp">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Actor\TableActor.h">
+      <Filter>Source\Cpp_Personal\Actor</Filter>
+    </ClCompile>
+    <Filter Include="Source\Cpp_Personal\Gamemode">
+      <UniqueIdentifier>{41B6AF19-96DC-34EE-832C-7C96484F6BA0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Gamemode\BlackjackGameMode.cpp">
+      <Filter>Source\Cpp_Personal\Gamemode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Gamemode\BlackjackGameMode.h">
+      <Filter>Source\Cpp_Personal\Gamemode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Gamemode\MainMenuGameMode.cpp">
+      <Filter>Source\Cpp_Personal\Gamemode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\Gamemode\MainMenuGameMode.h">
+      <Filter>Source\Cpp_Personal\Gamemode</Filter>
+    </ClCompile>
+    <Filter Include="Source\Cpp_Personal\UI">
+      <UniqueIdentifier>{8D7406BE-1B06-3655-963D-8458B370EBFB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Cpp_Personal\UI\BlackjackHUD.cpp">
+      <Filter>Source\Cpp_Personal\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\UI\BlackjackHUD.h">
+      <Filter>Source\Cpp_Personal\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\UI\MainMenuHUD.cpp">
+      <Filter>Source\Cpp_Personal\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Cpp_Personal\UI\MainMenuHUD.h">
+      <Filter>Source\Cpp_Personal\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

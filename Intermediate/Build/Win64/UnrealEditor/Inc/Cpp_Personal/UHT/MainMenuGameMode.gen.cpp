@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Cpp_Personal/MainMenuGameMode.h"
+#include "Cpp_Personal/Gamemode/MainMenuGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 
@@ -35,8 +35,8 @@ struct Z_Construct_UClass_AMainMenuGameMode_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "MainMenuGameMode.h" },
-		{ "ModuleRelativePath", "MainMenuGameMode.h" },
+		{ "IncludePath", "Gamemode/MainMenuGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/MainMenuGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MainMenuWidgetClass_MetaData[] = {
@@ -44,14 +44,14 @@ struct Z_Construct_UClass_AMainMenuGameMode_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// \xec\x9c\x84\xec\xa0\xaf \xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xeb\xa5\xbc \xec\xb0\xb8\xec\xa1\xb0\xed\x95\x98\xea\xb8\xb0 \xec\x9c\x84\xed\x95\x9c \xeb\xb3\x80\xec\x88\x98\n" },
 #endif
-		{ "ModuleRelativePath", "MainMenuGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/MainMenuGameMode.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "\xec\x9c\x84\xec\xa0\xaf \xeb\xb8\x94\xeb\xa3\xa8\xed\x94\x84\xeb\xa6\xb0\xed\x8a\xb8\xeb\xa5\xbc \xec\xb0\xb8\xec\xa1\xb0\xed\x95\x98\xea\xb8\xb0 \xec\x9c\x84\xed\x95\x9c \xeb\xb3\x80\xec\x88\x98" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MainMenuWidget_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "MainMenuGameMode.h" },
+		{ "ModuleRelativePath", "Gamemode/MainMenuGameMode.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_MainMenuWidgetClass;
@@ -108,14 +108,14 @@ AMainMenuGameMode::~AMainMenuGameMode() {}
 // End Class AMainMenuGameMode
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuGameMode_h_Statics
+struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_MainMenuGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMainMenuGameMode, AMainMenuGameMode::StaticClass, TEXT("AMainMenuGameMode"), &Z_Registration_Info_UClass_AMainMenuGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainMenuGameMode), 2863369275U) },
+		{ Z_Construct_UClass_AMainMenuGameMode, AMainMenuGameMode::StaticClass, TEXT("AMainMenuGameMode"), &Z_Registration_Info_UClass_AMainMenuGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainMenuGameMode), 2941297687U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuGameMode_h_2076713630(TEXT("/Script/Cpp_Personal"),
-	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_MainMenuGameMode_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_MainMenuGameMode_h_1620408429(TEXT("/Script/Cpp_Personal"),
+	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_MainMenuGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_MainMenuGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
