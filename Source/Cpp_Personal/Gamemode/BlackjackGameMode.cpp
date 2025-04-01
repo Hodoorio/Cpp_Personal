@@ -16,7 +16,7 @@ ABlackjackGameMode::ABlackjackGameMode()
 {
     PrimaryActorTick.bCanEverTick = false;
     Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
-	CurrentState = EGameState::Betting;
+    CurrentState = EGameState::Betting;
     BlackjackHUD = nullptr;
 }
 
@@ -148,8 +148,11 @@ void ABlackjackGameMode::PlayerHit()
     }
 
     // 카드를 플레이어 손에 추가
+    
     Player->GiveCardToHand(NewCard, 0);
+    UE_LOG(LogTemp, Warning, TEXT("PlayerHit(): 계산 전 플레이어 점수 PlayerScore -> %d, NewCard_Value -> %d "), PlayerScore, NewCard->GetCardValue());
     PlayerScore += NewCard->GetCardValue();
+    UE_LOG(LogTemp, Warning, TEXT("PlayerHit(): 계산 후 플레이어 점수 PlayerScore -> %d, NewCard_Value -> %d "), PlayerScore, NewCard->GetCardValue());
 
     // 에이스 처리 및 선택 UI
     if (NewCard->Rank == ERank::Ace)
