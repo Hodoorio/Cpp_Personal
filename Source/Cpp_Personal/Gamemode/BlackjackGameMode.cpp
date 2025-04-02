@@ -101,13 +101,27 @@ void ABlackjackGameMode::StartGame()
     Dealer->InitialDeal(Deck, Table);
     Player->InitialDeal(Deck, Table);
 
-    FString  PlayerScoreText = FString::FromInt(Player->GetHandValue()); // 플레이어 점수를 문자열로 변환
+
+    PlayerScore = Player->GetHandValue();
+    FString  PlayerScoreText = FString::FromInt(PlayerScore); // 플레이어 점수를 문자열로 변환
 
     // 딜러 점수를 '?'로 설정
     FString DealerScoreText = "?";
 
     // UI 업데이트
     BlackjackHUD->UpdateScores(PlayerScoreText, DealerScoreText);
+
+    // 블랙잭 처리
+    if (PlayerScore == 21)
+    {
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Green, TEXT("Black Jack! Player Wins."));
+        if (BlackjackHUD)
+        {
+            BlackjackHUD->UpdateMessageText("Black Jack! Player Wins.");
+        }
+        EndGame();
+        return;
+    }
 
     // 게임 상태 설정
     CurrentState = EGameState::PlayerTurn;
@@ -212,11 +226,56 @@ void ABlackjackGameMode::PlayerHit()
     UE_LOG(LogTemp, Warning, TEXT("PlayerHit(): 점수 업데이트 완료. 현재 점수: %d"), PlayerScore);
 }
 
+//void ABlackjackGameMode::PlayerStand()
+//{
+//    if (!Player || !Dealer || !Table)
+//    {
+//        UE_LOG(LogTemp, Error, TEXT("PlayerStand(): Player, Dealer, 또는 Table이 NULL입니다."));
+//        return;
+//    }
+//
+//    // 딜러의 첫 번째 비공개 카드 공개
+//    const TArray<FDealerHand>& DealerHands = Dealer->GetHands();
+//    if (DealerHands.Num() > 0 && DealerHands[0].Cards.Num() > 0)
+//    {
+//        UCard* FirstCard = DealerHands[0].Cards[0];
+//        if (FirstCard)
+//        {
+//            ACardActor* FirstCardActor = Table->FindCardActor(FirstCard);
+//            if (FirstCardActor)
+//            {
+//                FirstCardActor->SetFaceUp(true); // 카드 공개
+//                UE_LOG(LogTemp, Warning, TEXT("PlayerStand(): 딜러의 비공개 카드가 공개되었습니다."));
+//            }
+//        }
+//    }
+//
+//    // 딜러 턴 처리
+//    while (Dealer->GetHandValue(false) < 17)
+//    {
+//        UCard* NewCard = Dealer->DrawCard(Deck);
+//        Dealer->GiveCardToHand(NewCard);
+//
+//        ACardActor* NewCardActor = Table->SpawnCard(NewCard, false, Dealer->GetHands()[0].Cards.Num() - 1);
+//        if (NewCardActor)
+//        {
+//            NewCardActor->SetFaceUp(true); // 앞면 공개
+//        }
+//    }
+//
+//    DealerScore = Dealer->GetHandValue(true); // 딜러 최종 점수 계산
+//    PlayerScore = Player->GetHandValue(false); // 플레이어 점수 계산
+//
+//    // 승패 판정 및 결과 처리를 EndGame으로 넘김
+//    EndGame();
+//}
+
 void ABlackjackGameMode::PlayerStand()
 {
-    if (!Player || !Dealer || !Table)
+    // 기본 객체 유효성 검사
+    if (!Player || !Dealer || !Table || !Deck)
     {
-        UE_LOG(LogTemp, Error, TEXT("PlayerStand(): Player, Dealer, 또는 Table이 NULL입니다."));
+        UE_LOG(LogTemp, Error, TEXT("PlayerStand(): 필수 객체가 NULL입니다!"));
         return;
     }
 
@@ -236,23 +295,47 @@ void ABlackjackGameMode::PlayerStand()
         }
     }
 
-    // 딜러 턴 처리
+    // 딜러 턴 처리: 점수가 17 이상일 때까지 카드 드로우
     while (Dealer->GetHandValue(false) < 17)
     {
-        UCard* NewCard = Dealer->DrawCard(Deck);
+        UCard* NewCard = Deck->DrawCard();
+        if (!NewCard)
+        {
+            UE_LOG(LogTemp, Error, TEXT("PlayerStand(): 덱이 비어있어 딜러가 더 이상 카드를 드로우할 수 없습니다."));
+            break;
+        }
+
         Dealer->GiveCardToHand(NewCard);
 
-        ACardActor* NewCardActor = Table->SpawnCard(NewCard, false, Dealer->GetHands()[0].Cards.Num() - 1);
-        if (NewCardActor)
+        // 카드 생성 및 공개
+        int32 CardIndex = Dealer->GetHands()[0].Cards.Num() - 1;
+        if (CardIndex >= 0)
         {
-            NewCardActor->SetFaceUp(true); // 앞면 공개
+            ACardActor* NewCardActor = Table->SpawnCard(NewCard, true, CardIndex);
+            if (NewCardActor)
+            {
+                NewCardActor->SetFaceUp(true); // 카드 공개
+                UE_LOG(LogTemp, Warning, TEXT("PlayerStand(): 딜러가 새 카드를 드로우 -> Suit: %d, Rank: %d"), NewCard->Suit, NewCard->Rank);
+            }
+            else
+            {
+                UE_LOG(LogTemp, Error, TEXT("PlayerStand(): NewCardActor 생성 실패."));
+            }
         }
+
+        // 점수 조정
+        DealerScore = Dealer->GetHandValue(false);
+        AdjustForAces(DealerScore, DealerAces);
+        UE_LOG(LogTemp, Warning, TEXT("PlayerStand(): 딜러 현재 점수 -> %d"), DealerScore);
     }
 
-    DealerScore = Dealer->GetHandValue(true); // 딜러 최종 점수 계산
+    // 최종 점수 계산
+    DealerScore = Dealer->GetHandValue(true); // 딜러 점수 계산
     PlayerScore = Player->GetHandValue(false); // 플레이어 점수 계산
 
-    // 승패 판정 및 결과 처리를 EndGame으로 넘김
+    UE_LOG(LogTemp, Warning, TEXT("PlayerStand(): 최종 점수 계산 완료 -> PlayerScore: %d, DealerScore: %d"), PlayerScore, DealerScore);
+
+    // 승패 판정
     EndGame();
 }
 

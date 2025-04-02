@@ -144,7 +144,7 @@ void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
     }
 
     Hands[HandIndex].Cards.Add(NewCard); // 카드 추가
-    UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 핸드(%d)에 카드 추가 완료 -> %s"), HandIndex, *NewCard->GetCardName());
+    UE_LOG(LogTemp, Warning, TEXT("PlayerActor GiveCardToHand(): 핸드(%d)에 카드 추가 완료 -> %s"), HandIndex, *NewCard->GetCardName());
     UE_LOG(LogTemp, Warning, TEXT("현재 핸드(%d)의 카드 수: %d"), HandIndex, Hands[HandIndex].Cards.Num());
 }
 

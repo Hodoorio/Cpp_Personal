@@ -75,7 +75,7 @@ UCard* ADealerActor::DrawCard(UDeck* Deck)
     }
 
     Hands[0].Cards.Add(NewCard); // 카드 추가
-    UE_LOG(LogTemp, Warning, TEXT("DrawCard(): 딜러가 카드를 뽑았습니다 -> Suit: %d, Rank: %d"),
+    UE_LOG(LogTemp, Warning, TEXT("DrawCard(): 카드를 뽑았습니다 -> Suit: %d, Rank: %d"),
         static_cast<int32>(NewCard->Suit), static_cast<int32>(NewCard->Rank));
     return NewCard;
 }
@@ -95,7 +95,7 @@ void ADealerActor::GiveCardToHand(UCard* NewCard)
     }
 
     Hands[0].Cards.Add(NewCard);
-    UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 딜러 핸드에 새 카드 추가 -> %s"), *NewCard->GetCardName());
+    UE_LOG(LogTemp, Warning, TEXT("DealActor GiveCardToHand(): 딜러 핸드에 새 카드 추가 -> %s"), *NewCard->GetCardName());
 }
 
 // 🏆 핸드 점수 계산
