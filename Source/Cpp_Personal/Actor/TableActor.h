@@ -41,7 +41,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Card")
     UCardComponent* CardComponent;
 
-    ACardActor* CardActor = nullptr;
+    //ACardActor* CardActor;
 
 private:
     // 테이블 위에 있는 카드 액터 목록

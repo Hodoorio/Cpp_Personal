@@ -191,64 +191,41 @@ DEFINE_FUNCTION(ADealerActor::execGetHands)
 }
 // End Class ADealerActor Function GetHands
 
-// Begin Class ADealerActor Function GetHandValue
-struct Z_Construct_UFunction_ADealerActor_GetHandValue_Statics
+// Begin Class ADealerActor Function SetAllCardsFaceUp
+struct Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp_Statics
 {
-	struct DealerActor_eventGetHandValue_Parms
-	{
-		bool bIncludeHiddenCard;
-		int32 ReturnValue;
-	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Dealer" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xed\x95\xb8\xeb\x93\x9c \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0\n" },
+		{ "Comment", "// \xed\x95\xb8\xeb\x93\x9c \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0\n//int32 GetHandValue(bool bIncludeHiddenCard = false) const;\n" },
 #endif
-		{ "CPP_Default_bIncludeHiddenCard", "false" },
 		{ "ModuleRelativePath", "Actor/DealerActor.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xed\x95\xb8\xeb\x93\x9c \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0" },
+		{ "ToolTip", "\xed\x95\xb8\xeb\x93\x9c \xec\xa0\x90\xec\x88\x98 \xea\xb3\x84\xec\x82\xb0\nint32 GetHandValue(bool bIncludeHiddenCard = false) const;" },
 #endif
 	};
 #endif // WITH_METADATA
-	static void NewProp_bIncludeHiddenCard_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIncludeHiddenCard;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-void Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard_SetBit(void* Obj)
-{
-	((DealerActor_eventGetHandValue_Parms*)Obj)->bIncludeHiddenCard = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard = { "bIncludeHiddenCard", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(DealerActor_eventGetHandValue_Parms), &Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard_SetBit, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DealerActor_eventGetHandValue_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_bIncludeHiddenCard,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::NewProp_ReturnValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADealerActor, nullptr, "GetHandValue", nullptr, nullptr, Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::DealerActor_eventGetHandValue_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::DealerActor_eventGetHandValue_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_ADealerActor_GetHandValue()
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADealerActor, nullptr, "SetAllCardsFaceUp", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADealerActor_GetHandValue_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(ADealerActor::execGetHandValue)
+DEFINE_FUNCTION(ADealerActor::execSetAllCardsFaceUp)
 {
-	P_GET_UBOOL(Z_Param_bIncludeHiddenCard);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(int32*)Z_Param__Result=P_THIS->GetHandValue(Z_Param_bIncludeHiddenCard);
+	P_THIS->SetAllCardsFaceUp();
 	P_NATIVE_END;
 }
-// End Class ADealerActor Function GetHandValue
+// End Class ADealerActor Function SetAllCardsFaceUp
 
 // Begin Class ADealerActor
 void ADealerActor::StaticRegisterNativesADealerActor()
@@ -257,7 +234,7 @@ void ADealerActor::StaticRegisterNativesADealerActor()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "DrawCard", &ADealerActor::execDrawCard },
 		{ "GetHands", &ADealerActor::execGetHands },
-		{ "GetHandValue", &ADealerActor::execGetHandValue },
+		{ "SetAllCardsFaceUp", &ADealerActor::execSetAllCardsFaceUp },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -286,7 +263,7 @@ struct Z_Construct_UClass_ADealerActor_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADealerActor_DrawCard, "DrawCard" }, // 2874183838
 		{ &Z_Construct_UFunction_ADealerActor_GetHands, "GetHands" }, // 74663885
-		{ &Z_Construct_UFunction_ADealerActor_GetHandValue, "GetHandValue" }, // 3019423606
+		{ &Z_Construct_UFunction_ADealerActor_SetAllCardsFaceUp, "SetAllCardsFaceUp" }, // 416275058
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -344,10 +321,10 @@ struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerAc
 		{ FDealerHand::StaticStruct, Z_Construct_UScriptStruct_FDealerHand_Statics::NewStructOps, TEXT("DealerHand"), &Z_Registration_Info_UScriptStruct_DealerHand, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDealerHand), 1076350826U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 1397470501U) },
+		{ Z_Construct_UClass_ADealerActor, ADealerActor::StaticClass, TEXT("ADealerActor"), &Z_Registration_Info_UClass_ADealerActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADealerActor), 2234973606U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_523433891(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_3796296877(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_Statics::ScriptStructInfo),
 	nullptr, 0);

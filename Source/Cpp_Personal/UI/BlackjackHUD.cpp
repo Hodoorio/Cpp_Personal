@@ -278,20 +278,18 @@ void UBlackjackHUD::OnBetClicked()
 }
 
 void UBlackjackHUD::OnAceAsOneClicked()
-{
-    GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+{    
     if (GameMode)
     {
-        GameMode->HandleAceChoice(1);
+		GameMode->AdjustForAces(GameMode->Player, 1); // A를 1로 설정
     }
 }
 
 void UBlackjackHUD::OnAceAsElevenClicked()
 {
-    GameMode = Cast<ABlackjackGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
     if (GameMode)
     {
-        GameMode->HandleAceChoice(11);
+        GameMode->AdjustForAces(GameMode->Player, 11); // A를 1로 설정
     }
 }
 

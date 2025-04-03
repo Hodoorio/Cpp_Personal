@@ -6,32 +6,50 @@
 #include "Engine/World.h"
 
 
+
 ATableActor::ATableActor()
 {
     PrimaryActorTick.bCanEverTick = false;
 
+    // 테이블 메쉬 초기화
     TableMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TableMesh"));
     TableMesh->SetupAttachment(RootComponent);
 
-    // 플레이어 카드 배치 영역
+    // 플레이어 카드 배치 영역 초기화
     PlayerCardArea = CreateDefaultSubobject<USceneComponent>(TEXT("PlayerCardArea"));
     PlayerCardArea->SetupAttachment(RootComponent);
     PlayerCardArea->SetRelativeLocation(FVector(0.0f, 100.0f, 320.0f));
 
-    // 딜러 카드 배치 영역
+    // 딜러 카드 배치 영역 초기화
     DealerCardArea = CreateDefaultSubobject<USceneComponent>(TEXT("DealerCardArea"));
     DealerCardArea->SetupAttachment(RootComponent);
-    DealerCardArea->SetRelativeLocation(FVector(0.0f, -100.0f, 320.0f)); // 위치 수정
+    DealerCardArea->SetRelativeLocation(FVector(0.0f, -100.0f, 320.0f));
 
     // 카드 컴포넌트 생성
     CardComponent = CreateDefaultSubobject<UCardComponent>(TEXT("CardComponent"));
+
+    // 초기화를 강제하지 않고, 블루프린트 설정을 활용
 }
 
 void ATableActor::BeginPlay()
 {
     Super::BeginPlay();
 
-    // 테이블 초기화 로직 추가 가능
+    // CardComponent가 NULL인지 확인
+    if (!CardComponent)
+    {
+        UE_LOG(LogTemp, Error, TEXT("BeginPlay(): CardComponent가 NULL입니다! 초기화가 필요합니다."));
+        return;
+    }
+
+    // CardActor가 블루프린트에서 설정되었는지 확인
+    if (!CardComponent->CardActor)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): CardActor가 NULL입니다! 블루프린트 설정을 확인하세요."));
+        return;
+    }
+
+    UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): CardActor가 정상적으로 설정되었습니다 -> %s"), *CardComponent->CardActor->GetName());
 }
 
 // 🎲 카드 생성 및 배치
@@ -50,11 +68,19 @@ ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardInd
         return nullptr;
     }
 
-    if (!CardComponent || !CardComponent->CardActor)
+    if (!CardComponent)
     {
-        UE_LOG(LogTemp, Error, TEXT("SpawnCard(): CardComponent 또는 CardActor가 NULL입니다!"));
+        UE_LOG(LogTemp, Error, TEXT("SpawnCard(): CardComponent가 NULL입니다!"));
         return nullptr;
     }
+    if (CardComponent->CardActor == nullptr)
+    {        
+        FString ActorName = this->GetActorLabel();
+        UE_LOG(LogTemp, Error, TEXT("%s : SpawnCard(): CardActor가 NULL입니다!"), *ActorName);
+        return nullptr;
+    }
+    
+
 
     FVector SpawnLocation;
     FRotator SpawnRotation;

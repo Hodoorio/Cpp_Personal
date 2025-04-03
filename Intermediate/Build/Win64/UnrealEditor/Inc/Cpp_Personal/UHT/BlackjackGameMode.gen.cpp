@@ -170,48 +170,6 @@ DEFINE_FUNCTION(ABlackjackGameMode::execConfirmBet)
 }
 // End Class ABlackjackGameMode Function ConfirmBet
 
-// Begin Class ABlackjackGameMode Function HandleAceChoice
-struct Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics
-{
-	struct BlackjackGameMode_eventHandleAceChoice_Parms
-	{
-		int32 ChosenValue;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Gamemode/BlackjackGameMode.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FIntPropertyParams NewProp_ChosenValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::NewProp_ChosenValue = { "ChosenValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlackjackGameMode_eventHandleAceChoice_Parms, ChosenValue), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::NewProp_ChosenValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABlackjackGameMode, nullptr, "HandleAceChoice", nullptr, nullptr, Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::BlackjackGameMode_eventHandleAceChoice_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::BlackjackGameMode_eventHandleAceChoice_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(ABlackjackGameMode::execHandleAceChoice)
-{
-	P_GET_PROPERTY(FIntProperty,Z_Param_ChosenValue);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->HandleAceChoice(Z_Param_ChosenValue);
-	P_NATIVE_END;
-}
-// End Class ABlackjackGameMode Function HandleAceChoice
-
 // Begin Class ABlackjackGameMode Function PlayerHit
 struct Z_Construct_UFunction_ABlackjackGameMode_PlayerHit_Statics
 {
@@ -344,7 +302,6 @@ void ABlackjackGameMode::StaticRegisterNativesABlackjackGameMode()
 	UClass* Class = ABlackjackGameMode::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "ConfirmBet", &ABlackjackGameMode::execConfirmBet },
-		{ "HandleAceChoice", &ABlackjackGameMode::execHandleAceChoice },
 		{ "PlayerHit", &ABlackjackGameMode::execPlayerHit },
 		{ "PlayerSplit", &ABlackjackGameMode::execPlayerSplit },
 		{ "PlayerStand", &ABlackjackGameMode::execPlayerStand },
@@ -495,7 +452,6 @@ struct Z_Construct_UClass_ABlackjackGameMode_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABlackjackGameMode_ConfirmBet, "ConfirmBet" }, // 147725453
-		{ &Z_Construct_UFunction_ABlackjackGameMode_HandleAceChoice, "HandleAceChoice" }, // 886443244
 		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerHit, "PlayerHit" }, // 2253663415
 		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerSplit, "PlayerSplit" }, // 3878665031
 		{ &Z_Construct_UFunction_ABlackjackGameMode_PlayerStand, "PlayerStand" }, // 948592458
@@ -580,10 +536,10 @@ ABlackjackGameMode::~ABlackjackGameMode() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 3313918448U) },
+		{ Z_Construct_UClass_ABlackjackGameMode, ABlackjackGameMode::StaticClass, TEXT("ABlackjackGameMode"), &Z_Registration_Info_UClass_ABlackjackGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABlackjackGameMode), 4030807664U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_2585898736(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_558530683(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

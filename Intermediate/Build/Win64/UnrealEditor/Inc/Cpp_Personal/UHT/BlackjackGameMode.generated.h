@@ -23,7 +23,6 @@ CPP_PERSONAL_API void FOnScoreUpdated_DelegateWrapper(const FMulticastScriptDele
 
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execHandleAceChoice); \
 	DECLARE_FUNCTION(execConfirmBet); \
 	DECLARE_FUNCTION(execPlayerSplit); \
 	DECLARE_FUNCTION(execPlayerStand); \

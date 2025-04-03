@@ -30,7 +30,7 @@ public:
     ADealerActor();
 
     // 게임 시작 시 호출
-    virtual void BeginPlay() override;
+    //virtual void BeginPlay() override;
 
     void InitialDeal(UDeck* Deck, ATableActor* Table);
 
@@ -43,7 +43,7 @@ public:
 
     // 핸드 점수 계산
     UFUNCTION(BlueprintCallable, Category = "Dealer")
-    int32 GetHandValue(bool bIncludeHiddenCard = false) const;
+    //int32 GetHandValue(bool bIncludeHiddenCard = false) const;
 
     void SetAllCardsFaceUp();
 
@@ -55,8 +55,28 @@ public:
 
     ACardActor* FindCardActor(UCard* TargetCard) const;
 
+    FORCEINLINE int32 GetDealerScore() const { return DealerScore; }
+
+    // 점수 Setter
+    FORCEINLINE void SetDealerScore(int32 NewScore) { DealerScore = NewScore; }
+
+    // 점수 추가
+    FORCEINLINE void AddToDealerScore(int32 ValueToAdd) { DealerScore += ValueToAdd; }
+
+    // 에이스 Getter
+    FORCEINLINE int32 GetDealerAces() const { return DealerAces; }
+
+    // 에이스 Setter
+    FORCEINLINE void SetDealerAces(int32 NewAces) { DealerAces = NewAces; }
+
+    // 에이스 추가
+    FORCEINLINE void AddToDealerAces(int32 ValueToAdd) { DealerAces += ValueToAdd; }
+
 
 private:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer", meta = (AllowPrivateAccess = "true"))
     TArray<FDealerHand> Hands;
+
+    int32 DealerScore;
+	int32 DealerAces;
 };

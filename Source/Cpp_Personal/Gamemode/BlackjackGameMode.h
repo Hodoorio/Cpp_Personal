@@ -50,11 +50,8 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Game")
     void ConfirmBet();
 
-    UFUNCTION()
-    void HandleAceChoice(int32 ChosenValue);
+    void AdjustForAces(AActor* Actor, int32 ChosenAceValue);
 
-    void AdjustForAces(int32& Score, int32& AcesCount, int32 ChosenAceValue = 0);
-    
     // 게임이 끝날 때마다 카드 정리
     void ClearTableCards();
 
@@ -148,10 +145,10 @@ public:
 
 
 private:
-    int32 PlayerScore = 0;
-    int32 DealerScore = 0;
-    int32 PlayerAces = 0; // A 개수 추적
-    int32 DealerAces = 0;
+    //int32 PlayerScore = 0;
+    //int32 DealerScore = 0;
+    //int32 PlayerAces = 0; // A 개수 추적
+    //int32 DealerAces = 0;
 
     
 

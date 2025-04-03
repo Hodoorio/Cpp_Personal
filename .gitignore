@@ -191,3 +191,4 @@ _Pvt_Extensions
 .paket/paket.exe
 # FAKE - F# Make
 .fake/
+Binaries/Win64/Cpp_Personal-Win64-DebugGame.exe

@@ -26,7 +26,7 @@ template<> CPP_PERSONAL_API UScriptStruct* StaticStruct<struct FDealerHand>();
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_Actor_DealerActor_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetHands); \
-	DECLARE_FUNCTION(execGetHandValue); \
+	DECLARE_FUNCTION(execSetAllCardsFaceUp); \
 	DECLARE_FUNCTION(execDrawCard);
 
 

@@ -7,11 +7,7 @@
 ADealerActor::ADealerActor()
 {
     PrimaryActorTick.bCanEverTick = false;
-}
-
-void ADealerActor::BeginPlay()
-{
-    Super::BeginPlay();
+    DealerScore = 0;
 }
 
 void ADealerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
@@ -29,7 +25,7 @@ void ADealerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
     if (FirstCard)
     {
         GiveCardToHand(FirstCard);
-
+        UE_LOG(LogTemp, Warning, TEXT("Player GiveCardToHand() 완료 SpawnCard실행 전"));
         ACardActor* CardActor = Table->SpawnCard(FirstCard, false, 0); // 숨긴 카드
         if (CardActor)
         {
@@ -80,62 +76,37 @@ UCard* ADealerActor::DrawCard(UDeck* Deck)
     return NewCard;
 }
 
-// 🃏 카드 추가 함수
+
+
+// 🏆 핸드 점수 계산
 void ADealerActor::GiveCardToHand(UCard* NewCard)
 {
+    // 유효성 검사: NewCard가 NULL인지 확인
     if (!NewCard)
     {
-        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): NewCard가 NULL입니다."));
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): NewCard가 NULL입니다. 카드를 추가하지 않습니다."));
         return;
     }
 
-    if (Hands.Num() == 0)
+    // Hands 배열 초기화 여부 확인
+    if (Hands.IsEmpty())
     {
         Hands.Add(FDealerHand()); // 첫 번째 핸드 생성
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 딜러의 첫 번째 핸드를 생성했습니다."));
     }
 
+    // 카드 추가
     Hands[0].Cards.Add(NewCard);
-    UE_LOG(LogTemp, Warning, TEXT("DealActor GiveCardToHand(): 딜러 핸드에 새 카드 추가 -> %s"), *NewCard->GetCardName());
-}
 
-// 🏆 핸드 점수 계산
-int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
-{
-    int32 TotalValue = 0;
-    int32 AceCount = 0;
-
-    for (int32 i = 0; i < Hands[0].Cards.Num(); ++i)
+    // 카드 정보 로깅
+    if (NewCard->GetCardName().IsEmpty())
     {
-        if (!bIncludeHiddenCard && i == 0) // 첫 번째 카드 숨김 처리
-        {
-            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 첫 번째 카드는 숨김 처리됨."));
-            continue;
-        }
-
-        UCard* Card = Hands[0].Cards[i];
-        if (!Card) continue;
-
-        int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;
-
-        if (Card->Rank == ERank::Ace)
-        {
-            CardValue = 11;
-            AceCount++;
-        }
-
-        TotalValue += CardValue;
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 카드 이름이 비어 있습니다. 카드가 제대로 초기화되었는지 확인하십시오."));
     }
-
-    // Ace 조정
-    while (TotalValue > 21 && AceCount > 0)
+    else
     {
-        TotalValue -= 10;
-        AceCount--;
+        UE_LOG(LogTemp, Warning, TEXT("GiveCardToHand(): 딜러 핸드에 새 카드 추가 -> %s"), *NewCard->GetCardName());
     }
-
-    UE_LOG(LogTemp, Warning, TEXT("딜러 점수 계산 완료 (공개 여부 %s): %d"),
-        bIncludeHiddenCard ? TEXT("포함됨") : TEXT("숨김"), TotalValue);
-    return TotalValue;
 }
 
 // 🃏 카드 공개 처리 함수
@@ -200,3 +171,4 @@ ACardActor* ADealerActor::FindCardActor(UCard* TargetCard) const
     UE_LOG(LogTemp, Warning, TEXT("FindCardActor(): 대상 카드를 가진 액터를 찾지 못했습니다 -> %s"), *TargetCard->GetCardName());
     return nullptr;
 }
+

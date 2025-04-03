@@ -118,6 +118,8 @@ public:
 protected:
     virtual void NativeConstruct() override;
 
+    void SetAceButtonsVisibilityAndEnabled(bool bVisible);
+
 private:
     UFUNCTION()
     void OnHitClicked();

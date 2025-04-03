@@ -12,6 +12,7 @@ APlayerActor::APlayerActor()
     Coins = 1000;
     CurrentBet = 0;
     bIsSplitActive = false;
+    PlayerScore = 0;
 
     // 🎲 두 개의 핸드 공간을 미리 생성
     Hands.AddDefaulted(2);  // 기본 핸드와 스플릿 핸드 공간을 미리 생성
@@ -49,7 +50,7 @@ void APlayerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
         if (NewCard)
         {
             GiveCardToHand(NewCard, 0);
-
+            UE_LOG(LogTemp, Warning, TEXT("Dealer GiveCardToHand() 완료 SpawnCard실행 전"));
             ACardActor* CardActor = Table->SpawnCard(NewCard, true, i);
             if (CardActor)
             {
@@ -151,33 +152,43 @@ void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
 // 🏆 현재 핸드의 총 점수 계산
 int32 APlayerActor::GetHandValue(int32 HandIndex) const
 {
-    if (Hands.Num() == 0 || HandIndex >= Hands.Num()) return 0;
+    // 핸드 리스트가 없거나, 유효하지 않은 인덱스인 경우
+    if (Hands.Num() == 0 || HandIndex >= Hands.Num())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 유효하지 않은 핸드 인덱스입니다. 반환값: 0"));
+        return 0;
+    }
 
     int32 TotalValue = 0;
     int32 AceCount = 0;
 
     const FPlayerHand& Hand = Hands[HandIndex];
-
-    UE_LOG(LogTemp, Warning, TEXT("===== 플레이어 핸드 점수 계산 ====="));
+    UE_LOG(LogTemp, Warning, TEXT("===== 핸드 점수 계산 시작 ====="));
 
     for (UCard* Card : Hand.Cards)
     {
-        if (!Card) continue;
+        if (!Card)
+        {
+            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): NULL 카드 발견. 무시합니다."));
+            continue;
+        }
 
         int32 CardValue = 0;
 
-        if (Card->Rank >= ERank::Jack)
+        switch (Card->Rank)
         {
-            CardValue = 10;
-        }
-        else if (Card->Rank == ERank::Ace)
-        {
-            CardValue = 11;
+        case ERank::Jack:
+        case ERank::Queen:
+        case ERank::King:
+            CardValue = 10; // J, Q, K는 점수 10
+            break;
+        case ERank::Ace:
+            CardValue = 11; // Ace는 기본적으로 11
             AceCount++;
-        }
-        else
-        {
-            CardValue = static_cast<int32>(Card->Rank) + 1;
+            break;
+        default:
+            CardValue = static_cast<int32>(Card->Rank) + 1; // 그 외 숫자 카드
+            break;
         }
 
         TotalValue += CardValue;
@@ -186,25 +197,27 @@ int32 APlayerActor::GetHandValue(int32 HandIndex) const
         FString SuitString;
         switch (Card->Suit)
         {
-        case ESuit::Hearts:   SuitString = "Hearts"; break;
+        case ESuit::Hearts:   SuitString = "Hearts";   break;
         case ESuit::Diamonds: SuitString = "Diamonds"; break;
-        case ESuit::Clubs:    SuitString = "Clubs"; break;
-        case ESuit::Spades:   SuitString = "Spades"; break;
+        case ESuit::Clubs:    SuitString = "Clubs";    break;
+        case ESuit::Spades:   SuitString = "Spades";   break;
+        default:              SuitString = "Unknown";  break;
         }
+
         UE_LOG(LogTemp, Warning, TEXT("카드: %s %d -> 점수: %d"), *SuitString, static_cast<int32>(Card->Rank) + 1, CardValue);
     }
 
     // ✅ Ace(에이스) 조정
     while (TotalValue > 21 && AceCount > 0)
     {
-        TotalValue -= 10;
+        TotalValue -= 10; // Ace를 1로 조정
         AceCount--;
+        UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): Ace 조정 -> 총 점수: %d, 남은 Ace 개수: %d"), TotalValue, AceCount);
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("총 점수: %d"), TotalValue);
+    UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 계산 완료 -> 총 점수: %d"), TotalValue);
     return TotalValue;
 }
-
 
 
 // ✂ 스플릿 가능 여부 확인
@@ -246,3 +259,5 @@ void APlayerActor::ClearHand()
     Hands.Empty();  // ✅ 플레이어 카드 초기화
     UE_LOG(LogTemp, Warning, TEXT("ClearHand(): 플레이어 손패 초기화 완료"));
 }
+
+
