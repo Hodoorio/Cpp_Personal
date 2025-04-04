@@ -94,4 +94,20 @@ public:
 
     ABlackjackGameMode* GameMode = nullptr;
 
+
+    // DealerAceCount 관련 메서드
+    FORCEINLINE int32 GetPlayerAceCount() const { return PlayerAceCount; }
+    FORCEINLINE int32* GetPlayerAceCountPtr() { return &PlayerAceCount; }
+    FORCEINLINE void SetPlayerAceCount(int32 NewAceCount) { PlayerAceCount = NewAceCount; }
+    FORCEINLINE void AddPlayerAceCount(int32 Delta) { PlayerAceCount += Delta; }
+
+    // DealerScore 관련 메서드
+    FORCEINLINE int32 GetPlayerScore() const { return PlayerScore; }
+    FORCEINLINE int32* GetPlayerScorePtr() { return &PlayerScore; }
+    FORCEINLINE void SetPlayerScore(int32 NewScore) { PlayerScore = NewScore; }
+    FORCEINLINE void AddPlayerScore(int32 Delta) { PlayerScore += Delta; }
+
+private:
+    int32 PlayerAceCount; // Aces의 개수
+    int32 PlayerScore;
 };

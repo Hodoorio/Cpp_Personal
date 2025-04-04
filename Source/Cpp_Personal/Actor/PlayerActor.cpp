@@ -12,6 +12,7 @@ APlayerActor::APlayerActor()
     Coins = 1000;
     CurrentBet = 0;
     bIsSplitActive = false;
+	GameMode = nullptr;
 
     // 🎲 두 개의 핸드 공간을 미리 생성
     Hands.AddDefaulted(2);  // 기본 핸드와 스플릿 핸드 공간을 미리 생성

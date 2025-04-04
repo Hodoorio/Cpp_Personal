@@ -273,7 +273,7 @@ void UBlackjackHUD::OnBetClicked()
     if (GameMode)
     {
         GameMode->ConfirmBet(); // 🟢 "베팅 완료" 처리
-        GameMode->StartGame();
+        
     }
 }
 

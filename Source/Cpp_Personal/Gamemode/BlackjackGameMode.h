@@ -148,10 +148,10 @@ public:
 
 
 private:
-    int32 PlayerScore = 0;
-    int32 DealerScore = 0;
-    int32 PlayerAces = 0; // A 개수 추적
-    int32 DealerAces = 0;
+    //int32 PlayerScore = 0;
+    //int32 DealerScore = 0;
+    //int32 PlayerAces = 0; // A 개수 추적
+    //int32 DealerAces = 0;
 
     
 

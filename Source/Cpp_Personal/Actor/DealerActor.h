@@ -8,6 +8,7 @@
 class UDeck;
 class ACardActor;
 class ATableActor;
+class UCard;
 
 USTRUCT(BlueprintType)
 struct FDealerHand
@@ -43,7 +44,7 @@ public:
 
     // 핸드 점수 계산
     UFUNCTION(BlueprintCallable, Category = "Dealer")
-    int32 GetHandValue(bool bIncludeHiddenCard = false) const;
+    int32 GetHandValue(bool bIncludeHiddenCard = false);
 
     void SetAllCardsFaceUp();
 
@@ -56,7 +57,22 @@ public:
     ACardActor* FindCardActor(UCard* TargetCard) const;
 
 
-private:
+    // DealerAceCount 관련 메서드
+    FORCEINLINE int32 GetDealerAceCount() const { return DealerAceCount; }
+    FORCEINLINE int32* GetDealerAceCountPtr() { return &DealerAceCount; }
+    FORCEINLINE void SetDealerAceCount(int32 NewAceCount) { DealerAceCount = NewAceCount; }
+    FORCEINLINE void AddDealerAceCount(int32 Delta) { DealerAceCount += Delta; }
+
+    // DealerScore 관련 메서드
+    FORCEINLINE int32 GetDealerScore() const { return DealerScore; }
+    FORCEINLINE int32* GetDealerScorePtr() { return &DealerScore; }
+    FORCEINLINE void SetDealerScore(int32 NewScore) { DealerScore = NewScore; }
+    FORCEINLINE void AddDealerScore(int32 Delta) { DealerScore += Delta; }
+
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Dealer", meta = (AllowPrivateAccess = "true"))
     TArray<FDealerHand> Hands;
+private:    
+
+	int32 DealerAceCount; // Aces의 개수
+    int32 DealerScore;
 };

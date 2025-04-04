@@ -82,6 +82,7 @@ ACardActor* ATableActor::SpawnCard(UCard* NewCard, bool bIsPlayer, int32 CardInd
 
     // 카드 설정
     SpawnedCardActor->SetCard(NewCard->Suit, NewCard->Rank);
+    //UE_LOG(LogTemp, Warning, TEXT("SpawnCard(): 카드 생성 완료 - 위치 (%f, %f, %f)"), SpawnLocation.X, SpawnLocation.Y, SpawnLocation.Z);
     UE_LOG(LogTemp, Warning, TEXT("SpawnCard(): 카드 생성 완료 - 위치 (%f, %f, %f)"), SpawnLocation.X, SpawnLocation.Y, SpawnLocation.Z);
 
     // CardActors 리스트에 추가

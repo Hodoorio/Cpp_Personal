@@ -35,11 +35,11 @@ void UDeck::InitializeDeck()
             {
                 NewCard->SetCard(static_cast<ESuit>(Suit), static_cast<ERank>(Rank));
                 Cards.Add(NewCard);
-                UE_LOG(LogTemp, Warning, TEXT("InitializeDeck(): 카드 생성 완료 -> %s"), *CardName.ToString());
+                //UE_LOG(LogTemp, Warning, TEXT("InitializeDeck(): 카드 생성 완료 -> %s"), *CardName.ToString());
             }
             else
             {
-                UE_LOG(LogTemp, Error, TEXT("InitializeDeck(): 카드 생성 실패 -> Suit: %d, Rank: %d"), Suit, Rank);
+                //UE_LOG(LogTemp, Error, TEXT("InitializeDeck(): 카드 생성 실패 -> Suit: %d, Rank: %d"), Suit, Rank);
             }
         }
     }
