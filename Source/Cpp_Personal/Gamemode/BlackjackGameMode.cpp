@@ -52,7 +52,7 @@ void ABlackjackGameMode::BeginPlay()
         return;
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): Player, Dealer, Table 스폰 성공"));
+    //UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): Player, Dealer, Table 스폰 성공"));
 
     // HUD 생성 및 초기화
     CreateHUD();
@@ -239,6 +239,7 @@ void ABlackjackGameMode::PlayerHit()
 
 void ABlackjackGameMode::PlayerStand()
 {
+
     // 기본 객체 유효성 검사
     if (!Player || !Dealer || !Table || !Deck)
     {
@@ -263,8 +264,10 @@ void ABlackjackGameMode::PlayerStand()
     }
 
     // 딜러 턴 처리: 점수가 17 이상일 때까지 카드 드로우
-    while (Dealer->GetHandValue(false) < 17)
+    while (Dealer->GetDealerScore() < 17)
     {
+
+
         UCard* NewCard = Deck->DrawCard();
         if (!NewCard)
         {
@@ -278,7 +281,7 @@ void ABlackjackGameMode::PlayerStand()
         int32 CardIndex = Dealer->GetHands()[0].Cards.Num() - 1;
         if (CardIndex >= 0)
         {
-            ACardActor* NewCardActor = Table->SpawnCard(NewCard, true, CardIndex);
+            ACardActor* NewCardActor = Table->SpawnCard(NewCard, false, CardIndex);
             if (NewCardActor)
             {
                 NewCardActor->SetFaceUp(true); // 카드 공개
@@ -299,10 +302,13 @@ void ABlackjackGameMode::PlayerStand()
     }
 
     // 최종 점수 계산
-    Dealer->SetDealerScore(Dealer->GetHandValue(true)); // 딜러 점수 계산
+    
+    //Dealer->SetDealerScore(Dealer->GetHandValue(true)); // 딜러 점수 계산
     Player->SetPlayerScore(Player->GetHandValue(false)); // 플레이어 점수 계산
 
     UE_LOG(LogTemp, Warning, TEXT("PlayerStand(): 최종 점수 계산 완료 -> PlayerScore: %d, DealerScore: %d"), Player->GetPlayerScore(), Dealer->GetDealerScore());
+
+    UpdateScoresUI();
 
     // 승패 판정
     EndGame();
@@ -524,12 +530,6 @@ void ABlackjackGameMode::ResetForNextRound()
     UE_LOG(LogTemp, Warning, TEXT("덱 초기화 및 셔플 완료."));
 
 
-    // 플레이어와 딜러 점수 초기화
-    /*PlayerScore = 0;
-    DealerScore = 0;
-    PlayerAces = 0;
-    DealerAces = 0;*/
-
 	Player->SetPlayerScore(0); // 플레이어 점수 초기화
 	Dealer->SetDealerScore(0); // 딜러 점수 초기화
 	Player->SetPlayerAceCount(0); // 플레이어 에이스 개수 초기화
@@ -650,6 +650,14 @@ void ABlackjackGameMode::DetermineWinner()
 {
 	int32* PlayerScore = Player->GetPlayerScorePtr();
 	int32* DealerScore = Dealer->GetDealerScorePtr();
+    
+    if (*PlayerScore == 21)
+    {
+        Player->WinBet();
+        FString ResultMessage = "Player Black Jack!";
+        UE_LOG(LogTemp, Warning, TEXT("DetermineWinner(): %s"), *ResultMessage);
+        ProcessEndGame(ResultMessage);
+    }
     if (*PlayerScore > 21)
     {
         // 플레이어 버스트 처리

@@ -33,16 +33,16 @@ void ACardActor::BeginPlay()
         if (MID)
         {
             CardMesh->SetMaterial(0, MID); // MID는 UMaterialInterface로 자동 캐스팅됩니다.
-            UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): DynamicMaterialInstance created and applied to CardMesh."));
+            //UE_LOG(LogTemp, Warning, TEXT("BeginPlay(): DynamicMaterialInstance created and applied to CardMesh."));
         }
         else
         {
-            UE_LOG(LogTemp, Error, TEXT("BeginPlay(): DynamicMaterialInstance creation failed."));
+            //UE_LOG(LogTemp, Error, TEXT("BeginPlay(): DynamicMaterialInstance creation failed."));
         }
     }
     else
     {
-        UE_LOG(LogTemp, Error, TEXT("BeginPlay(): FaceMaterial is NULL."));
+        //UE_LOG(LogTemp, Error, TEXT("BeginPlay(): FaceMaterial is NULL."));
     }
 }
 // ✅ Suit과 Rank에 맞는 텍스처를 찾아서 적용
@@ -64,7 +64,7 @@ void ACardActor::SetCard(ESuit NewSuit, ERank NewRank)
     // RowKey 생성 및 디버깅
     FString RowKey = FString::Printf(TEXT("%d_%d"), static_cast<int32>(Suit), static_cast<int32>(Rank));
     FName RowName = FName(*RowKey);
-    UE_LOG(LogTemp, Warning, TEXT("SetCard(): 생성된 RowKey -> %s"), *RowKey);
+    //UE_LOG(LogTemp, Warning, TEXT("SetCard(): 생성된 RowKey -> %s"), *RowKey);
 
     // 데이터 테이블 조회
     FString ContextString;
@@ -87,7 +87,7 @@ void ACardActor::SetCard(ESuit NewSuit, ERank NewRank)
     {
         MID->SetTextureParameterValue(FName("Card_Image"), CardData->CardTexture);
         CardMesh->SetMaterial(0, MID);
-        UE_LOG(LogTemp, Warning, TEXT("SetCard(): Texture applied successfully."));
+        //UE_LOG(LogTemp, Warning, TEXT("SetCard(): Texture applied successfully."));
     }
     else
     {
@@ -103,12 +103,12 @@ void ACardActor::SetFaceUp(bool bInIsFaceUp)
     if (bIsFaceUp && FaceMaterial)
     {
         CardMesh->SetMaterial(0, MID);
-        UE_LOG(LogTemp, Warning, TEXT("SetFaceUp(): Card is now FACE UP."));
+        //UE_LOG(LogTemp, Warning, TEXT("SetFaceUp(): Card is now FACE UP."));
     }
     else if (!bIsFaceUp && BackMaterial)
     {
         CardMesh->SetMaterial(0, BackMaterial);
-        UE_LOG(LogTemp, Warning, TEXT("SetFaceUp(): Card is now FACE DOWN."));
+        //UE_LOG(LogTemp, Warning, TEXT("SetFaceUp(): Card is now FACE DOWN."));
     }
 }
 

@@ -6,7 +6,7 @@ UDeck::UDeck(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer)
 {
     // 생성자는 객체 생성만 처리
-    UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
+    //UE_LOG(LogTemp, Warning, TEXT("UDeck 생성자 호출됨."));
 }
 
 
@@ -44,7 +44,7 @@ void UDeck::InitializeDeck()
         }
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 카드 수: %d"), Cards.Num());
+    //UE_LOG(LogTemp, Warning, TEXT("덱 초기화 완료, 카드 수: %d"), Cards.Num());
 }
 
 
@@ -59,7 +59,7 @@ void UDeck::ShuffleDeck()
         Cards.Swap(i, SwapIndex);
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("ShuffleDeck(): 덱 섞기 완료."));
+    //UE_LOG(LogTemp, Warning, TEXT("ShuffleDeck(): 덱 섞기 완료."));
 }
 
 UCard* UDeck::DrawCard()

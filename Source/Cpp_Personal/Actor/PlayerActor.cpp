@@ -59,7 +59,7 @@ void APlayerActor::InitialDeal(UDeck* Deck, ATableActor* Table)
         }
     }
 
-    UE_LOG(LogTemp, Warning, TEXT("InitialDeal(): 플레이어가 초기 카드를 배분했습니다. 총 카드 수: %d"), Hands[0].Cards.Num());
+    //UE_LOG(LogTemp, Warning, TEXT("InitialDeal(): 플레이어가 초기 카드를 배분했습니다. 총 카드 수: %d"), Hands[0].Cards.Num());
 }
 
 // 🎲 플레이어 코인 초기화
@@ -145,8 +145,8 @@ void APlayerActor::GiveCardToHand(UCard* NewCard, int32 HandIndex)
     }
 
     Hands[HandIndex].Cards.Add(NewCard); // 카드 추가
-    UE_LOG(LogTemp, Warning, TEXT("PlayerActor GiveCardToHand(): 핸드(%d)에 카드 추가 완료 -> %s"), HandIndex, *NewCard->GetCardName());
-    UE_LOG(LogTemp, Warning, TEXT("현재 핸드(%d)의 카드 수: %d"), HandIndex, Hands[HandIndex].Cards.Num());
+    //UE_LOG(LogTemp, Warning, TEXT("PlayerActor GiveCardToHand(): 핸드(%d)에 카드 추가 완료 -> %s"), HandIndex, *NewCard->GetCardName());
+    //UE_LOG(LogTemp, Warning, TEXT("현재 핸드(%d)의 카드 수: %d"), HandIndex, Hands[HandIndex].Cards.Num());
 }
 
 // 🏆 현재 핸드의 총 점수 계산

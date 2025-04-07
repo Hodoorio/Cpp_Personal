@@ -34,7 +34,12 @@ void UBlackjackHUD::NativeConstruct()
    
     UpdateMessageText("Place Your Bets!", 120.0f);
 
-    
+    // 스플릿 기능 미구현으로 인한 버튼 숨기기
+	if (BTN_Split)
+	{
+		BTN_Split->SetVisibility(ESlateVisibility::Hidden);
+		BTN_Split->SetIsEnabled(false);
+	}
 
     // A 선택 버튼은 기본적으로 숨김
     HideAceChoice();
@@ -164,7 +169,7 @@ void UBlackjackHUD::SetActionButtonsEnabled(bool bEnabled)
 {
     if (BTN_Hit) BTN_Hit->SetIsEnabled(bEnabled);
     if (BTN_Stand) BTN_Stand->SetIsEnabled(bEnabled);
-    if (BTN_Split) BTN_Split->SetIsEnabled(bEnabled);
+    //if (BTN_Split) BTN_Split->SetIsEnabled(bEnabled);
 }
 
 void UBlackjackHUD::SetBetButtonsEnabled(bool bEnabled)

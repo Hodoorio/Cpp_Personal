@@ -10,6 +10,9 @@ ATableActor::ATableActor()
 {
     PrimaryActorTick.bCanEverTick = false;
 
+	// 테이블 메시 생성
+	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
+
     TableMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TableMesh"));
     TableMesh->SetupAttachment(RootComponent);
 

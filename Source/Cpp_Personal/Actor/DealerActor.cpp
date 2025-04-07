@@ -101,11 +101,21 @@ void ADealerActor::GiveCardToHand(UCard* NewCard)
 // 🏆 핸드 점수 계산
 int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard)
 {
-    // 딜러 점수와 Ace 개수 초기화 (캡슐화된 Setter 활용)
+    // 딜러 점수와 Ace 개수 초기화
     SetDealerScore(0);
     SetDealerAceCount(0);
 
     UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): DealerScore 초기화 -> DealerScore : %d"), GetDealerScore());
+
+    // Hands 배열 유효성 검사
+    if (Hands.Num() == 0 || Hands[0].Cards.Num() == 0)
+    {
+        UE_LOG(LogTemp, Error, TEXT("GetHandValue(): Hands 배열 또는 Cards 배열이 비어 있습니다."));
+        return GetDealerScore(); // 초기화된 0 반환
+    }
+
+    // 카드 추적용 Set 생성 (중복 처리 방지)
+    TSet<UCard*> ProcessedCards;
 
     for (int32 i = 0; i < Hands[0].Cards.Num(); ++i)
     {
@@ -122,17 +132,27 @@ int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard)
             continue;
         }
 
-        // 카드 값 계산 로직
+        // 카드 중복 계산 방지
+        if (ProcessedCards.Contains(Card))
+        {
+            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 이미 처리된 카드입니다. Rank: %d"), static_cast<int32>(Card->Rank));
+            continue;
+        }
+        ProcessedCards.Add(Card);
+
+        // 카드 값 계산
         int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;
+
         if (Card->Rank == ERank::Ace)
         {
             CardValue = 11;
             AddDealerAceCount(1); // Ace 개수 증가
+            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): Ace 추가됨. 현재 AceCount: %d"), GetDealerAceCount());
         }
 
         AddDealerScore(CardValue); // 점수 추가
 
-        UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): Rank: %d, CardValue: %d, 현재 DealerScore: %d"),
+        UE_LOG(LogTemp, Warning, TEXT("DealerActor GetHandValue(): Rank: %d, CardValue: %d, 현재 DealerScore: %d"),
             static_cast<int32>(Card->Rank), CardValue, GetDealerScore());
     }
 
@@ -148,52 +168,12 @@ int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard)
 
     // 최종 점수 저장 및 로그 출력
     int32 FinalDealerScore = GetDealerScore();
-
     UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): DealerScore 출력 전 -> DealerScore : %d"), FinalDealerScore);
     UE_LOG(LogTemp, Warning, TEXT("딜러 점수 계산 완료 (공개 여부 %s): %d"),
         bIncludeHiddenCard ? TEXT("포함됨") : TEXT("숨김"), FinalDealerScore);
 
     return FinalDealerScore; // 최종 점수 반환
 }
-
-//int32 ADealerActor::GetHandValue(bool bIncludeHiddenCard) const
-//{
-//    int32 TotalValue = 0;
-//    int32 AceCount = 0;
-//
-//    for (int32 i = 0; i < Hands[0].Cards.Num(); ++i)
-//    {
-//        if (!bIncludeHiddenCard && i == 0) // 첫 번째 카드 숨김 처리
-//        {
-//            UE_LOG(LogTemp, Warning, TEXT("GetHandValue(): 첫 번째 카드는 숨김 처리됨."));
-//            continue;
-//        }
-//
-//        UCard* Card = Hands[0].Cards[i];
-//        if (!Card) continue;
-//
-//        int32 CardValue = (Card->Rank >= ERank::Jack) ? 10 : static_cast<int32>(Card->Rank) + 1;
-//
-//        if (Card->Rank == ERank::Ace)
-//        {
-//            CardValue = 11;
-//            AceCount++;
-//        }
-//
-//        TotalValue += CardValue;
-//    }
-//
-//    // Ace 조정
-//    while (TotalValue > 21 && AceCount > 0)
-//    {
-//        TotalValue -= 10;
-//        AceCount--;
-//    }
-//
-//    UE_LOG(LogTemp, Warning, TEXT("딜러 점수 계산 완료 (공개 여부 %s): %d"),
-//        bIncludeHiddenCard ? TEXT("포함됨") : TEXT("숨김"), TotalValue);
-//    return TotalValue;
-//}
 
 // 🃏 카드 공개 처리 함수
 void ADealerActor::SetAllCardsFaceUp()
