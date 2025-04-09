@@ -37,16 +37,16 @@ int32 UCard::GetCardValue() const
 }
 
 // 카드 정보를 문자열로 변환
-FString UCard::ToString() const
-{
-    const UEnum* SuitEnum = StaticEnum<ESuit>();
-    const UEnum* RankEnum = StaticEnum<ERank>();
-
-    FString SuitString = SuitEnum->GetNameStringByValue((int64)Suit);
-    FString RankString = RankEnum->GetNameStringByValue((int64)Rank);
-
-    return RankString + TEXT(" of ") + SuitString;
-}
+//FString UCard::ToString() const
+//{
+//    const UEnum* SuitEnum = StaticEnum<ESuit>();
+//    const UEnum* RankEnum = StaticEnum<ERank>();
+//
+//    FString SuitString = SuitEnum->GetNameStringByValue((int64)Suit);
+//    FString RankString = RankEnum->GetNameStringByValue((int64)Rank);
+//
+//    return RankString + TEXT(" of ") + SuitString;
+//}
 
 void UCard::SetAceValue(int32 NewValue)
 {

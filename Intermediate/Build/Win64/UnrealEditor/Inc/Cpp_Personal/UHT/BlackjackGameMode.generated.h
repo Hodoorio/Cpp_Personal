@@ -14,14 +14,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define CPP_PERSONAL_BlackjackGameMode_generated_h
 
-#define FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_17_DELEGATE \
-CPP_PERSONAL_API void FOnPlayerInfoUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnPlayerInfoUpdated, int32 Coins, int32 BetAmount);
-
-
-#define FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_20_DELEGATE \
-CPP_PERSONAL_API void FOnScoreUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnScoreUpdated, int32 PlayerScore, int32 DealerScore);
-
-
 #define FID_Cpp_Personal_Source_Cpp_Personal_Gamemode_BlackjackGameMode_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execHandleAceChoice); \
 	DECLARE_FUNCTION(execConfirmBet); \

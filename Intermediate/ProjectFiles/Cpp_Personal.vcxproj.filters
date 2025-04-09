@@ -77,9 +77,6 @@
     <ClCompile Include="..\..\Source\Cpp_Personal\GameStateEnum.h">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraActor.h">
-      <Filter>Source\Cpp_Personal</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Cpp_Personal\PlayerCameraPawn.cpp">
       <Filter>Source\Cpp_Personal</Filter>
     </ClCompile>

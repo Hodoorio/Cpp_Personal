@@ -14,10 +14,10 @@ class UUserWidget;
 class UDeck;
 
 // 🎲 UI 업데이트 이벤트
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerInfoUpdated, int32, Coins, int32, BetAmount);
-
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPlayerInfoUpdated, int32, Coins, int32, BetAmount);
+//
 // 플레이어와 딜러 점수 이벤트
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnScoreUpdated, int32, PlayerScore, int32, DealerScore);
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnScoreUpdated, int32, PlayerScore, int32, DealerScore);
 UCLASS()
 class CPP_PERSONAL_API ABlackjackGameMode : public AGameModeBase
 {
@@ -124,13 +124,7 @@ public:
 	FName GameOverLevelName = "GameOver";
 
 public:
-    // 🎲 **플레이어 정보 업데이트 이벤트 (UI 연동)**
-    UPROPERTY(BlueprintAssignable, Category = "GameMode|Events")
-    FOnPlayerInfoUpdated OnPlayerInfoUpdated;
 
-    // **플레이어와 딜러 점수 출력 업데이트 이벤트 (UI 연동)**
-    UPROPERTY(BlueprintAssignable, Category = "GameMode|Events")
-    FOnScoreUpdated OnScoreUpdated;
 
     // 🔹 **UI 관련 변수**
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
@@ -139,12 +133,9 @@ public:
     UPROPERTY()
     UBlackjackHUD* BlackjackHUD;  // ✅ 명확한 타입 지정
 
-    UPROPERTY()
-    FTimerHandle RestartTimerHandle;
+    
 
-    // 블루프린트에서 설정할 수 있는 GameOver 레벨
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Game Over")
-    TSoftObjectPtr<UWorld> GameOverLevel;
+
 
 
 private:

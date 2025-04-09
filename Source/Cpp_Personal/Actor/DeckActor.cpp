@@ -6,7 +6,7 @@ ADeckActor::ADeckActor()
     PrimaryActorTick.bCanEverTick = false;
 
     // 덱 서브오브젝트 생성
-    Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
+    //Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
 
     // 덱 초기화는 생성자 밖에서 수행
 }

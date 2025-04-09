@@ -17,7 +17,7 @@ enum class ESuit : uint8;
 #define CPP_PERSONAL_Card_generated_h
 
 #define FID_Cpp_Personal_Source_Cpp_Personal_Card_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execToString); \
+	DECLARE_FUNCTION(execGetCardName); \
 	DECLARE_FUNCTION(execSetAceValue); \
 	DECLARE_FUNCTION(execGetCardValue); \
 	DECLARE_FUNCTION(execSetCard);

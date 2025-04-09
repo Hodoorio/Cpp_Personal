@@ -39,7 +39,7 @@ public:
 
     // 🔹 카드 정보를 문자열로 변환하는 함수
     UFUNCTION(BlueprintCallable, Category = "Card")
-    FString ToString() const;
+    //FString ToString() const;
 
     // 카드 이름 반환
     FString GetCardName() const;

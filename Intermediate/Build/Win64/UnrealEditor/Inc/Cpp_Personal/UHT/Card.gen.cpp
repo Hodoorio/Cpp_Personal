@@ -18,6 +18,54 @@ CPP_PERSONAL_API UEnum* Z_Construct_UEnum_Cpp_Personal_ESuit();
 UPackage* Z_Construct_UPackage__Script_Cpp_Personal();
 // End Cross Module References
 
+// Begin Class UCard Function GetCardName
+struct Z_Construct_UFunction_UCard_GetCardName_Statics
+{
+	struct Card_eventGetCardName_Parms
+	{
+		FString ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Card" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// \xec\xb9\xb4\xeb\x93\x9c \xec\x9d\xb4\xeb\xa6\x84 \xeb\xb0\x98\xed\x99\x98\n" },
+#endif
+		{ "ModuleRelativePath", "Card.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xec\xb9\xb4\xeb\x93\x9c \xec\x9d\xb4\xeb\xa6\x84 \xeb\xb0\x98\xed\x99\x98" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCard_GetCardName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Card_eventGetCardName_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCard_GetCardName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCard_GetCardName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_GetCardName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCard_GetCardName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCard, nullptr, "GetCardName", nullptr, nullptr, Z_Construct_UFunction_UCard_GetCardName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_GetCardName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCard_GetCardName_Statics::Card_eventGetCardName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_GetCardName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCard_GetCardName_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UCard_GetCardName_Statics::Card_eventGetCardName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UCard_GetCardName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCard_GetCardName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UCard::execGetCardName)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FString*)Z_Param__Result=P_THIS->GetCardName();
+	P_NATIVE_END;
+}
+// End Class UCard Function GetCardName
+
 // Begin Class UCard Function GetCardValue
 struct Z_Construct_UFunction_UCard_GetCardValue_Statics
 {
@@ -175,63 +223,15 @@ DEFINE_FUNCTION(UCard::execSetCard)
 }
 // End Class UCard Function SetCard
 
-// Begin Class UCard Function ToString
-struct Z_Construct_UFunction_UCard_ToString_Statics
-{
-	struct Card_eventToString_Parms
-	{
-		FString ReturnValue;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Card" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xf0\x9f\x94\xb9 \xec\xb9\xb4\xeb\x93\x9c \xec\xa0\x95\xeb\xb3\xb4\xeb\xa5\xbc \xeb\xac\xb8\xec\x9e\x90\xec\x97\xb4\xeb\xa1\x9c \xeb\xb3\x80\xed\x99\x98\xed\x95\x98\xeb\x8a\x94 \xed\x95\xa8\xec\x88\x98\n" },
-#endif
-		{ "ModuleRelativePath", "Card.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xf0\x9f\x94\xb9 \xec\xb9\xb4\xeb\x93\x9c \xec\xa0\x95\xeb\xb3\xb4\xeb\xa5\xbc \xeb\xac\xb8\xec\x9e\x90\xec\x97\xb4\xeb\xa1\x9c \xeb\xb3\x80\xed\x99\x98\xed\x95\x98\xeb\x8a\x94 \xed\x95\xa8\xec\x88\x98" },
-#endif
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UCard_ToString_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Card_eventToString_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCard_ToString_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCard_ToString_Statics::NewProp_ReturnValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_ToString_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCard_ToString_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCard, nullptr, "ToString", nullptr, nullptr, Z_Construct_UFunction_UCard_ToString_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_ToString_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCard_ToString_Statics::Card_eventToString_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCard_ToString_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCard_ToString_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UCard_ToString_Statics::Card_eventToString_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UCard_ToString()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCard_ToString_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(UCard::execToString)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	*(FString*)Z_Param__Result=P_THIS->ToString();
-	P_NATIVE_END;
-}
-// End Class UCard Function ToString
-
 // Begin Class UCard
 void UCard::StaticRegisterNativesUCard()
 {
 	UClass* Class = UCard::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "GetCardName", &UCard::execGetCardName },
 		{ "GetCardValue", &UCard::execGetCardValue },
 		{ "SetAceValue", &UCard::execSetAceValue },
 		{ "SetCard", &UCard::execSetCard },
-		{ "ToString", &UCard::execToString },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -282,10 +282,10 @@ struct Z_Construct_UClass_UCard_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCard_GetCardName, "GetCardName" }, // 1133338077
 		{ &Z_Construct_UFunction_UCard_GetCardValue, "GetCardValue" }, // 3589341601
 		{ &Z_Construct_UFunction_UCard_SetAceValue, "SetAceValue" }, // 1030477468
 		{ &Z_Construct_UFunction_UCard_SetCard, "SetCard" }, // 4030878076
-		{ &Z_Construct_UFunction_UCard_ToString, "ToString" }, // 680644061
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -346,10 +346,10 @@ UCard::~UCard() {}
 struct Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCard, UCard::StaticClass, TEXT("UCard"), &Z_Registration_Info_UClass_UCard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCard), 572068417U) },
+		{ Z_Construct_UClass_UCard, UCard::StaticClass, TEXT("UCard"), &Z_Registration_Info_UClass_UCard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCard), 3736449315U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_2097134574(TEXT("/Script/Cpp_Personal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_1552763095(TEXT("/Script/Cpp_Personal"),
 	Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Cpp_Personal_Source_Cpp_Personal_Card_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

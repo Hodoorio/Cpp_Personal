@@ -15,13 +15,24 @@
 ABlackjackGameMode::ABlackjackGameMode()
 {
     PrimaryActorTick.bCanEverTick = false;
-    Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
+    Deck = nullptr;
     CurrentState = EGameState::Betting;
     BlackjackHUD = nullptr;
 }
 
 void ABlackjackGameMode::BeginPlay()
 {
+    /*if (Deck == nullptr)
+    {
+        Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
+    }*/
+    
+    // 덱 초기화
+    if (Deck == nullptr)
+    {
+        Deck = NewObject<UDeck>(this, UDeck::StaticClass(), TEXT("Deck"));
+    }
+
     Super::BeginPlay();
 
     UWorld* World = GetWorld();
@@ -61,12 +72,7 @@ void ABlackjackGameMode::BeginPlay()
         BlackjackHUD->InitializeUI(Player->Coins);
     }
 
-    // 덱 초기화
-    if (!Deck)
-    {
-        Deck = CreateDefaultSubobject<UDeck>(TEXT("Deck"));
-    }
-
+    
     if (Deck && Deck->Cards.Num() == 0)
     {
         Deck->InitializeDeck();
@@ -330,7 +336,7 @@ void ABlackjackGameMode::PlayerSplit()
 
 void ABlackjackGameMode::EndGame()
 {
-    UpdateHighScore(); // 최고 점수 갱신
+    //UpdateHighScore(); // 최고 점수 갱신
     DetermineWinner(); // 승패 판정 및 결과 처리
     UE_LOG(LogTemp, Warning, TEXT("EndGame(): 게임 종료 및 다음 라운드 준비 완료."));
 }
@@ -635,16 +641,16 @@ void ABlackjackGameMode::RestartGame()
     UGameplayStatics::OpenLevel(this, FName(*CurrentLevelName)); // 현재 레벨 다시 로드
 }
 
-void ABlackjackGameMode::UpdateHighScore()
-{
-    UGameDataInstance* GameInstance = Cast<UGameDataInstance>(GetGameInstance());
-    if (GameInstance)
-    {
-        int32 CurrentCoins = Player->Coins;
-        GameInstance->SaveHighScore(CurrentCoins); // 최고 점수 갱신
-        UE_LOG(LogTemp, Warning, TEXT("UpdateHighScore(): 최고 점수가 갱신되었습니다."));
-    }
-}
+//void ABlackjackGameMode::UpdateHighScore()
+//{
+//    UGameDataInstance* GameInstance = Cast<UGameDataInstance>(GetGameInstance());
+//    if (GameInstance)
+//    {
+//        int32 CurrentCoins = Player->Coins;
+//        GameInstance->SaveHighScore(CurrentCoins); // 최고 점수 갱신
+//        UE_LOG(LogTemp, Warning, TEXT("UpdateHighScore(): 최고 점수가 갱신되었습니다."));
+//    }
+//}
 
 void ABlackjackGameMode::DetermineWinner()
 {
